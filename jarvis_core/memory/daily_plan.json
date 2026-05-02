@@ -1,55 +1,51 @@
 {
-  "date": "2026-05-02T02:44:07.527470",
+  "date": "2026-05-02T19:04:15.408547",
   "idea": {
-    "title": "Freelancer Pro Suite \u2014 unified CRM invoices tax proposals CLI",
-    "source": "tool_combination",
-    "score": 9
+    "title": "OTA Rate Monitor",
+    "source": "validated_ideas",
+    "score": 8
   },
   "plan": {
-    "product_name": "Freelancer Pro Suite",
-    "tagline": "All-in-one CLI toolkit \u2014 CRM, invoices, tax, proposals in one command",
-    "problem": "Freelancers waste time switching between CRM, invoicing, tax tools, and proposal generators, losing track of clients and payments.",
-    "solution": "A single CLI tool that unifies client management, invoicing, tax estimation, and proposal generation with minimal friction.",
-    "target_market": "Solo freelancers and small agencies (2-5 people) in SE Asia who prefer terminal workflows and need to streamline operations.",
-    "monthly_price_usd": 49,
+    "product_name": "OTA Rate Monitor",
+    "tagline": "Track competitor hotel rates across Booking.com, Agoda, Airbnb from CLI",
+    "problem": "Phuket hotel managers manually check OTA prices daily, missing rate changes and losing bookings to cheaper competitors.",
+    "solution": "CLI tool to log competitor rates, spot trends, and alert when prices drop below threshold.",
+    "target_market": "Small hotels and guesthouses in Phuket ($99-199/night range)",
+    "monthly_price_usd": 99,
     "mvp_features": [
-      "Add/list clients with contact details and interaction history",
-      "Create invoices with automatic reminders and overdue alerts",
-      "Log income and get quarterly tax estimates with breakdowns",
-      "Generate proposals from templates using client/project details",
-      "Dashboard showing active clients, invoices, tax status, and reminders"
+      "Add competitors with name, OTA, and base rate",
+      "Log daily rates with notes",
+      "Alert when competitor drops below your rate",
+      "Weekly trend report",
+      "Dashboard showing rate gaps"
     ],
     "build_phases": [
       {
         "phase": 1,
         "name": "Core DB & CLI",
-        "description": "Unified SQLite DB schema for clients, invoices, income, proposals + basic add/list commands",
-        "hours": 3
+        "description": "SQLite schema for hotels, rates, alerts + add/log/list commands",
+        "hours": 2
       },
       {
         "phase": 2,
-        "name": "Smart Automation",
-        "description": "Overdue invoice alerts, tax estimation engine, proposal template engine",
-        "hours": 3
+        "name": "Alerts & Reports",
+        "description": "Threshold alerts, trend analysis, weekly digest",
+        "hours": 2
       },
       {
         "phase": 3,
         "name": "Demo & Polish",
-        "description": "--demo workflow + formatted dashboard output + help docs",
-        "hours": 2
+        "description": "--demo with realistic Phuket hotel data, formatted dashboard",
+        "hours": 1
       }
     ],
-    "demo_script": "python main.py --demo: adds client \u2192 creates invoice \u2192 logs income \u2192 generates proposal \u2192 shows dashboard with all data",
-    "market_score": 9,
-    "buildability_score": 8,
-    "overall_score": 9,
-    "verdict": "build",
-    "phuket_angle": "Ideal for Phuket-based freelancers (e.g., villa managers, tour guides) managing international clients with simple tax needs."
+    "demo_script": "python main.py --demo: adds 3 Phuket competitors \u2192 logs rates \u2192 triggers alert \u2192 shows dashboard",
+    "overall_score": 8,
+    "verdict": "build"
   },
   "build_status": "in_progress",
   "phases_complete": [
-    1,
-    2
+    1
   ],
-  "last_build": "2026-05-02T09:50:50.232958"
+  "last_build": "2026-05-02T19:04:25.679091"
 }
