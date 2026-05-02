@@ -29,6 +29,56 @@
     "validated_at": "2026-04-30T22:51:49.125590"
   },
   {
+    "title": "ContractGuard \u2014 Auto-generate enforceable freelance contracts",
+    "pain_score": 9,
+    "problem": "Freelancers and small businesses struggle to get clients to sign contracts, leading to payment delays and disputes.",
+    "solution": "A web app that generates simple, legally sound contracts in seconds, with built-in payment reminders and dispute resolution templates.",
+    "target_market": "Freelancers, artists, developers, and small business owners worldwide",
+    "monthly_price_usd": 19,
+    "source": "pain_scout",
+    "discovered": "2026-05-02T19:17:26.535381"
+  },
+  {
+    "title": "TaskBuster \u2014 Automate repetitive client onboarding tasks",
+    "pain_score": 9,
+    "problem": "Founders waste hours manually handling client onboarding, data entry, and follow-ups in SaaS or coaching businesses.",
+    "solution": "A CLI/web tool that lets users define onboarding workflows (e.g., send contracts, collect payments, schedule calls) via YAML/JSON, then executes them automatically with integrations to tools like Stripe, Calendly, and Gmail.",
+    "target_market": "SaaS founders, freelancers, and small business owners managing client onboarding",
+    "monthly_price_usd": 29,
+    "source": "pain_scout",
+    "discovered": "2026-05-02T19:17:32.732891"
+  },
+  {
+    "title": "RemoteSync \u2014 Sync meeting attendance across time zones",
+    "pain_score": 9,
+    "problem": "Remote teams waste time scheduling meetings when members are unavailable due to time zones or personal commitments.",
+    "solution": "A CLI/web tool that syncs team availability across time zones and suggests optimal meeting times, integrating with Google Calendar or Outlook.",
+    "target_market": "Remote workers, distributed teams, freelancers, and consultants worldwide.",
+    "monthly_price_usd": 19,
+    "source": "pain_scout",
+    "discovered": "2026-05-02T19:17:38.823225"
+  },
+  {
+    "title": "Workplace Prank Tracker \u2014 Document and report harmful pranks in the workplace",
+    "pain_score": 9,
+    "problem": "Employees have no easy way to document or report harmful pranks in the workplace, leaving them vulnerable to abuse and legal uncertainty.",
+    "solution": "A CLI tool that allows users to log pranks, categorize severity, and generate reports for HR or legal review, with optional anonymity features.",
+    "target_market": "Employees in corporate, healthcare, and startup environments worldwide",
+    "monthly_price_usd": 19,
+    "source": "pain_scout",
+    "discovered": "2026-05-02T19:17:44.467786"
+  },
+  {
+    "title": "DealCelebrator \u2014 Celebrate sales wins with automated social posts",
+    "pain_score": 9,
+    "problem": "Salespeople have no easy way to share their big wins publicly without manual effort or awkward copy-pasting.",
+    "solution": "A CLI/web tool that takes deal details (amount, product, customer) and posts celebratory messages to LinkedIn, Twitter, or Slack with one command.",
+    "target_market": "Sales professionals worldwide who close deals and want to share achievements publicly.",
+    "monthly_price_usd": 19,
+    "source": "pain_scout",
+    "discovered": "2026-05-02T19:17:50.240272"
+  },
+  {
     "title": "Client Portal Tracker \u2014 file and status per client in sqlite",
     "pain_score": 8,
     "pain_evidence": "Reddit threads like 'How do you track client files and project statuses without bloated tools?' show frustration with generic project management tools.",
@@ -220,6 +270,86 @@
     "validated_at": "2026-04-30T22:52:59.023775"
   },
   {
+    "title": "ClientFlow \u2014 All-in-one client management for small teams",
+    "pain_score": 8,
+    "problem": "Small businesses and freelancers waste time juggling emails, tasks, and follow-ups across scattered tools.",
+    "solution": "A CLI/web app that consolidates client communications, tasks, and deadlines into one dashboard with automated reminders.",
+    "target_market": "Small business owners, freelancers, and solo entrepreneurs worldwide",
+    "monthly_price_usd": 29,
+    "source": "pain_scout",
+    "discovered": "2026-05-02T19:17:26.535709"
+  },
+  {
+    "title": "TimeWaste Tracker \u2014 Identify and quantify 'wasted time' to optimize productivity",
+    "pain_score": 8,
+    "problem": "People overthink 'wasted time' and struggle to objectively measure where their time goes, leading to burnout and inefficiency.",
+    "solution": "A CLI/web app that runs in the background, tracking active applications, websites, and idle time, then generates a weekly report highlighting time sinks with actionable insights (e.g., 'You spent 12 hours on social media this week').",
+    "target_market": "Remote workers, freelancers, entrepreneurs, and students looking to optimize productivity",
+    "monthly_price_usd": 19,
+    "source": "pain_scout",
+    "discovered": "2026-05-02T19:17:32.733185"
+  },
+  {
+    "title": "CommuteCost Calculator \u2014 Compare remote vs. hybrid commute costs",
+    "pain_score": 8,
+    "problem": "Employees struggle to quantify the financial and time costs of commuting vs. remote work when evaluating job offers.",
+    "solution": "A CLI/web tool that calculates fuel, time, and wear-and-tear costs of commuting vs. remote work, helping users make informed decisions.",
+    "target_market": "Remote workers, job seekers, and consultants considering hybrid or in-office roles worldwide.",
+    "monthly_price_usd": 9,
+    "source": "pain_scout",
+    "discovered": "2026-05-02T19:17:38.823438"
+  },
+  {
+    "title": "ClientFlow \u2014 Automate subscription-based service sales",
+    "pain_score": 8,
+    "problem": "Service-based businesses struggle to convert one-time clients into recurring subscribers due to poor sales funnels.",
+    "solution": "A CLI/web tool that automates follow-ups, onboarding, and subscription reminders for service providers, integrating with email and payment systems.",
+    "target_market": "Freelancers, agencies, consultants, and small businesses offering subscription-based services worldwide.",
+    "monthly_price_usd": 29,
+    "source": "pain_scout",
+    "discovered": "2026-05-02T19:17:38.823530"
+  },
+  {
+    "title": "Cold Outreach A/B Tester \u2014 Compare manual vs. automated outreach performance",
+    "pain_score": 8,
+    "problem": "Founders and sales teams struggle to determine whether manual or automated outreach yields better results, wasting time and resources.",
+    "solution": "A CLI tool that tracks and compares conversion rates between manual outreach (e.g., Instagram DMs) and automated tools (e.g., Clay), providing data-driven insights.",
+    "target_market": "Early-stage startups, freelancers, and sales teams worldwide",
+    "monthly_price_usd": 29,
+    "source": "pain_scout",
+    "discovered": "2026-05-02T19:17:44.468146"
+  },
+  {
+    "title": "Side Hustle Starter Kit \u2014 Generate business ideas based on time and budget constraints",
+    "pain_score": 8,
+    "problem": "People want to start a business but are overwhelmed by options and unsure how to match ideas to their available time and budget.",
+    "solution": "A CLI tool that asks for time commitment and budget, then suggests tailored business ideas (e.g., freelancing, e-commerce, consulting) with step-by-step guides.",
+    "target_market": "Unemployed professionals, students, and corporate escapees worldwide",
+    "monthly_price_usd": 9,
+    "source": "pain_scout",
+    "discovered": "2026-05-02T19:17:44.468257"
+  },
+  {
+    "title": "Startup Pulse \u2014 Track and visualize startup idea viability",
+    "pain_score": 8,
+    "problem": "Aspiring founders struggle to objectively assess whether their startup idea is worth pursuing or just another failed attempt.",
+    "solution": "A CLI/web tool that scores startup ideas based on market size, competition, team skills, and traction using public data APIs (Crunchbase, Google Trends, etc.).",
+    "target_market": "Early-stage founders and indie hackers worldwide evaluating business ideas.",
+    "monthly_price_usd": 29,
+    "source": "pain_scout",
+    "discovered": "2026-05-02T19:17:50.240604"
+  },
+  {
+    "title": "ToolSaver \u2014 Find and compare cheaper alternatives to overpriced SaaS",
+    "pain_score": 8,
+    "problem": "Users pay for expensive tools when cheaper or better alternatives exist, but finding them is tedious and time-consuming.",
+    "solution": "A CLI/web tool that takes a tool name (e.g., 'Notion') and returns a list of cheaper/free alternatives with feature comparisons and user reviews.",
+    "target_market": "Freelancers, startups, and small businesses worldwide tired of overpaying for SaaS.",
+    "monthly_price_usd": 9,
+    "source": "pain_scout",
+    "discovered": "2026-05-02T19:17:50.240761"
+  },
+  {
     "title": "Proposal Generator \u2014 5 questions to professional text proposal",
     "pain_score": 7,
     "pain_evidence": "Freelancers on Reddit and Facebook Groups complain about spending hours writing proposals that rarely convert.",
@@ -292,5 +422,15 @@
     "verdict": "build",
     "reason": "Niche pain with no lightweight CLI tool at this price point, despite clear demand from solopreneurs who dislike bloated SaaS.",
     "validated_at": "2026-04-30T22:53:04.127472"
+  },
+  {
+    "title": "ReviewRescue \u2014 AI-powered customer complaint response tool",
+    "pain_score": 7,
+    "problem": "Small businesses often respond poorly to angry customers, making situations worse and damaging their reputation.",
+    "solution": "A web app that analyzes customer complaints and suggests professional, de-escalating responses in real-time.",
+    "target_market": "Small business owners, customer service teams, and freelancers worldwide",
+    "monthly_price_usd": 15,
+    "source": "pain_scout",
+    "discovered": "2026-05-02T19:17:26.535860"
   }
 ]
