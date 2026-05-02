@@ -250,3 +250,6 @@ AVOID (caused bad ratings):
   ⚠️  NEVER build hardware/FPGA/ML training ideas — only data tools and automations
   ⚠️  NEVER: this is not a valid build Please don't build things like this
   ⚠️  NEVER: the demo is not working The idea is OK
+[2026-05-02] TED RATED: 20260502_ota_rate_monitor = 5/10
+  Feedback: hey it's a good idea but it needs much more work to be polished ready product
+  Lesson: 20260502_ota_rate_monitor was ok: hey it's a good idea but it needs much more work to be polished ready product. Can improve.
