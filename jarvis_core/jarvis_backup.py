@@ -39,6 +39,10 @@ BACKUP_FILES = [
     "memory/context.md",
     "memory/validated_ideas.json",
     "memory/daily_plan.json",
+    "jarvis_crystallizer.py",
+    "jarvis_pain_scout.py",
+    "rate.py",
+    "memory/master_skills.json",
 ]
 
 def github_put(path, content, message):
