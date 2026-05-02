@@ -1,51 +1,54 @@
 {
-  "date": "2026-05-02T19:04:15.408547",
+  "date": "2026-05-03T00:00:08.834761",
   "idea": {
-    "title": "OTA Rate Monitor",
-    "source": "validated_ideas",
-    "score": 8
+    "source": "HN",
+    "title": "Show HN: Mljar Studio \u2013 local AI data analyst that saves analysis as notebooks",
+    "url": "https://mljar.com/",
+    "ts": "18:00",
+    "score": 7,
+    "verdict": "build"
   },
   "plan": {
-    "product_name": "OTA Rate Monitor",
-    "tagline": "Track competitor hotel rates across Booking.com, Agoda, Airbnb from CLI",
-    "problem": "Phuket hotel managers manually check OTA prices daily, missing rate changes and losing bookings to cheaper competitors.",
-    "solution": "CLI tool to log competitor rates, spot trends, and alert when prices drop below threshold.",
-    "target_market": "Small hotels and guesthouses in Phuket ($99-199/night range)",
-    "monthly_price_usd": 99,
+    "product_name": "PyAnalyst",
+    "tagline": "Turn CSV files into Python notebooks with local AI insights",
+    "problem": "Freelancers and small agencies waste hours manually analyzing CSV data in spreadsheets or Jupyter notebooks",
+    "solution": "CLI tool that reads CSV, generates Python notebooks with automated insights, and saves results locally",
+    "target_market": "Freelance data analysts, small marketing agencies, and SaaS founders in SE Asia needing quick, offline data analysis",
+    "monthly_price_usd": 29,
     "mvp_features": [
-      "Add competitors with name, OTA, and base rate",
-      "Log daily rates with notes",
-      "Alert when competitor drops below your rate",
-      "Weekly trend report",
-      "Dashboard showing rate gaps"
+      "CSV to notebook conversion",
+      "Basic statistical insights",
+      "SQLite storage for notebooks",
+      "Offline demo mode",
+      "CLI commands for add/list/report"
     ],
     "build_phases": [
       {
         "phase": 1,
-        "name": "Core DB & CLI",
-        "description": "SQLite schema for hotels, rates, alerts + add/log/list commands",
+        "name": "Core DB + add",
+        "description": "sqlite schema + add/list commands",
         "hours": 2
       },
       {
         "phase": 2,
-        "name": "Alerts & Reports",
-        "description": "Threshold alerts, trend analysis, weekly digest",
+        "name": "Reports + alerts",
+        "description": "report generation + notification",
         "hours": 2
       },
       {
         "phase": 3,
-        "name": "Demo & Polish",
-        "description": "--demo with realistic Phuket hotel data, formatted dashboard",
+        "name": "Demo + polish",
+        "description": "--demo mode + --help + edge cases",
         "hours": 1
       }
     ],
-    "demo_script": "python main.py --demo: adds 3 Phuket competitors \u2192 logs rates \u2192 triggers alert \u2192 shows dashboard",
+    "demo_script": "Run `pyanalyst --demo` to generate a sample notebook analyzing hardcoded sales data with trends and visualizations",
+    "market_score": 8,
+    "buildability_score": 9,
     "overall_score": 8,
-    "verdict": "build"
+    "verdict": "build",
+    "phuket_angle": "Tourism businesses (hotels, tour operators) can analyze booking data offline without cloud costs"
   },
-  "build_status": "in_progress",
-  "phases_complete": [
-    1
-  ],
-  "last_build": "2026-05-02T19:04:25.679091"
+  "build_status": "pending",
+  "phases_complete": []
 }
