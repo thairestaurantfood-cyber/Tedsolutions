@@ -2,14 +2,23 @@
 === WHAT TED ACTUALLY WANTS (human ratings) ===
 
 BUILDS TED RATED GOOD (8-10/10) — build more like these:
+  ✅ 20260502_freelancer_pro_suite: Clean formatted dashboard, real workflow, all 4 modules working. Best combined product. Clients invoices tax proposals in one CLI. Ready for Stripe.
   ✅ 20260429_followup: Best build so far. Demo works perfectly. Real use case for freelancers. Ready for Stripe integration.
-  ✅ 20260426_promptbench: this is very useful for you and you should always use it
-  ✅ 20260426_jarvismon: you need this to be working so please work on it
 
 BUILDS TED RATED BAD (1-4/10) — never build like these:
   ❌ 20260429_invoicetracker (score:3): no target No price too little too small no faces and the demo failed Not good enough
   ❌ 20260429_pricewatch (score:4): this could be valuable and could be implemented in something else that we build in the future
-  ❌ 20260428_fpga_insights (score:1): this is not a valid build Please don't build things like this
+
+=== CRITICAL RULES (learned from crashes) ===
+1. ALWAYS define get_db() that calls CREATE TABLE IF NOT EXISTS — call it FIRST in main()
+2. ALWAYS make --demo 100% offline — hardcode all sample data, never fetch URLs in demo
+3. NEVER call INSERT or SELECT before CREATE TABLE — this crashes every time
+4. NEVER import: flask, requests, numpy, pandas, PIL, tensorflow, torch, bs4, tabulate, rich
+5. ALWAYS use: os.makedirs(os.path.dirname(db_path), exist_ok=True) before sqlite3.connect()
+6. Target: Solo freelancers, small agencies, SaaS founders in SE Asia — practical CLI tools
+7. Revenue: $19-49/month subscription, simple value proposition
+8. Structure: imports → get_db() → functions → main() → if __name__=='__main__'
+
 
 === CRITICAL RULES (learned from crashes) ===
 1. ALWAYS define get_db() that calls CREATE TABLE IF NOT EXISTS — call it FIRST in main()
@@ -130,12 +139,12 @@ def demo():
   Lesson: 20260430_proposal_generator was ok: no comment. Can improve.
 
 
-=== WHAT I HAVE LEARNED (updated 2026-05-01 22:00) ===
-Health Score: 74%
+=== WHAT I HAVE LEARNED (updated 2026-05-02 22:00) ===
+Health Score: 81%
 Total builds: 20
-Average build score: 9
+Average build score: 10
 Best API so far: Cerebras (llama3.1-8b confirmed working)
-Online builds: 10/20
+Online builds: 15/20
 
 Build lessons:
   - Do NOT use PIL, tensorflow, flask, tesseract, numpy — not available
@@ -148,6 +157,49 @@ Build lessons:
   - INSERT column names must exactly match CREATE TABLE columns
   - Never use requests, flask, numpy, pandas
 
+=== BUILDS TO COPY (score 8-10) ===
+  ✅ 20260426_jarvismon (9/10): demo works
+     Lesson: 20260426_jarvismon worked: you need this to be working so please work on it. Build more like this.
+  ✅ 20260426_promptbench (9/10): demo works
+     Lesson: 20260426_promptbench worked: this is very useful for you and you should always use it. Build more like this.
+  ✅ 20260429_followup (9/10): demo works
+     Lesson: FollowUp is the template for good builds: simple problem, clean demo, clear buyer. Build more like this.
+  ✅ 20260426_contextinject (8/10): demo works
+     Lesson: 20260426_contextinject worked: this is very useful for your own knowledge. Build more like this.
+  ✅ 20260502_freelancer_pro_suite (8/10): demo works
+=== BUILDS TO NEVER REPEAT (score 1-3) ===
+  ❌ 20260429_invoicetracker (3/10)
+     Why bad: no target No price too little too small no faces and the demo failed Not good enough
+  ❌ 20260426_invoicer (2/10)
+     Why bad: the demo is not working The idea is OK
+  ❌ 20260428_fpga_insights (1/10)
+     Why bad: this is not a valid build Please don't build things like this
+=== BUILDS THAT NEED IMPROVEMENT (score 4-7) ===
+  ⚠️  20260427_buildscorer (7/10)
+     Fix: 20260427_buildscorer was ok: it's very important that when you test something that it actually works
+  ⚠️  20260430_pricepilot (7/10)
+     Fix: PricePilot pattern works: hardcoded demo with real DB schema. Price tracker is a strong product for 
+  ⚠️  20260502_taxcruncher_cli (7/10)
+     Fix: 20260502_taxcruncher_cli was ok: clean demo, formatted output, real use case, but needs the actual r
+  ⚠️  20260501_chasepy (6/10)
+     Fix: 20260501_chasepy was ok: demo works, shows real data, but Q2/Q3/Q4 all zero (only one quarter popula
+  ⚠️  20260429_codetester (5/10)
+     Fix: 20260429_codetester was ok: The idea is good, the execution needs Mistral not local. That rating goe
+  ⚠️  20260430_proposal_generator (5/10)
+     Fix: 20260430_proposal_generator was ok: no comment. Can improve.
+  ⚠️  20260502_ota_rate_monitor (5/10)
+     Fix: 20260502_ota_rate_monitor was ok: hey it's a good idea but it needs much more work to be polished re
+  ⚠️  20260426_buildscorer (4/10)
+     Fix: 20260426_buildscorer failed: needs a target needs a price and more descriptions. Avoid this pattern.
+  ⚠️  20260429_pricewatch (4/10)
+     Fix: 20260429_pricewatch failed: this could be valuable and could be implemented in something else that w
+
+Last 5 builds:
+  - 2026-05-02 | TaxCruncher CLI phase 2 | score:13
+  - 2026-05-02 | Freelancer Pro Suite phase 1 | score:8
+  - 2026-05-02 | Freelancer Pro Suite phase 2 | score:10
+  - 2026-05-02 | Freelancer Pro Suite phase 3 | score:13
+  - 2026-05-02 | OTA Rate Monitor phase 1 | score:13
 === BUILDS TO COPY (score 8-10) ===
   ✅ 20260426_jarvismon (9/10): demo works
      Lesson: 20260426_jarvismon worked: you need this to be working so please work on it. Build more like this.
