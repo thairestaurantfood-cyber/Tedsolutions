@@ -1,0 +1,296 @@
+[
+  {
+    "title": "Freelancer Pro Suite \u2014 All-in-one freelancer toolkit for CRM, invoicing, taxes, pricing, benchmarks & proposals",
+    "source": "tool_combination",
+    "score": 9,
+    "pain_score": 9,
+    "verdict": "build",
+    "pain_evidence": "Consolidates 6 essential freelancer tools into one seamless CLI suite with unified data flow, reducing context-switching and saving 10+ hours/month on admin tasks. Includes automated reminders, tax calculations, price tracking, API benchmarks, and proposal generation with CRM integration.",
+    "validated_at": "2026-05-02T02:43:18.699369"
+  },
+  {
+    "title": "Invoice Chaser \u2014 auto payment reminder sequences for freelancers",
+    "pain_score": 9,
+    "pain_evidence": "Freelancers on Twitter/X and Reddit r/freelance frequently complain about clients ignoring invoices and lack of automated payment reminders.",
+    "existing_tools": [
+      "Harvest $12/mo",
+      "Wave $0-$20/mo",
+      "Zoho Invoice $15/mo",
+      "FreshBooks $17/mo"
+    ],
+    "buyer_search_terms": [
+      "automated invoice reminders",
+      "payment reminder software for freelancers",
+      "auto chase unpaid invoices"
+    ],
+    "sea_fit": "Perfect fit: high freelancer/SaaS adoption in SE Asia with low-cost, simple tools and cash-flow sensitivity.",
+    "verdict": "build",
+    "reason": "High pain, underserved niche, low competition, and strong product-market fit in growing freelancer economy.",
+    "validated_at": "2026-04-30T22:51:49.125590"
+  },
+  {
+    "title": "Client Portal Tracker \u2014 file and status per client in sqlite",
+    "pain_score": 8,
+    "pain_evidence": "Reddit threads like 'How do you track client files and project statuses without bloated tools?' show frustration with generic project management tools.",
+    "existing_tools": [
+      "Notion $8-15/mo",
+      "Trello $5-25/mo",
+      "Airtable $12-24/mo",
+      "ClickUp $7-19/mo"
+    ],
+    "buyer_search_terms": [
+      "client file tracker",
+      "freelancer project status tool",
+      "small agency file management"
+    ],
+    "sea_fit": "Perfect for SE Asia's high freelancer density and preference for lightweight, low-cost tools over enterprise software.",
+    "verdict": "build",
+    "reason": "High pain, underserved niche with no simple CLI-based alternative, strong fit for cost-sensitive SE Asia market.",
+    "validated_at": "2026-04-30T22:52:00.731680"
+  },
+  {
+    "title": "Contract Expiry Tracker \u2014 alert before renewal deadlines",
+    "pain_score": 8,
+    "pain_evidence": "Freelancers on Twitter/X and Reddit complain about missing contract renewals and losing clients due to overlooked deadlines.",
+    "existing_tools": [
+      "Harvest $12/mo",
+      "Togai $10/mo",
+      "Notion templates (free)"
+    ],
+    "buyer_search_terms": [
+      "contract renewal tracker",
+      "SaaS contract expiry alert",
+      "freelancer contract deadline"
+    ],
+    "sea_fit": "High fit: SE Asia\u2019s booming freelance/SaaS scene lacks simple, affordable tools for contract tracking.",
+    "verdict": "build",
+    "reason": "Clear pain with no lightweight, affordable CLI tool targeting freelancers/SaaS founders in SE Asia.",
+    "validated_at": "2026-04-30T22:52:06.085970"
+  },
+  {
+    "title": "Meeting Notes Processor \u2014 paste text to action items and owners",
+    "pain_score": 8,
+    "pain_evidence": "Reddit threads like 'How do you track action items from client meetings?' show frustration with manual note-taking and follow-up.",
+    "existing_tools": [
+      "Notion $8-15/user/mo",
+      "Trello $5-10/user/mo",
+      "Asana $10.99-24.99/user/mo"
+    ],
+    "buyer_search_terms": [
+      "automate meeting notes to tasks",
+      "extract action items from meeting transcript",
+      "Python CLI for meeting notes"
+    ],
+    "sea_fit": "High fit\u2014SE Asia's freelancers/SaaS founders rely on low-cost, CLI-friendly tools due to limited IT budgets and preference for lightweight software.",
+    "verdict": "build",
+    "reason": "Clear pain point with no direct CLI competitor, fits regional budget constraints, and aligns with developer-heavy markets.",
+    "validated_at": "2026-04-30T22:52:11.989549"
+  },
+  {
+    "title": "Freelancer Tax Estimator \u2014 income CSV to quarterly tax estimate",
+    "pain_score": 8,
+    "pain_evidence": "Freelancers in SE Asia complain about unexpected tax bills and lack of tools to estimate quarterly payments.",
+    "existing_tools": [
+      "Keeper Tax $29/mo",
+      "Bench $299/mo",
+      "TurboTax Self-Employed $120/yr"
+    ],
+    "buyer_search_terms": [
+      "how to calculate quarterly taxes for freelancers",
+      "SE Asia freelancer tax calculator",
+      "Vietnam self-employed tax estimate"
+    ],
+    "sea_fit": "High fit: SE Asia has growing freelancer/SaaS markets with complex tax rules and limited localized tools.",
+    "verdict": "build",
+    "reason": "Existing tools are either US-centric or expensive, leaving a gap for a $19-49/mo CLI tool tailored to SE Asia freelancers.",
+    "validated_at": "2026-04-30T22:52:23.651179"
+  },
+  {
+    "title": "Doc Chaser \u2014 remind clients for missing documents",
+    "pain_score": 8,
+    "pain_evidence": "Reddit threads like 'How do you track missing client documents?' show frustration with manual follow-ups.",
+    "existing_tools": [
+      "DocuSign $25/mo",
+      "HelloSign $15/mo",
+      "Notion templates (free)"
+    ],
+    "buyer_search_terms": [
+      "how to track missing client documents",
+      "automate document reminders",
+      "client document follow-up tool"
+    ],
+    "sea_fit": "High fit: SE Asia\u2019s growing freelancer/small agency scene relies on manual processes and lacks niche automation tools.",
+    "verdict": "build",
+    "reason": "Niche pain with no direct competitors at this price point, combined with strong regional demand for simple automation.",
+    "validated_at": "2026-04-30T22:52:33.861423"
+  },
+  {
+    "title": "Cold Outreach Tracker \u2014 track email sequences and follow-up",
+    "pain_score": 8,
+    "pain_evidence": "Reddit threads like 'How do you track cold email follow-ups without a CRM?' show frustration with manual tracking.",
+    "existing_tools": [
+      "Streak $19/mo",
+      "HubSpot Free",
+      "Mailchimp $13/mo"
+    ],
+    "buyer_search_terms": [
+      "best cold email tracking tool",
+      "free follow-up email tracker",
+      "cold outreach software for freelancers"
+    ],
+    "sea_fit": "Perfect fit: SE Asia freelancers/SaaS founders rely on cold outreach but lack budget for enterprise tools.",
+    "verdict": "build",
+    "reason": "High pain, underserved niche (freelancers/SaaS), and clear demand with no lightweight CLI alternative.",
+    "validated_at": "2026-04-30T22:52:38.577674"
+  },
+  {
+    "title": "OTA Rate Monitor \u2014 track competitor hotel pricing daily",
+    "pain_score": 8,
+    "pain_evidence": "Hotels in SE Asia forums like TripAdvisor and Agoda reviews frequently complain about competitors undercutting prices overnight.",
+    "existing_tools": [
+      "HotelIQ $99/mo",
+      "RateGain $199/mo",
+      "Manual tracking via Excel"
+    ],
+    "buyer_search_terms": [
+      "hotel rate monitoring tool",
+      "competitor pricing tracker for hotels",
+      "OTA pricing automation"
+    ],
+    "sea_fit": "Perfect fit for SE Asia\u2019s booming tourism and fragmented OTA ecosystem (Agoda, Booking.com, direct channels).",
+    "verdict": "build",
+    "reason": "High pain with no affordable, automated solutions for freelancers/agencies in SE Asia\u2019s price-sensitive market.",
+    "validated_at": "2026-04-30T22:52:43.431200"
+  },
+  {
+    "title": "Review Digest \u2014 weekly review summary and reply suggestions",
+    "pain_score": 8,
+    "pain_evidence": "Reddit threads like 'How do you handle client reviews efficiently?' show frustration with manual review management.",
+    "existing_tools": [
+      "GatherUp $29/mo",
+      "ReviewTrackers $49/mo",
+      "Grade.us $39/mo"
+    ],
+    "buyer_search_terms": [
+      "automate client reviews",
+      "reply to Google reviews tool",
+      "manage online reviews freelancer"
+    ],
+    "sea_fit": "Perfect fit for SE Asia's growing freelancer/SaaS scene where online reputation is critical but tools are often too complex/expensive.",
+    "verdict": "build",
+    "reason": "High pain + underserved niche (solo devs) + clear competitors to differentiate from with simplicity/price.",
+    "validated_at": "2026-04-30T22:52:48.514676"
+  },
+  {
+    "title": "Staff Roster Scheduler \u2014 shift planner for small teams",
+    "pain_score": 8,
+    "pain_evidence": "Reddit threads and Facebook groups for small agencies frequently ask for simple shift planners without complex HR software.",
+    "existing_tools": [
+      "When I Work $20/mo",
+      "Homebase $19/mo",
+      "Shiftboard $49/mo"
+    ],
+    "buyer_search_terms": [
+      "simple staff scheduler",
+      "free shift planner for small teams",
+      "best roster app for freelancers"
+    ],
+    "sea_fit": "Thailand/Vietnam/Indonesia\u2019s gig economy and small agencies need lightweight, affordable scheduling tools without enterprise complexity.",
+    "verdict": "build",
+    "reason": "High pain in target niche, underserved by existing tools, and fits SEA\u2019s cost-sensitive small business market.",
+    "validated_at": "2026-04-30T22:52:53.498360"
+  },
+  {
+    "title": "SaaS Metrics Dashboard \u2014 MRR churn LTV from CSV weekly digest",
+    "pain_score": 8,
+    "pain_evidence": "Founders on Indie Hackers and Reddit complain about manually calculating MRR churn/LTV from messy CSV exports.",
+    "existing_tools": [
+      "ChartMogul $99/mo",
+      "ProfitWell $499/mo",
+      "Baremetrics $59/mo"
+    ],
+    "buyer_search_terms": [
+      "SaaS metrics dashboard CSV",
+      "MRR churn calculator freelancer",
+      "SaaS financial dashboard SE Asia"
+    ],
+    "sea_fit": "Perfect fit for SE Asia\u2019s growing bootstrapped SaaS scene with low-cost, no-frills tools.",
+    "verdict": "build",
+    "reason": "High pain, underserved low-end market, and no affordable CSV-first tool exists.",
+    "validated_at": "2026-04-30T22:52:59.023775"
+  },
+  {
+    "title": "Proposal Generator \u2014 5 questions to professional text proposal",
+    "pain_score": 7,
+    "pain_evidence": "Freelancers on Reddit and Facebook Groups complain about spending hours writing proposals that rarely convert.",
+    "existing_tools": [
+      "Proposify $25/mo",
+      "PandaDoc $19/mo",
+      "Bidsketch $49/mo"
+    ],
+    "buyer_search_terms": [
+      "how to write a winning proposal",
+      "freelance proposal template",
+      "saas proposal generator"
+    ],
+    "sea_fit": "High fit: SE Asia has a booming freelance/gig economy with low-cost tools in demand.",
+    "verdict": "build",
+    "reason": "Niche underserved by simple, affordable CLI tools despite clear pain points in proposal writing.",
+    "validated_at": "2026-04-30T22:51:54.930256"
+  },
+  {
+    "title": "Lead Qualifier \u2014 score inbound leads from CSV ranked list",
+    "pain_score": 7,
+    "pain_evidence": "Reddit threads like 'How do you qualify leads without wasting time?' show frustration with manual lead scoring.",
+    "existing_tools": [
+      "HubSpot $20/mo",
+      "Leadfeeder $39/mo",
+      "Pipedrive $14.90/mo"
+    ],
+    "buyer_search_terms": [
+      "how to qualify leads automatically",
+      "best lead scoring tool for freelancers",
+      "automate lead qualification"
+    ],
+    "sea_fit": "Perfect fit: SE Asia freelancers/SaaS founders need low-cost, simple tools to compete with Western markets.",
+    "verdict": "build",
+    "reason": "Niche CLI tool avoids competition with enterprise CRMs while solving a clear pain point for budget-conscious founders.",
+    "validated_at": "2026-04-30T22:52:18.788465"
+  },
+  {
+    "title": "Churn Risk Scorer \u2014 flag clients not engaged in X days",
+    "pain_score": 7,
+    "pain_evidence": "Freelancers on Twitter/X lament losing clients due to lack of engagement and no automated way to track it.",
+    "existing_tools": [
+      "Stripe Dashboard (free, no churn scoring)",
+      "ProfitWell Retain ($100+/mo)"
+    ],
+    "buyer_search_terms": [
+      "how to track client churn risk",
+      "automate client engagement alerts"
+    ],
+    "sea_fit": "High fit: SE Asia's fast-growing freelance/SaaS scene lacks affordable churn tools and relies on manual tracking.",
+    "verdict": "build",
+    "reason": "Low-cost, niche-specific solution fills a gap ignored by enterprise tools, with clear demand signals from freelancers.",
+    "validated_at": "2026-04-30T22:52:29.000206"
+  },
+  {
+    "title": "Booking Double-Check \u2014 detect double bookings across CSV exports",
+    "pain_score": 7,
+    "pain_evidence": "Reddit threads like 'How do you avoid double bookings when using multiple booking tools?' show frustration with manual CSV checks.",
+    "existing_tools": [
+      "Calendly $8/user/mo",
+      "Acuity Scheduling $16/user/mo",
+      "Manual Excel macros (free)"
+    ],
+    "buyer_search_terms": [
+      "double booking checker",
+      "CSV booking conflict tool",
+      "prevent double bookings"
+    ],
+    "sea_fit": "High fit: SE Asia\u2019s gig economy (e.g., Thai tour agencies, Vietnamese freelancers) relies on manual CSV exports from tools like Google Calendar or Booking.com.",
+    "verdict": "build",
+    "reason": "Niche pain with no lightweight CLI tool at this price point, despite clear demand from solopreneurs who dislike bloated SaaS.",
+    "validated_at": "2026-04-30T22:53:04.127472"
+  }
+]
