@@ -592,14 +592,26 @@ PROBLEM: {problem}
 SOLUTION: {solution}
 THIS PHASE: {phase_desc}
 
-RULES:
-- Use only stdlib: {tech_str}  
+CRITICAL RULES — YOUR CODE WILL BE AUTOMATICALLY TESTED:
+- stdlib ONLY: os,sys,json,csv,sqlite3,argparse,datetime,pathlib,subprocess,re,time
 - NO PIL, flask, requests, pandas, numpy, tabulate, bs4
-- Use os.path.expanduser("~") for all paths
-- Include argparse with --help and --demo flags
-- --demo must run without crashing and print something useful
-- Write complete working Python
-
+- Use os.path.expanduser('~') for all paths
+- --demo flag MUST use ONLY hardcoded data, NO network calls, NO input()
+- --demo must insert hardcoded rows, query them, print formatted table, then exit
+- No markdown fences — output raw Python only, starting with 'import'
+ARGPARSE PATTERN — follow this EXACTLY:
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--demo', action='store_true')
+    pre, _ = parser.parse_known_args()
+    if pre.demo:
+        demo()
+        return
+    subparsers = parser.add_subparsers(dest='command')  # NO required=True
+    args = parser.parse_args()
+    if not args.command:
+        parser.print_help()
+        return
 Output ONLY the Python code in a ```python block:"""
 
 # ── RAG inject — add relevant memory to prompt ──────
@@ -623,6 +635,22 @@ def rag_inject(prompt):
 # Call LLM — inject RAG memory first
 print(f"  Building phase {phase_num}: {phase_name}...")
 prompt = rag_inject(prompt)
+# ── Skill injection — proven patterns from master_skills.json ──
+try:
+    _skills_file = os.path.join(MEMORY, "master_skills.json")
+    if os.path.exists(_skills_file):
+        _skills = json.load(open(_skills_file))
+        _ap = _skills.get("top_patterns", {}).get("argparse", "")
+        _src = _skills.get("top_patterns", {}).get("argparse_source", "")
+        if _ap:
+            _skill_block = f"""
+PROVEN WORKING PATTERN (from {_src} — copy this exactly):
+{_ap[:600]}
+"""
+            prompt = _skill_block + prompt
+            print(f"  💡 Skills injected from: {_src}")
+except Exception as _se:
+    pass
 response = llm(prompt, context, label=f"Phase {phase_num}")
 
 if not response:
