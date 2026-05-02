@@ -1,0 +1,54 @@
+{
+  "date": "2026-05-02T02:44:07.527470",
+  "idea": {
+    "title": "Freelancer Pro Suite \u2014 unified CRM invoices tax proposals CLI",
+    "source": "tool_combination",
+    "score": 9
+  },
+  "plan": {
+    "product_name": "Freelancer Pro Suite",
+    "tagline": "All-in-one CLI toolkit \u2014 CRM, invoices, tax, proposals in one command",
+    "problem": "Freelancers waste time switching between CRM, invoicing, tax tools, and proposal generators, losing track of clients and payments.",
+    "solution": "A single CLI tool that unifies client management, invoicing, tax estimation, and proposal generation with minimal friction.",
+    "target_market": "Solo freelancers and small agencies (2-5 people) in SE Asia who prefer terminal workflows and need to streamline operations.",
+    "monthly_price_usd": 49,
+    "mvp_features": [
+      "Add/list clients with contact details and interaction history",
+      "Create invoices with automatic reminders and overdue alerts",
+      "Log income and get quarterly tax estimates with breakdowns",
+      "Generate proposals from templates using client/project details",
+      "Dashboard showing active clients, invoices, tax status, and reminders"
+    ],
+    "build_phases": [
+      {
+        "phase": 1,
+        "name": "Core DB & CLI",
+        "description": "Unified SQLite DB schema for clients, invoices, income, proposals + basic add/list commands",
+        "hours": 3
+      },
+      {
+        "phase": 2,
+        "name": "Smart Automation",
+        "description": "Overdue invoice alerts, tax estimation engine, proposal template engine",
+        "hours": 3
+      },
+      {
+        "phase": 3,
+        "name": "Demo & Polish",
+        "description": "--demo workflow + formatted dashboard output + help docs",
+        "hours": 2
+      }
+    ],
+    "demo_script": "python main.py --demo: adds client \u2192 creates invoice \u2192 logs income \u2192 generates proposal \u2192 shows dashboard with all data",
+    "market_score": 9,
+    "buildability_score": 8,
+    "overall_score": 9,
+    "verdict": "build",
+    "phuket_angle": "Ideal for Phuket-based freelancers (e.g., villa managers, tour guides) managing international clients with simple tax needs."
+  },
+  "build_status": "in_progress",
+  "phases_complete": [
+    1
+  ],
+  "last_build": "2026-05-02T08:00:02.988569"
+}
