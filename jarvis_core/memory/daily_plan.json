@@ -1,53 +1,43 @@
 {
-  "date": "2026-05-03T00:00:08.834761",
+  "date": "2026-05-03T19:37:16.217034",
   "idea": {
-    "source": "HN",
-    "title": "Show HN: Mljar Studio \u2013 local AI data analyst that saves analysis as notebooks",
-    "url": "https://mljar.com/",
-    "ts": "18:00",
-    "score": 7,
-    "verdict": "build"
+    "title": "AgentBridge \u2014 Turn any CLI tool into an MCP server in 5 minutes",
+    "score": 10,
+    "source": "pain_scout_v3",
+    "global_angle": "Every developer worldwide building AI agents needs this"
   },
   "plan": {
-    "product_name": "PyAnalyst",
-    "tagline": "Turn CSV files into Python notebooks with local AI insights",
-    "problem": "Freelancers and small agencies waste hours manually analyzing CSV data in spreadsheets or Jupyter notebooks",
-    "solution": "CLI tool that reads CSV, generates Python notebooks with automated insights, and saves results locally",
-    "target_market": "Freelance data analysts, small marketing agencies, and SaaS founders in SE Asia needing quick, offline data analysis",
+    "product_name": "AgentBridge",
+    "tagline": "Turn any CLI tool into an MCP server in 5 minutes",
+    "problem": "Developers have powerful CLI tools but cannot connect them to Claude, ChatGPT or any AI agent without writing complex MCP server boilerplate.",
+    "solution": "A Python CLI that wraps any existing command-line tool and auto-generates a working MCP server with proper tool definitions, input schemas, and error handling.",
+    "target_market": "AI developers worldwide building agents with Claude, GPT, or local LLMs",
     "monthly_price_usd": 29,
+    "self_use": "JARVIS uses AgentBridge to expose his own tools (pain_scout, evolve, rate) as MCP servers \u2014 Claude can then call them directly",
     "mvp_features": [
-      "CSV to notebook conversion",
-      "Basic statistical insights",
-      "SQLite storage for notebooks",
-      "Offline demo mode",
-      "CLI commands for add/list/report"
+      "Scan a CLI tool and auto-detect its commands and flags",
+      "Generate MCP server Python file automatically",
+      "Test the MCP connection with a simple ping",
+      "CLI with --wrap, --test, --list commands",
+      "--demo mode showing JARVIS tools wrapped as MCP"
     ],
     "build_phases": [
       {
         "phase": 1,
-        "name": "Core DB + add",
-        "description": "sqlite schema + add/list commands",
-        "hours": 2
+        "name": "CLI scanner + MCP generator",
+        "description": "parse --help output of any CLI tool, generate mcp server skeleton"
       },
       {
         "phase": 2,
-        "name": "Reports + alerts",
-        "description": "report generation + notification",
-        "hours": 2
+        "name": "Schema builder + test runner",
+        "description": "auto-build input schemas, test MCP connection, validate tools"
       },
       {
         "phase": 3,
-        "name": "Demo + polish",
-        "description": "--demo mode + --help + edge cases",
-        "hours": 1
+        "name": "JARVIS self-wrap + demo",
+        "description": "wrap jarvis own tools as MCP, demo shows claude calling jarvis directly"
       }
-    ],
-    "demo_script": "Run `pyanalyst --demo` to generate a sample notebook analyzing hardcoded sales data with trends and visualizations",
-    "market_score": 8,
-    "buildability_score": 9,
-    "overall_score": 8,
-    "verdict": "build",
-    "phuket_angle": "Tourism businesses (hotels, tour operators) can analyze booking data offline without cloud costs"
+    ]
   },
   "build_status": "complete",
   "phases_complete": [
@@ -55,5 +45,6 @@
     2,
     3
   ],
-  "last_build": "2026-05-03T17:00:04.170563"
+  "self_improvement_angle": "Phase 3 wraps JARVIS tools as MCP servers \u2014 after this build JARVIS can be called directly by Claude",
+  "last_build": "2026-05-03T19:43:20.288510"
 }
