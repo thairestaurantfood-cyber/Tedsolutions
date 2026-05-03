@@ -159,9 +159,27 @@ Return ONLY valid JSON (no markdown):
     return ask_json(prompt)
 
 def get_validated_seeds():
-    """Load pain-validated ideas — ranked by real market evidence."""
+    """Pull from pain_scout_v3 discovered_ideas first, fall back to validated_ideas."""
+    try:
+        import sqlite3
+        db = sqlite3.connect(os.path.expanduser("~/jarvis/memory/pain_scout.db"))
+        rows = db.execute("""
+            SELECT title, pain_score, problem, target_market, category, global_reach
+            FROM discovered_ideas
+            ORDER BY pain_score DESC, global_reach DESC
+            LIMIT 20
+        """).fetchall()
+        db.close()
+        if rows:
+            print(f"  🌍 {len(rows)} global pain_scout_v3 ideas loaded")
+            return [{"title":r[0],"score":r[1],"source":"pain_scout_v3",
+                     "problem":r[2],"buyer":r[3],"category":r[4],
+                     "global_reach":r[5]} for r in rows]
+    except Exception as e:
+        print(f"  pain_scout_v3 failed: {e}")
     try:
         ideas = json.load(open(os.path.expanduser("~/jarvis/memory/validated_ideas.json")))
+        print("  📋 Falling back to validated_ideas.json")
         return [{"title":i["title"],"score":i["pain_score"],
                  "source":"pain_validated",
                  "buyer_search":i.get("buyer_search_terms",[""])[0],
@@ -263,3 +281,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+# PATCH — DO NOT RUN THIS, just shows the fix
