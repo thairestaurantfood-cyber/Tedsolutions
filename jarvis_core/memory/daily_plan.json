@@ -1,50 +1,57 @@
 {
-  "date": "2026-05-03T19:37:16.217034",
+  "date": "2026-05-04T00:00:09.582998",
   "idea": {
-    "title": "AgentBridge \u2014 Turn any CLI tool into an MCP server in 5 minutes",
-    "score": 10,
-    "source": "pain_scout_v3",
-    "global_angle": "Every developer worldwide building AI agents needs this"
+    "title": "Booking Double-Check \u2014 detect double bookings across CSV exports",
+    "score": 9,
+    "source": "pain_validated",
+    "buyer_search": "double booking checker",
+    "sea_fit": "Perfect fit for SE Asia\u2019s booming freelance/agency market where manual CSV reviews are common due to low SaaS adoption.",
+    "competitors": [
+      "Calendly Pro $8/mo (no CSV double-check)",
+      "Acuity Scheduling $25/mo (manual review only)"
+    ]
   },
   "plan": {
-    "product_name": "AgentBridge",
-    "tagline": "Turn any CLI tool into an MCP server in 5 minutes",
-    "problem": "Developers have powerful CLI tools but cannot connect them to Claude, ChatGPT or any AI agent without writing complex MCP server boilerplate.",
-    "solution": "A Python CLI that wraps any existing command-line tool and auto-generates a working MCP server with proper tool definitions, input schemas, and error handling.",
-    "target_market": "AI developers worldwide building agents with Claude, GPT, or local LLMs",
+    "product_name": "DoubleCheck CLI",
+    "tagline": "Detect double bookings across CSV exports in 60 seconds",
+    "problem": "Freelancers and small agencies waste hours manually cross-checking CSV exports from multiple booking platforms (Calendly, Google Calendar, Airbnb, etc.) for overlapping time slots, leading to overbookings and lost revenue.",
+    "solution": "1) Import multiple CSV exports via CLI. 2) Normalize time zones and formats. 3) Store in SQLite. 4) Detect overlaps with 1-second precision. 5) Generate conflict reports with visual timelines and exportable summaries.",
+    "target_market": "Solo freelancers and small agencies in SE Asia managing bookings across multiple platforms (e.g., Airbnb hosts, tour operators, SaaS founders with Calendly integrations).",
     "monthly_price_usd": 29,
-    "self_use": "JARVIS uses AgentBridge to expose his own tools (pain_scout, evolve, rate) as MCP servers \u2014 Claude can then call them directly",
     "mvp_features": [
-      "Scan a CLI tool and auto-detect its commands and flags",
-      "Generate MCP server Python file automatically",
-      "Test the MCP connection with a simple ping",
-      "CLI with --wrap, --test, --list commands",
-      "--demo mode showing JARVIS tools wrapped as MCP"
+      "CSV import with auto-detection of date/time columns",
+      "SQLite-backed storage for fast queries",
+      "Overlap detection with 1-second precision",
+      "Human-readable conflict reports (CSV/JSON)",
+      "CLI commands: add, list, check, report"
     ],
     "build_phases": [
       {
         "phase": 1,
-        "name": "CLI scanner + MCP generator",
-        "description": "parse --help output of any CLI tool, generate mcp server skeleton"
+        "name": "Core DB + add",
+        "description": "SQLite schema for bookings + 'add' command to import CSV files",
+        "hours": 2
       },
       {
         "phase": 2,
-        "name": "Schema builder + test runner",
-        "description": "auto-build input schemas, test MCP connection, validate tools"
+        "name": "Reports + alerts",
+        "description": "Generate conflict reports with visual timelines and export summaries",
+        "hours": 2
       },
       {
         "phase": 3,
-        "name": "JARVIS self-wrap + demo",
-        "description": "wrap jarvis own tools as MCP, demo shows claude calling jarvis directly"
+        "name": "Demo + polish",
+        "description": "Add --demo mode with hardcoded data + polish CLI help/edge cases",
+        "hours": 1
       }
-    ]
+    ],
+    "demo_script": "Run: `doublecheck --demo`. Shows 3 bookings (2 overlapping) with a conflict report listing the overlap and exportable CSV/JSON summaries.",
+    "market_score": 8,
+    "buildability_score": 9,
+    "overall_score": 8,
+    "verdict": "build",
+    "phuket_angle": "Phuket tour operators and Airbnb hosts juggling multiple booking platforms can use this to avoid double bookings during peak season (Dec-Apr), reducing refunds and negative reviews."
   },
-  "build_status": "complete",
-  "phases_complete": [
-    1,
-    2,
-    3
-  ],
-  "self_improvement_angle": "Phase 3 wraps JARVIS tools as MCP servers \u2014 after this build JARVIS can be called directly by Claude",
-  "last_build": "2026-05-03T19:43:20.288510"
+  "build_status": "pending",
+  "phases_complete": []
 }
