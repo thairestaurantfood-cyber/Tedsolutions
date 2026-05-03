@@ -32,6 +32,19 @@ Never fails silently.
 
 import os, json, subprocess, datetime, time, re, sys
 
+# ── GUARDIAN — permission check before building ──
+import sys as _sys
+_sys.path.insert(0, os.path.expanduser("~/jarvis"))
+try:
+    from jarvis_guardian import check as _guardian_check, increment_mistral
+    _ok, _msg = _guardian_check("build_product_locally", "evolve.py autonomous build")
+    if not _ok:
+        print(f"🚫 Guardian blocked build: {_msg}")
+        exit(0)
+except Exception as _e:
+    pass  # Guardian unavailable — proceed anyway
+# ── END GUARDIAN ──
+
 HOME = os.path.expanduser("~")
 JARVIS = f"{HOME}/jarvis"
 MEMORY = f"{JARVIS}/memory"
