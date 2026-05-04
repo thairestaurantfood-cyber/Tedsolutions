@@ -7,7 +7,47 @@ Never fails silently.
 
 # ═══════════════════════════════════════════════════
 # META-EVOLVED RULES — AUTO-GENERATED FROM FAILURES
-# Last updated: 2026-05-04 05:23
+# Last updated: 2026-05-04 22:30
+# ═══════════════════════════════════════════════════
+# These rules were rewritten because patterns failed 3+ times.
+#
+# PATTERN: argparse_broken (4 failures)
+# RULE: CRITICAL: Always use parse_known_args() for --demo BEFORE defining subparsers. NEVER use required=True on subparsers. ALWAYS check pre.demo first.
+#   pre, _ = parser.parse_known_args()
+#   if pre.demo:
+#       demo(); return
+#   subs = parser.add_subparsers(dest='command')  # NO required=True
+#
+# PATTERN: demo_broken (6 failures)
+# RULE: CRITICAL: Demo MUST delete DB first, insert realistic data in ALL fields, then PRINT formatted table output. NEVER just say 'use list to view'. NEVER leave zero values.
+#   def demo():
+#       if os.path.exists(DB_PATH): os.remove(DB_PATH)
+#       # insert data with ALL fields populated
+#       # then print formatted table — never just 'loaded successfully'
+#
+# PATTERN: wrong_idea_type (2 failures)
+# RULE: NEVER build: hardware tools, FPGA, ML training, TensorFlow, image processing. ONLY build: data tools, automations, CLI utilities, freelancer tools, business workflows.
+#
+# ═══════════════════════════════════════════════════
+# These rules were rewritten because patterns failed 3+ times.
+#
+# PATTERN: argparse_broken (4 failures)
+# RULE: CRITICAL: Always use parse_known_args() for --demo BEFORE defining subparsers. NEVER use required=True on subparsers. ALWAYS check pre.demo first.
+#   pre, _ = parser.parse_known_args()
+#   if pre.demo:
+#       demo(); return
+#   subs = parser.add_subparsers(dest='command')  # NO required=True
+#
+# PATTERN: demo_broken (6 failures)
+# RULE: CRITICAL: Demo MUST delete DB first, insert realistic data in ALL fields, then PRINT formatted table output. NEVER just say 'use list to view'. NEVER leave zero values.
+#   def demo():
+#       if os.path.exists(DB_PATH): os.remove(DB_PATH)
+#       # insert data with ALL fields populated
+#       # then print formatted table — never just 'loaded successfully'
+#
+# PATTERN: wrong_idea_type (2 failures)
+# RULE: NEVER build: hardware tools, FPGA, ML training, TensorFlow, image processing. ONLY build: data tools, automations, CLI utilities, freelancer tools, business workflows.
+#
 # ═══════════════════════════════════════════════════
 # These rules were rewritten because patterns failed 3+ times.
 #
@@ -125,6 +165,18 @@ def load_context():
             return f.read()[:2000]
     except:
         return "JARVIS autonomous builder. Build clean Python tools."
+
+# ── Load critical rules (top of every prompt) ───────────
+def load_critical_rules():
+    try:
+        p = os.path.join(MEMORY, "critical_rules.txt")
+        if os.path.exists(p):
+            return open(p).read()
+    except:
+        pass
+    return ""
+
+CRITICAL_RULES = load_critical_rules()
 
 # ── Check internet quickly ────────────────────────────
 def internet_ok():
@@ -647,19 +699,30 @@ def main():
         return
 ```
 
-DEMO PATTERN — follow this exactly:
-    if args.demo:
-        conn = get_db()
-        cur = conn.cursor()
-        # Insert hardcoded sample data
-        cur.execute("INSERT OR IGNORE INTO items VALUES (?,?,?)", ("sample","data","2026-01-01"))
-        conn.commit()
-        # Query and print
-        for row in cur.execute("SELECT * FROM items LIMIT 5"):
-            print(row)
-        conn.close()
-        print("Demo complete.")
-        return
+DEMO PATTERN — follow this EXACTLY (use pre.demo not args.demo):
+def demo():
+    DB = os.path.expanduser("~/.jarvis/product.db")
+    os.makedirs(os.path.dirname(DB), exist_ok=True)
+    if os.path.exists(DB): os.remove(DB)
+    conn = sqlite3.connect(DB)
+    conn.execute("CREATE TABLE IF NOT EXISTS items (name TEXT, value TEXT, date TEXT)")
+    conn.execute("INSERT INTO items VALUES ('Alpha','100','2026-01-01')")
+    conn.execute("INSERT INTO items VALUES ('Beta','200','2026-02-01')")
+    conn.execute("INSERT INTO items VALUES ('Gamma','300','2026-03-01')")
+    conn.commit()
+    print(f"{{'Name':<15}} {{'Value':<10}} {{'Date'}}")
+    print("-" * 35)
+    for row in conn.execute("SELECT * FROM items"):
+        print(f"{{row[0]:<15}} {{row[1]:<10}} {{row[2]}}")
+    conn.close()
+    print("\nDemo complete.")
+
+CRITICAL DEMO RULES:
+- ALWAYS call demo() from pre.demo check — NEVER from args.demo
+- ALWAYS delete DB first: if os.path.exists(DB): os.remove(DB)
+- ALWAYS insert 3+ rows with ALL fields populated — NO zeros, NO nulls
+- ALWAYS print a formatted table with headers — NEVER say 'use list to view'
+- NEVER make network calls in demo
 
 Write the complete updated main.py starting with imports:"""
 else:
@@ -711,9 +774,11 @@ def rag_inject(prompt):
         pass
     return prompt
 
-# Call LLM — inject RAG memory first
+# Call LLM — inject critical rules + RAG memory first
 print(f"  Building phase {phase_num}: {phase_name}...")
 prompt = rag_inject(prompt)
+if CRITICAL_RULES:
+    prompt = CRITICAL_RULES + "\n\n" + prompt
 # ── Skill injection — proven patterns from master_skills.json ──
 try:
     _skills_file = os.path.join(MEMORY, "master_skills.json")
