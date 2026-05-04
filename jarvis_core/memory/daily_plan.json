@@ -52,6 +52,10 @@
     "verdict": "build",
     "phuket_angle": "Phuket tour operators and Airbnb hosts juggling multiple booking platforms can use this to avoid double bookings during peak season (Dec-Apr), reducing refunds and negative reviews."
   },
-  "build_status": "pending",
-  "phases_complete": []
+  "build_status": "in_progress",
+  "phases_complete": [
+    1,
+    2
+  ],
+  "last_build": "2026-05-04T12:00:04.993372"
 }
