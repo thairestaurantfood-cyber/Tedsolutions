@@ -16,6 +16,24 @@ Run after every build:
 
 import os, json, re, smtplib, urllib.request, urllib.parse
 import base64, sqlite3, argparse, subprocess
+
+def ask_hermes(prompt):
+    """Use local Ollama model instead of Hermes."""
+    try:
+        import requests
+        r = requests.post(
+            "http://localhost:11434/api/generate",
+            json={
+                "model": "qwen2.5-coder:7b",
+                "prompt": prompt,
+                "stream": False
+            },
+            timeout=60
+        )
+        return r.json().get("response", "").strip()
+    except Exception as e:
+        return f"LOCAL LLM ERROR: {e}"
+
 from datetime import datetime
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -40,6 +58,22 @@ TG_TOKEN     = os.getenv("TG_TOKEN", "")
 TG_CHAT      = os.getenv("TG_CHAT", "")
 
 os.makedirs(f"{JARVIS}/logs", exist_ok=True)
+
+
+def trigger_vercel():
+    """Ping Vercel deploy hook after every publish."""
+    try:
+        import urllib.request
+        req = urllib.request.Request(
+            "https://api.vercel.com/v1/integrations/deploy/prj_Nv9lifD6j0mLmRWZpUAbwuPWoqwc/vn3T6kbNfm",
+            method="POST"
+        )
+        with urllib.request.urlopen(req, timeout=10) as r:
+            log(f"🚀 Vercel deploy triggered: {r.status}")
+            return True
+    except Exception as e:
+        log(f"⚠️  Vercel trigger failed: {e}")
+        return False
 
 def log(msg):
     ts = datetime.now().strftime("%H:%M:%S")
@@ -308,8 +342,6 @@ def publish_product(product_dir):
         log(f"  ❌ GitHub push failed")
         return False
 
-    log(f"  ✅ Published: {github_url}")
-
     # Save to published db
     db = get_pub_db()
     db.execute("""INSERT OR REPLACE INTO published
@@ -320,12 +352,34 @@ def publish_product(product_dir):
     db.commit()
     db.close()
 
-    # Send email
+    return {
+        "folder": folder,
+        "tagline": tagline,
+        "github_url": github_url,
+        "page_url": page_url,
+        "code": code # Return code for LLM summarization
+    }
+
+def get_llm_summary(product_name, code):
+    log(f"  🤖 Requesting LLM summary for {product_name}...")
+    summary = ask_hermes(f"Summarize the following Python product in one short sentence, suitable for a landing page tagline:\n\n```python\n{code}\n```")
+    if not summary:
+        summary = f"An autonomous Python tool built by JARVIS for {product_name.replace('_', ' ').title().split(' ')[0]}."
+    log(f"  🤖 LLM summary for {product_name}: {summary}")
+    return summary
+
+def send_product_notifications(product_info, summary):
+    folder = product_info["folder"]
+    tagline = product_info["tagline"]
+    github_url = product_info["github_url"]
+    page_url = product_info["page_url"]
+
     clean_name = folder.replace("_", " ").title()
     email_html = f"""
     <div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:32px;">
       <h1 style="color:#3b82f6">🤖 JARVIS Published: {clean_name}</h1>
       <p style="color:#666;font-size:1.1rem">{tagline}</p>
+      <p style="color:#666;font-size:1.1rem">Summary: {summary}</p>
       <hr style="border:none;border-top:1px solid #eee;margin:24px 0">
       <p><strong>GitHub:</strong>
          <a href="{github_url}">{github_url}</a></p>
@@ -339,14 +393,13 @@ def publish_product(product_dir):
 
     send_email(f"🤖 JARVIS Published: {clean_name}", email_html)
 
-    # Telegram
     send_telegram(
         f"🚀 <b>Published: {clean_name}</b>\n\n"
+        f"<i>{summary}</i>\n\n"
         f"{tagline}\n\n"
         f"<a href='{github_url}'>View on GitHub</a>"
     )
-
-    return True
+    trigger_vercel() # Trigger Vercel after notifications
 
 # ── MAIN ──────────────────────────────────────────────
 if __name__ == "__main__":
@@ -376,9 +429,17 @@ if __name__ == "__main__":
         if not os.path.exists(product_path):
             log(f"❌ Not found: {product_path}")
         else:
-            publish_product(product_path)
+            product_info = publish_product(product_path)
+            if product_info:
+                summary = get_llm_summary(product_info["folder"], product_info["code"])
+                send_product_notifications(product_info, summary)
+            else:
+                log(f"❌ Failed to publish {product_path}")
+
 
     elif args.all:
+        import concurrent.futures # Moved here to be specific to this branch
+
         db = get_pub_db()
         published = {r[0] for r in db.execute(
             "SELECT product FROM published"
@@ -391,8 +452,29 @@ if __name__ == "__main__":
             and d not in published
         ])
         log(f"Found {len(dirs)} unpublished products")
+
+        products_to_summarize = []
         for d in dirs:
-            publish_product(f"{PRODUCTS}/{d}")
-            import time; time.sleep(2)  # Be polite to GitHub API
+            log(f"Preparing to publish {d} (GitHub push, landing page)...")
+            product_info = publish_product(f"{PRODUCTS}/{d}")
+            if product_info:
+                products_to_summarize.append(product_info)
+            else:
+                log(f"❌ Failed to prepare {d} for publishing.")
+            import time; time.sleep(2)  # Be polite to GitHub API for each product's initial push
+
+        llm_futures = []
+        with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor: # Use a pool for parallel LLM calls
+            for product_info in products_to_summarize:
+                future = executor.submit(get_llm_summary, product_info["folder"], product_info["code"])
+                llm_futures.append((product_info, future))
+
+            log(f"Waiting for {len(llm_futures)} LLM summaries in parallel...")
+            for product_info, future in llm_futures:
+                summary = future.result() # This will block until the summary is ready
+                log(f"  ✅ LLM summary received for {product_info['folder']}")
+                send_product_notifications(product_info, summary) # Send notifications after summary is ready
+        log("All products processed.")
+
     else:
         log("Use --all, --product NAME, or --status")
