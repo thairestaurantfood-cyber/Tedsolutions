@@ -25,27 +25,33 @@ TG_TOKEN = os.getenv("TG_TOKEN","")
 TG_CHAT  = os.getenv("TG_CHAT","")
 
 SEED_IDEAS = [
-    {"title":"Invoice Chaser — auto payment reminder sequences for freelancers","score":9},
-    {"title":"Proposal Generator — 5 questions → professional text proposal","score":9},
-    {"title":"Client Portal Tracker — file/message/status per client in sqlite","score":8},
-    {"title":"Contract Expiry Tracker — alert before renewal deadlines","score":8},
-    {"title":"Meeting Notes Processor — paste text → action items + owners","score":8},
-    {"title":"Lead Qualifier — score inbound leads from CSV → ranked list","score":8},
-    {"title":"Freelancer Tax Estimator — income CSV → quarterly tax estimate","score":8},
-    {"title":"Churn Risk Scorer — flag clients who haven't engaged in X days","score":8},
-    {"title":"Doc Chaser — auto-remind clients for missing documents","score":8},
-    {"title":"Cold Outreach Tracker — track email sequences and follow-up schedule","score":8},
-    {"title":"SEO Audit Reporter — URL checks → one-page actionable report","score":8},
-    {"title":"Review Digest — weekly summary of reviews + reply suggestions","score":8},
-    {"title":"OTA Rate Monitor — track competitor hotel pricing changes daily","score":8},
-    {"title":"Staff Roster Scheduler — shift planner for small hospitality teams","score":7},
-    {"title":"SaaS Metrics Dashboard — MRR churn LTV from CSV → weekly digest","score":8},
-    {"title":"Testimonial Request Bot — auto-send review requests after project close","score":7},
-    {"title":"Expense Categorizer — receipt CSV → categorized report + tax totals","score":7},
-    {"title":"Booking Double-Check — detect double-bookings across CSV exports","score":7},
-    {"title":"Project Time Tracker — start/stop timer → invoice-ready summary","score":7},
-    {"title":"Competitor Price Watcher — monitor pricing pages for changes","score":7},
+    {"title":"AgentOS — Local-first AI agent orchestration kernel","score":10},
+    {"title":"SkillSwarm — Crowdsourced AI agent skills marketplace","score":9},
+    {"title":"ContextCraft — Zero-setup codebase indexing for agents","score":9},
+    {"title":"AutoMCP — Self-hosted MCP server orchestrator","score":8},
+    {"title":"MemoryMesh — Persistent memory layer for local LLM agents","score":9},
+    {"title":"AgentBench — Benchmark and compare local LLM agents on real tasks","score":8},
+    {"title":"PromptVault — Version control for LLM prompts with scoring","score":8},
+    {"title":"LocalLens — Privacy-first web scraper with local LLM analysis","score":8},
+    {"title":"PipelineKit — Chain CLI tools into agent pipelines with one config","score":9},
+    {"title":"SignalScout — Real-time trend scanner for indie hackers","score":8},
+    {"title":"DevDigest — Daily AI-curated summary of GitHub + HN for developers","score":8},
+    {"title":"CostRadar — Real-time LLM API cost tracker across providers","score":8},
+    {"title":"AgentLog — Structured logging and replay for AI agent runs","score":8},
+    {"title":"ToolForge — Generate MCP tools from OpenAPI specs automatically","score":9},
+    {"title":"ModelRouter — Smart routing between local and cloud LLMs by cost/speed","score":9},
 ]
+
+
+def load_market_memory():
+    """Load curated market intelligence to guide idea selection."""
+    try:
+        import json, os
+        p = os.path.expanduser("~/jarvis/memory/market_memory.json")
+        if os.path.exists(p):
+            return json.load(open(p))
+    except: pass
+    return {}
 
 def notify(msg):
     if not TG_TOKEN: return
@@ -132,7 +138,7 @@ Constraints:
 - Python stdlib ONLY: os,sys,json,csv,sqlite3,argparse,datetime,pathlib,subprocess,urllib.request,re,time
 - Max 200 lines. NO Flask, requests, numpy, pandas, PIL, tensorflow
 - Must have --demo mode that works 100% offline with hardcoded data
-- Target buyers: freelancers, small agencies, SaaS founders in SE Asia
+- Target buyers: indie hackers, developers, small businesses worldwide
 - Price: $19-49/month
 
 Return ONLY valid JSON (no markdown):
@@ -191,6 +197,23 @@ def get_validated_seeds():
 
 def pick_candidate(queue_ideas, brain, already_built):
     candidates = []
+    # Market memory ideas first — pre-validated, commercially researched
+    try:
+        mm = load_market_memory()
+        mm_ideas = mm.get("market_intelligence", {}).get("best_next_ideas", [])
+        avoid = mm.get("market_intelligence", {}).get("do_not_build_again", [])
+        for idea in mm_ideas:
+            title = idea["title"]
+            # Skip if already built or in avoid list
+            words = title.lower().split()[:3]
+            if any(w in " ".join(already_built) for w in words): continue
+            if any(title.split("—")[0].strip().lower() in a.lower() for a in avoid): continue
+            candidates.append({"title": title, "score": idea.get("score_potential", 8),
+                                "source": "market_memory", "verdict": "build"})
+        if candidates:
+            print(f"  🎯 {len(candidates)} market-validated ideas available")
+    except Exception as e:
+        print(f"  ⚠️  Market memory skip: {e}")
     if brain: candidates.append(brain)
     filtered = filter_queue(queue_ideas)
     candidates.extend(filtered[:3])
