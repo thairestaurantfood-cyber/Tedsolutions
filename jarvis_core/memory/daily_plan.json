@@ -1,61 +1,52 @@
 {
-  "date": "2026-05-04T00:00:09.582998",
+  "date": "2026-05-05T00:00:07.731505",
   "idea": {
-    "title": "Booking Double-Check \u2014 detect double bookings across CSV exports",
+    "title": "ModelRouter \u2014 Smart switcher between local and cloud LLMs",
     "score": 9,
-    "source": "pain_validated",
-    "buyer_search": "double booking checker",
-    "sea_fit": "Perfect fit for SE Asia\u2019s booming freelance/agency market where manual CSV reviews are common due to low SaaS adoption.",
-    "competitors": [
-      "Calendly Pro $8/mo (no CSV double-check)",
-      "Acuity Scheduling $25/mo (manual review only)"
-    ]
+    "source": "market_memory",
+    "verdict": "build"
   },
   "plan": {
-    "product_name": "DoubleCheck CLI",
-    "tagline": "Detect double bookings across CSV exports in 60 seconds",
-    "problem": "Freelancers and small agencies waste hours manually cross-checking CSV exports from multiple booking platforms (Calendly, Google Calendar, Airbnb, etc.) for overlapping time slots, leading to overbookings and lost revenue.",
-    "solution": "1) Import multiple CSV exports via CLI. 2) Normalize time zones and formats. 3) Store in SQLite. 4) Detect overlaps with 1-second precision. 5) Generate conflict reports with visual timelines and exportable summaries.",
-    "target_market": "Solo freelancers and small agencies in SE Asia managing bookings across multiple platforms (e.g., Airbnb hosts, tour operators, SaaS founders with Calendly integrations).",
+    "product_name": "ModelRouter",
+    "tagline": "Seamlessly switch between local and cloud LLMs from one CLI",
+    "problem": "Developers waste time manually switching between local LLMs (for privacy/offline) and cloud LLMs (for power/accuracy), with no unified workflow",
+    "solution": "CLI tool that routes prompts to the best LLM based on cost, latency, privacy needs, and model availability. Caches responses locally for offline use and syncs with cloud when online. Includes a demo mode with hardcoded models for instant testing.",
+    "target_market": "Solo developers and small teams building AI-powered apps who need flexibility between local/offline and cloud LLMs without rewriting code",
     "monthly_price_usd": 29,
     "mvp_features": [
-      "CSV import with auto-detection of date/time columns",
-      "SQLite-backed storage for fast queries",
-      "Overlap detection with 1-second precision",
-      "Human-readable conflict reports (CSV/JSON)",
-      "CLI commands: add, list, check, report"
+      "Switch between local/cloud LLMs via CLI flags or config file",
+      "Auto-detects online/offline state and routes accordingly",
+      "--demo mode with hardcoded models for offline testing",
+      "Simple SQLite cache for response history and cost tracking",
+      "Basic reporting of usage stats and model performance"
     ],
     "build_phases": [
       {
         "phase": 1,
         "name": "Core DB + add",
-        "description": "SQLite schema for bookings + 'add' command to import CSV files",
+        "description": "sqlite schema for model configs and response cache, plus add/list commands to manage models",
         "hours": 2
       },
       {
         "phase": 2,
         "name": "Reports + alerts",
-        "description": "Generate conflict reports with visual timelines and export summaries",
+        "description": "generate usage reports and basic alerts for model limits/costs",
         "hours": 2
       },
       {
         "phase": 3,
         "name": "Demo + polish",
-        "description": "Add --demo mode with hardcoded data + polish CLI help/edge cases",
+        "description": "implement --demo mode with hardcoded models, improve --help, handle edge cases like invalid API keys",
         "hours": 1
       }
     ],
-    "demo_script": "Run: `doublecheck --demo`. Shows 3 bookings (2 overlapping) with a conflict report listing the overlap and exportable CSV/JSON summaries.",
+    "demo_script": "Run `modelrouter --demo` to see a simulated conversation with 3 hardcoded models (tiny, medium, cloud). Shows routing logic, response caching, and offline/online switching without any setup.",
     "market_score": 8,
     "buildability_score": 9,
     "overall_score": 8,
     "verdict": "build",
-    "phuket_angle": "Phuket tour operators and Airbnb hosts juggling multiple booking platforms can use this to avoid double bookings during peak season (Dec-Apr), reducing refunds and negative reviews."
+    "phuket_angle": "Phuket-based travel agencies or tour operators could use ModelRouter to run lightweight local LLMs on-site for customer queries while syncing with cloud models for complex requests, reducing cloud costs during peak tourist seasons."
   },
-  "build_status": "in_progress",
-  "phases_complete": [
-    1,
-    2
-  ],
-  "last_build": "2026-05-04T12:00:04.993372"
+  "build_status": "pending",
+  "phases_complete": []
 }
