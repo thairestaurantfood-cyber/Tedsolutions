@@ -40,6 +40,36 @@
     "source": "pain_scout_v3"
   },
   {
+    "title": "AgentBridge \u2014 Turn any CLI into an AI agent in 30 seconds",
+    "pain_score": 9,
+    "problem": "Developers waste hours wrapping CLI tools (git, ffmpeg, docker) for AI agents. Existing solutions require heavy frameworks or manual MCP server setup.",
+    "solution": "A Python CLI tool that auto-generates MCP servers from any command-line tool. Just point it at your binary/script and it creates a persistent agent-ready interface with built-in error handling, streaming output, and tool discovery.",
+    "target_market": "Backend engineers, DevOps teams, and AI tool builders who need to expose legacy CLI tools to agents without rewriting them",
+    "category": "ai_wrapper",
+    "global_reach": 9,
+    "source": "pain_scout_v3"
+  },
+  {
+    "title": "TokenTamer \u2014 Real-time LLM cost/latency dashboard",
+    "pain_score": 9,
+    "problem": "Developers have no visibility into token economics of their AI agents. API costs explode silently while performance degrades.",
+    "solution": "A background daemon that intercepts all LLM calls (local or API) and streams metrics to a web dashboard. Shows per-agent token usage, cost breakdowns, latency percentiles, and suggests optimizations (caching, model switching). Works with any agent framework via simple proxy.",
+    "target_market": "Startups running production AI agents, freelance developers optimizing costs, research teams tracking experiments",
+    "category": "dev_tool",
+    "global_reach": 9,
+    "source": "pain_scout_v3"
+  },
+  {
+    "title": "AgentOS \u2014 Local-first agent orchestration kernel",
+    "pain_score": 9,
+    "problem": "Running multiple agents (coding, research, automation) requires separate setups. No standard way to coordinate them or share state.",
+    "solution": "A Rust-based daemon that runs on your machine as a system service. Manages agent lifecycles, shared memory, and tool permissions. Includes a CLI to launch/stop agents, monitor resource usage, and share tools between them. Agents communicate via simple JSON-RPC over Unix sockets.",
+    "target_market": "Power users running multiple AI agents, research teams, and companies building agent platforms",
+    "category": "ai_agent",
+    "global_reach": 9,
+    "source": "pain_scout_v3"
+  },
+  {
     "title": "Invoice Chaser \u2014 auto payment reminder sequences for freelancers",
     "pain_score": 9,
     "pain_evidence": "Freelancers on r/freelance and Indie Hackers forums frequently complain about unpaid invoices and lack of automated follow-ups.",
@@ -102,6 +132,26 @@
     "solution": "A lightweight daemon that auto-discovers and loads MCP servers from a local directory (or GitHub). Provides a unified MCP endpoint for agents, with built-in health checks, auto-restart, and logging. Includes a `automcp start` CLI to spin up servers on demand. Built with `mcp`, `httpx`, and `watchfiles` for hot-reloading.",
     "target_market": "AI agent developers, DevOps teams, and power users running local agents. Teams using tools like Claude Code or Cursor.",
     "category": "ai_wrapper",
+    "global_reach": 8,
+    "source": "pain_scout_v3"
+  },
+  {
+    "title": "SkillSwarm \u2014 Collaborative agent skill marketplace",
+    "pain_score": 8,
+    "problem": "AI agents are siloed - skills (tools, knowledge) aren't shareable across teams/projects. Developers rebuild the same skills repeatedly.",
+    "solution": "A lightweight peer-to-peer skill registry where agents can publish/consume skills as GitHub repos. Includes versioning, dependency resolution, and a CLI to install skills into any agent framework (Claude Code, Cursor, etc.). Skills are just Python modules with standardized interfaces.",
+    "target_market": "AI-first startups, research labs, and enterprise teams building multi-agent systems",
+    "category": "ai_agent",
+    "global_reach": 8,
+    "source": "pain_scout_v3"
+  },
+  {
+    "title": "ContextCraft \u2014 Zero-setup codebase indexing for agents",
+    "pain_score": 8,
+    "problem": "Agents struggle with large codebases because they lack proper context. Existing solutions require complex setup (embeddings, vector DBs).",
+    "solution": "A Python CLI that creates a lightweight, always-up-to-date codebase index in SQLite. Uses AST parsing to track dependencies, functions, and classes. Agents query it via a simple MCP server. Updates incrementally as files change. No external services needed.",
+    "target_market": "Solo developers and small teams using AI coding assistants (Claude Code, Cursor) on large codebases",
+    "category": "dev_tool",
     "global_reach": 8,
     "source": "pain_scout_v3"
   },
