@@ -253,7 +253,7 @@ def process_pending_failures():
 def process_recent_ratings():
     """Read human_ratings from brain.db and reflect on recent ones."""
     try:
-        brain_db = sqlite3.connect(os.path.expanduser("~/jarvis/memory/brain.db"))
+        brain_db = sqlite3.connect(os.path.expanduser("~/jarvis/memory/lessons.db"))
         rows = brain_db.execute("""
             SELECT product, score, feedback
             FROM human_ratings
