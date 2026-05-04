@@ -139,6 +139,35 @@ def run_help(path):
     except Exception as e:
         return False, str(e)
 
+def fix_subparsers_required(code):
+    """Fix: subparsers required=True blocks --demo. Always remove it."""
+    changed = []
+    # Pattern 1: add_subparsers(..., required=True...)
+    import re
+    new_code = re.sub(
+        r'add_subparsers\(([^)]*?)required=True([^)]*?)\)',
+        lambda m: f'add_subparsers({m.group(1).rstrip(", ")}{m.group(2).lstrip(", ")})',
+        code
+    )
+    if new_code != code:
+        changed.append("  fixed: removed required=True from add_subparsers()")
+        code = new_code
+
+    # Pattern 2: --demo handled via args.demo instead of pre.demo
+    # If parse_known_args not present but --demo is, add pre-check
+    if "--demo" in code and "parse_known_args" not in code:
+        # Insert parse_known_args check after add_argument('--demo'...)
+        old = "parser.add_argument('--demo'"
+        if old in code:
+            idx = code.find(old)
+            end = code.find("\n", idx)
+            insert = "\n    pre, _ = parser.parse_known_args()\n    if pre.demo:\n        demo()\n        return"
+            # Only insert if main() function exists
+            if "def main():" in code:
+                changed.append("  note: parse_known_args missing — LLM must fix")
+
+    return code, changed
+
 def guard(path, autofix=True, verbose=True):
     """
     Main guard function. Returns (passed, score, report).
@@ -164,6 +193,10 @@ def guard(path, autofix=True, verbose=True):
             code = code2
 
         code2, changed = fix_makedirs(code)
+        if changed:
+            fixes.extend(changed)
+            code = code2
+        code2, changed = fix_subparsers_required(code)
         if changed:
             fixes.extend(changed)
             code = code2
