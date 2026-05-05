@@ -7,7 +7,27 @@ Never fails silently.
 
 # ═══════════════════════════════════════════════════
 # META-EVOLVED RULES — AUTO-GENERATED FROM FAILURES
-# Last updated: 2026-05-04 22:30
+# Last updated: 2026-05-05 22:30
+# ═══════════════════════════════════════════════════
+# These rules were rewritten because patterns failed 3+ times.
+#
+# PATTERN: argparse_broken (5 failures)
+# RULE: CRITICAL: Always use parse_known_args() for --demo BEFORE defining subparsers. NEVER use required=True on subparsers. ALWAYS check pre.demo first.
+#   pre, _ = parser.parse_known_args()
+#   if pre.demo:
+#       demo(); return
+#   subs = parser.add_subparsers(dest='command')  # NO required=True
+#
+# PATTERN: demo_broken (6 failures)
+# RULE: CRITICAL: Demo MUST delete DB first, insert realistic data in ALL fields, then PRINT formatted table output. NEVER just say 'use list to view'. NEVER leave zero values.
+#   def demo():
+#       if os.path.exists(DB_PATH): os.remove(DB_PATH)
+#       # insert data with ALL fields populated
+#       # then print formatted table — never just 'loaded successfully'
+#
+# PATTERN: wrong_idea_type (2 failures)
+# RULE: NEVER build: hardware tools, FPGA, ML training, TensorFlow, image processing. ONLY build: data tools, automations, CLI utilities, freelancer tools, business workflows.
+#
 # ═══════════════════════════════════════════════════
 # These rules were rewritten because patterns failed 3+ times.
 #
@@ -325,6 +345,36 @@ def call_cerebras(prompt, context=""):
                 print(f"  Cerebras/{model} failed: {resp.get('message','')[:50]}")
     except Exception as e:
         print(f"  Cerebras failed: {e}")
+    return None
+
+
+def call_nvidia(prompt, context=""):
+    """NVIDIA NIM — free, no rate limits, llama-3.3-70b."""
+    key = os.environ.get("NVIDIA_API_KEY","")
+    if not key: return None
+    try:
+        import json as _j
+        full = f"{context}\n\n{prompt}" if context else prompt
+        payload = _j.dumps({
+            "model": "meta/llama-3.3-70b-instruct",
+            "messages": [{"role":"user","content":full}],
+            "max_tokens": 4000
+        })
+        r = subprocess.run([
+            "curl","-s","-X","POST",
+            "https://integrate.api.nvidia.com/v1/chat/completions",
+            "-H", f"Authorization: Bearer {key}",
+            "-H", "Content-Type: application/json",
+            "-d", payload
+        ], capture_output=True, text=True, timeout=60)
+        resp = _j.loads(r.stdout)
+        if "choices" in resp:
+            print(f"  ✓ NVIDIA/llama-3.3-70b answered")
+            return resp["choices"][0]["message"]["content"].strip()
+        else:
+            print(f"  NVIDIA failed: {resp.get('detail','')[:50]}")
+    except Exception as e:
+        print(f"  NVIDIA failed: {e}")
     return None
 
 def call_openrouter(prompt, context=""):
