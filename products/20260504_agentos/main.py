@@ -3,10 +3,8 @@ import sys
 import sqlite3
 import argparse
 from datetime import datetime
-from pathlib import Path
 
-DB_NAME = "agentos.db"
-DB_PATH = os.path.expanduser(os.path.join("~", ".agentos", DB_NAME))
+DB_PATH = os.path.expanduser("~/.jarvis/agentos.db")
 
 def get_db():
     os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
@@ -23,6 +21,28 @@ def init_db():
             description TEXT,
             command TEXT NOT NULL,
             created_at TEXT NOT NULL
+        )
+    """)
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS reports (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            agent_id INTEGER NOT NULL,
+            status TEXT NOT NULL,
+            output TEXT,
+            error TEXT,
+            duration_ms INTEGER,
+            created_at TEXT NOT NULL,
+            FOREIGN KEY (agent_id) REFERENCES agents (id)
+        )
+    """)
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS alerts (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            report_id INTEGER NOT NULL,
+            message TEXT NOT NULL,
+            severity TEXT NOT NULL,
+            created_at TEXT NOT NULL,
+            FOREIGN KEY (report_id) REFERENCES reports (id)
         )
     """)
     conn.commit()
@@ -43,83 +63,93 @@ def list_agents():
     conn.close()
     return rows
 
-def demo():
-    init_db()
+def run_agent(agent_id: int):
     conn = get_db()
-    conn.execute("DELETE FROM agents")
-    conn.commit()
+    agent = conn.execute("SELECT command FROM agents WHERE id = ?", (agent_id,)).fetchone()
+    conn.close()
 
-    # Insert hardcoded demo data
-    demo_agents = [
-        ("Web Scraper", "Scrape product prices from e-commerce sites", "python scraper.py --url {url} --output prices.json"),
-        ("Email Summarizer", "Summarize long email threads", "python summarizer.py --input emails/ --output summary.txt"),
-        ("Invoice Generator", "Generate invoices from CSV data", "python invoice.py --data invoices.csv --template basic.html")
-    ]
-    conn.executemany(
-        "INSERT INTO agents (name, description, command, created_at) VALUES (?, ?, ?, ?)",
-        [(name, desc, cmd, datetime.utcnow().isoformat()) for name, desc, cmd in demo_agents]
+    if not agent:
+        print(f"Agent {agent_id} not found")
+        return None
+
+    command = agent[0]
+    start_time = datetime.utcnow()
+    result = {"output": "", "error": "", "duration_ms": 0}
+
+    try:
+        start = datetime.utcnow()
+        proc = subprocess.run(
+            command,
+            shell=True,
+            capture_output=True,
+            text=True,
+            timeout=300
+        )
+        duration = (datetime.utcnow() - start).total_seconds() * 1000
+        result["output"] = proc.stdout
+        result["error"] = proc.stderr
+        result["duration_ms"] = int(duration)
+        status = "success" if proc.returncode == 0 else "failed"
+    except subprocess.TimeoutExpired:
+        result["error"] = "Command timed out after 300 seconds"
+        status = "timeout"
+    except Exception as e:
+        result["error"] = str(e)
+
+    conn = get_db()
+    conn.execute(
+        "INSERT INTO reports (agent_id, status, output, error, duration_ms, created_at) VALUES (?, ?, ?, ?, ?, ?)",
+        (agent_id, status, result["output"], result["error"], result["duration_ms"], datetime.utcnow().isoformat())
     )
     conn.commit()
     conn.close()
 
-    # Print formatted table
-    rows = list_agents()
-    if not rows:
-        print("No agents found")
-        return
+    return result
 
-    # Calculate column widths
-    col_widths = [max(len(str(item)) for item in col) for col in zip(*rows)]
-    headers = ["ID", "Name", "Description", "Command", "Created At"]
-    col_widths = [max(len(h), w) for h, w in zip(headers, col_widths)]
-
-    # Print header
-    header_line = " | ".join(h.ljust(w) for h, w in zip(headers, col_widths))
-    print(header_line)
-    print("-" * len(header_line))
-
-    # Print rows
-    for row in rows:
-        line = " | ".join(str(item).ljust(w) for item, w in zip(row, col_widths))
-        print(line)
+def demo():
+    DB_PATH = os.path.expanduser("~/.jarvis/agentos.db")
+    if os.path.exists(DB_PATH): os.remove(DB_PATH)
+    init_db()
+    add_agent("Demo Agent", "A demo agent for testing purposes.", "echo 'Hello, World!'")
+    agents = list_agents()
+    print(f"{'ID':<5} {'Name':<15} {'Description':<20} {'Command'}")
+    print("-" * 45)
+    for agent in agents:
+        print(f"{agent[0]:<5} {agent[1]:<15} {agent[2]:<20} {agent[3]}")
 
 def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--demo', action='store_true')
-    pre, _ = parser.parse_known_args()
+    parser = argparse.ArgumentParser(description="AgentOS")
+    parser.add_argument('--demo', action='store_true', help='Run demo')
+    pre, _ = parser.parse_known_args()  # check --demo FIRST
     if pre.demo:
         demo()
         return
-    subparsers = parser.add_subparsers(dest='command')
+
+    subparsers = parser.add_subparsers(dest='command')  # NO required=True
+    subparsers.add_parser('add', help='Add a new agent').set_defaults(func=add_agent)
+    list_parser = subparsers.add_parser('list', help='List all agents').set_defaults(func=list_agents)
+    run_parser = subparsers.add_parser('run', help='Run an agent by ID').add_argument('id', type=int).set_defaults(func=run_agent)
+
     args = parser.parse_args()
     if not args.command:
         parser.print_help()
         return
 
-    init_db()
+    if args.func == add_agent:
+        args.func(args.name, args.description, args.command)
+    elif args.func == list_agents:
+        agents = args.func()
+        print(f"{'ID':<5} {'Name':<15} {'Description':<20} {'Command'}")
+        print("-" * 45)
+        for agent in agents:
+            print(f"{agent[0]:<5} {agent[1]:<15} {agent[2]:<20} {agent[3]}")
+    elif args.func == run_agent:
+        result = args.func(args.id)
+        if result:
+            print(f"Status: {result['status']}")
+            print(f"Output: {result['output']}")
+            print(f"Error: {result['error']}")
+            print(f"Duration: {result['duration_ms']} ms")
 
-    if args.command == 'add':
-        parser_add = subparsers.add_parser('add')
-        parser_add.add_argument('--name', required=True)
-        parser_add.add_argument('--description', required=True)
-        parser_add.add_argument('--command', required=True)
-        args = parser.parse_args()
-        add_agent(args.name, args.description, args.command)
-        print(f"Added agent: {args.name}")
-    elif args.command == 'list':
-        rows = list_agents()
-        if not rows:
-            print("No agents found")
-            return
-        headers = ["ID", "Name", "Description", "Command", "Created At"]
-        col_widths = [max(len(str(item)) for item in col) for col in zip(*rows)]
-        col_widths = [max(len(h), w) for h, w in zip(headers, col_widths)]
-        header_line = " | ".join(h.ljust(w) for h, w in zip(headers, col_widths))
-        print(header_line)
-        print("-" * len(header_line))
-        for row in rows:
-            line = " | ".join(str(item).ljust(w) for item, w in zip(row, col_widths))
-            print(line)
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
