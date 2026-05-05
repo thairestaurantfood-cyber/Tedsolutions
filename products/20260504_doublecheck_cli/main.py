@@ -6,6 +6,8 @@ import sqlite3
 import argparse
 from datetime import datetime, timedelta
 from pathlib import Path
+import re
+import time
 
 DB_PATH = os.path.expanduser('~/.doublecheck/bookings.db')
 
@@ -40,7 +42,6 @@ def get_db():
     return conn
 
 def parse_csv_row(row, source):
-    # Expected CSV columns: title,start,end,timezone,guests
     title = row.get('title', '')
     start_str = row.get('start', '')
     end_str = row.get('end', '')
@@ -51,7 +52,6 @@ def parse_csv_row(row, source):
         start_dt = datetime.fromisoformat(start_str.replace('Z', '+00:00'))
         end_dt = datetime.fromisoformat(end_str.replace('Z', '+00:00'))
     except Exception:
-        # Fallback parsing for common formats
         try:
             start_dt = datetime.strptime(start_str, '%Y-%m-%d %H:%M:%S')
             end_dt = datetime.strptime(end_str, '%Y-%m-%d %H:%M:%S')
@@ -93,21 +93,13 @@ def add_bookings_from_csv(conn, csv_path, source):
         for r in rows:
             conn.execute("""
                 INSERT INTO bookings
-                (source, event_id, title, start_ts, end_ts, timezone, duration_minutes, guests, payload)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                (source, event_id, title, start_ts, end_ts, timezone, duration_minutes, guests)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
             """, (
-                r['source'],
-                r['event_id'],
-                r['title'],
-                r['start_ts'],
-                r['end_ts'],
-                r['timezone'],
-                r['duration_minutes'],
-                r['guests'],
-                json.dumps({'raw': r})
+                r['source'], r['event_id'], r['title'], r['start_ts'],
+                r['end_ts'], r['timezone'], r['duration_minutes'], r['guests']
             ))
             inserted += 1
-
         conn.commit()
         return inserted
 
@@ -115,106 +107,81 @@ def demo():
     conn = get_db()
     conn.execute("DELETE FROM bookings")
 
-    # Hardcoded sample data simulating Calendly and Google Calendar exports
-    sample_data = [
-        {
-            'source': 'calendly',
-            'event_id': 'cal_123',
-            'title': 'Client Onboarding',
-            'start_ts': datetime(2024, 6, 1, 10, 0).timestamp(),
-            'end_ts': datetime(2024, 6, 1, 11, 0).timestamp(),
-            'timezone': 'America/New_York',
-            'duration_minutes': 60,
-            'guests': 1
-        },
+    demo_data = [
         {
             'source': 'google',
-            'event_id': 'gcal_456',
+            'event_id': 'evt_001',
             'title': 'Team Sync',
-            'start_ts': datetime(2024, 6, 1, 11, 30).timestamp(),
-            'end_ts': datetime(2024, 6, 1, 12, 0).timestamp(),
-            'timezone': 'America/New_York',
-            'duration_minutes': 30,
+            'start': '2026-05-05 09:00:00',
+            'end': '2026-05-05 10:00:00',
+            'timezone': 'Asia/Bangkok',
             'guests': 3
         },
         {
-            'source': 'calendly',
-            'event_id': 'cal_789',
-            'title': 'Product Demo',
-            'start_ts': datetime(2024, 6, 1, 12, 30).timestamp(),
-            'end_ts': datetime(2024, 6, 1, 13, 15).timestamp(),
-            'timezone': 'America/New_York',
-            'duration_minutes': 45,
-            'guests': 2
+            'source': 'outlook',
+            'event_id': 'evt_002',
+            'title': 'Client Call',
+            'start': '2026-05-05 14:00:00',
+            'end': '2026-05-05 15:30:00',
+            'timezone': 'Asia/Bangkok',
+            'guests': 1
         }
     ]
 
-    for row in sample_data:
+    for row in demo_data:
+        start_dt = datetime.strptime(row['start'], '%Y-%m-%d %H:%M:%S')
+        end_dt = datetime.strptime(row['end'], '%Y-%m-%d %H:%M:%S')
+        duration = int((end_dt - start_dt).total_seconds() / 60)
+
         conn.execute("""
             INSERT INTO bookings
-            (source, event_id, title, start_ts, end_ts, timezone, duration_minutes, guests, payload)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+            (source, event_id, title, start_ts, end_ts, timezone, duration_minutes, guests)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
         """, (
-            row['source'],
-            row['event_id'],
-            row['title'],
-            row['start_ts'],
-            row['end_ts'],
-            row['timezone'],
-            row['duration_minutes'],
-            row['guests'],
-            json.dumps({'raw': row})
+            row['source'], row['event_id'], row['title'],
+            start_dt.timestamp(), end_dt.timestamp(),
+            row['timezone'], duration, row['guests']
         ))
 
     conn.commit()
+    conn.close()
+    print("Demo data loaded. Use 'doublecheck show' to view.")
 
-    # Print formatted table
+def show_bookings(conn):
     cur = conn.execute("""
-        SELECT id, source, title, start_ts, end_ts, timezone, duration_minutes, guests
+        SELECT id, source, title, start_ts, end_ts, timezone, guests
         FROM bookings
         ORDER BY start_ts
     """)
     rows = cur.fetchall()
 
-    print("DoubleCheck Demo — Bookings Imported")
-    print("-" * 60)
-    print(f"{'ID':<4} {'Source':<10} {'Title':<20} {'Start (UTC)':<20} {'End (UTC)':<20} {'TZ':<10} {'Dur':<5} {'Guests'}")
-    print("-" * 60)
+    if not rows:
+        print("No bookings found.")
+        return
+
     for r in rows:
-        start_dt = datetime.fromtimestamp(r[3]).strftime('%Y-%m-%d %H:%M:%S')
-        end_dt = datetime.fromtimestamp(r[4]).strftime('%Y-%m-%d %H:%M:%S')
-        print(f"{r[0]:<4} {r[1]:<10} {r[2]:<20} {start_dt:<20} {end_dt:<20} {r[5]:<10} {r[6]:<5} {r[7]}")
-    print("-" * 60)
-    print(f"Total: {len(rows)} bookings stored in {DB_PATH}")
+        start_dt = datetime.fromtimestamp(r[3])
+        end_dt = datetime.fromtimestamp(r[4])
+        print(f"{r[0]} | {r[1]} | {r[2]} | {start_dt} | {end_dt} | {r[5]} | Guests: {r[6]}")
 
 def main():
-    parser = argparse.ArgumentParser(description="DoubleCheck CLI — Detect booking conflicts across platforms")
-    parser.add_argument('--demo', action='store_true', help="Run demo with hardcoded data")
-    pre, _ = parser.parse_known_args()
-    if pre.demo:
+    parser = argparse.ArgumentParser(description='DoubleCheck CLI - Booking conflict checker')
+    parser.add_argument('--demo', action='store_true', help='Load demo data')
+    parser.add_argument('command', nargs='?', choices=['show'], help='Command to run')
+
+    args = parser.parse_args()
+
+    if args.demo:
         demo()
         return
 
-    subparsers = parser.add_subparsers(dest='command')
-
-    add_parser = subparsers.add_parser('add', help='Import bookings from CSV')
-    add_parser.add_argument('csv_path', help='Path to CSV file')
-    add_parser.add_argument('--source', required=True, help='Source name (e.g., calendly, google)')
-
-    args = parser.parse_args()
-    if not args.command:
-        parser.print_help()
+    if args.command == 'show':
+        conn = get_db()
+        show_bookings(conn)
+        conn.close()
         return
 
-    conn = get_db()
-
-    if args.command == 'add':
-        try:
-            count = add_bookings_from_csv(conn, args.csv_path, args.source)
-            print(f"Imported {count} bookings from {args.csv_path} as source '{args.source}'")
-        except Exception as e:
-            print(f"Error: {e}", file=sys.stderr)
-            sys.exit(1)
+    parser.print_help()
 
 if __name__ == '__main__':
     main()
