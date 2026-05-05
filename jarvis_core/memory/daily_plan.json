@@ -1,51 +1,51 @@
 {
-  "date": "2026-05-05T00:00:07.731505",
+  "date": "2026-05-06T00:00:13.108656",
   "idea": {
-    "title": "ModelRouter \u2014 Smart switcher between local and cloud LLMs",
-    "score": 9,
+    "title": "ContextCraft \u2014 Codebase indexer for AI agents",
+    "score": 8,
     "source": "market_memory",
     "verdict": "build"
   },
   "plan": {
-    "product_name": "ModelRouter",
-    "tagline": "Seamlessly switch between local and cloud LLMs from one CLI",
-    "problem": "Developers waste time manually switching between local LLMs (for privacy/offline) and cloud LLMs (for power/accuracy), with no unified workflow",
-    "solution": "CLI tool that routes prompts to the best LLM based on cost, latency, privacy needs, and model availability. Caches responses locally for offline use and syncs with cloud when online. Includes a demo mode with hardcoded models for instant testing.",
-    "target_market": "Solo developers and small teams building AI-powered apps who need flexibility between local/offline and cloud LLMs without rewriting code",
+    "product_name": "ContextCraft",
+    "tagline": "Instantly index and query your codebase with AI-friendly context",
+    "problem": "AI coding assistants struggle with large codebases due to lack of structured context, forcing developers to manually curate files and lose productivity",
+    "solution": "Indexes your codebase into a local SQLite database with file paths, dependencies, and metadata. Provides CLI commands to query and export context for AI agents or manual review. Works offline with --demo mode.",
+    "target_market": "Solo developers and small teams using AI coding tools who need reliable codebase context without complex setup",
     "monthly_price_usd": 29,
     "mvp_features": [
-      "Switch between local/cloud LLMs via CLI flags or config file",
-      "Auto-detects online/offline state and routes accordingly",
-      "--demo mode with hardcoded models for offline testing",
-      "Simple SQLite cache for response history and cost tracking",
-      "Basic reporting of usage stats and model performance"
+      "SQLite-based codebase indexer",
+      "CLI commands to add/list/query codebase files",
+      "Dependency graph generation",
+      "JSON/CSV export for AI agents",
+      "--demo mode with hardcoded sample project"
     ],
     "build_phases": [
       {
         "phase": 1,
         "name": "Core DB + add",
-        "description": "sqlite schema for model configs and response cache, plus add/list commands to manage models",
+        "description": "sqlite schema + add/list commands",
         "hours": 2
       },
       {
         "phase": 2,
         "name": "Reports + alerts",
-        "description": "generate usage reports and basic alerts for model limits/costs",
+        "description": "report generation + notification",
         "hours": 2
       },
       {
         "phase": 3,
         "name": "Demo + polish",
-        "description": "implement --demo mode with hardcoded models, improve --help, handle edge cases like invalid API keys",
+        "description": "--demo mode + --help + edge cases",
         "hours": 1
       }
     ],
-    "demo_script": "Run `modelrouter --demo` to see a simulated conversation with 3 hardcoded models (tiny, medium, cloud). Shows routing logic, response caching, and offline/online switching without any setup.",
+    "demo_script": "Run `contextcraft --demo` to see a hardcoded sample project indexed with 5 files, then query for Python files or dependencies. Shows JSON export ready for AI agents.",
     "market_score": 8,
     "buildability_score": 9,
     "overall_score": 8,
     "verdict": "build",
-    "phuket_angle": "Phuket-based travel agencies or tour operators could use ModelRouter to run lightweight local LLMs on-site for customer queries while syncing with cloud models for complex requests, reducing cloud costs during peak tourist seasons."
+    "phuket_angle": "Thai small businesses running Python-based web apps (e.g., tourism booking systems) can use it to quickly onboard AI agents to their codebase without exposing sensitive data to cloud services"
   },
   "build_status": "pending",
   "phases_complete": []
