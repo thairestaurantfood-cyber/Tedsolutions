@@ -1,52 +1,39 @@
 {
-  "date": "2026-05-06T00:00:13.108656",
+  "date": "2026-05-07T01:41:37.901513",
   "idea": {
-    "title": "ContextCraft \u2014 Codebase indexer for AI agents",
-    "score": 8,
-    "source": "market_memory",
+    "source": "r/SideProject",
+    "title": "Reddit feedback changed my SaaS from \u201cAI captions\u201d to SRT cleanup",
+    "url": "https://www.reddit.com/r/SideProject/comments/1t589xy/reddit_feedback_changed_my_saas_from_ai_captions/",
+    "ts": "18:00",
+    "score": 7,
     "verdict": "build"
   },
   "plan": {
-    "product_name": "ContextCraft",
-    "tagline": "Instantly index and query your codebase with AI-friendly context",
-    "problem": "AI coding assistants struggle with large codebases due to lack of structured context, forcing developers to manually curate files and lose productivity",
-    "solution": "Indexes your codebase into a local SQLite database with file paths, dependencies, and metadata. Provides CLI commands to query and export context for AI agents or manual review. Works offline with --demo mode.",
-    "target_market": "Solo developers and small teams using AI coding tools who need reliable codebase context without complex setup",
-    "monthly_price_usd": 29,
-    "mvp_features": [
-      "SQLite-based codebase indexer",
-      "CLI commands to add/list/query codebase files",
-      "Dependency graph generation",
-      "JSON/CSV export for AI agents",
-      "--demo mode with hardcoded sample project"
-    ],
+    "product_name": "HermesWatch",
+    "description": "Real-time dashboard for Hermes agent. Reads hermes_status.json, jarvis logs, build scores. SQLite history. CLI display.",
     "build_phases": [
       {
         "phase": 1,
         "name": "Core DB + add",
-        "description": "sqlite schema + add/list commands",
-        "hours": 2
+        "description": "SQLite core for HermesWatch, add/list commands"
       },
       {
         "phase": 2,
         "name": "Reports + alerts",
-        "description": "report generation + notification",
-        "hours": 2
+        "description": "reports, status, output formatting"
       },
       {
         "phase": 3,
         "name": "Demo + polish",
-        "description": "--demo mode + --help + edge cases",
-        "hours": 1
+        "description": "--demo with realistic HermesWatch data. --help works."
       }
     ],
-    "demo_script": "Run `contextcraft --demo` to see a hardcoded sample project indexed with 5 files, then query for Python files or dependencies. Shows JSON export ready for AI agents.",
-    "market_score": 8,
-    "buildability_score": 9,
-    "overall_score": 8,
-    "verdict": "build",
-    "phuket_angle": "Thai small businesses running Python-based web apps (e.g., tourism booking systems) can use it to quickly onboard AI agents to their codebase without exposing sensitive data to cloud services"
+    "demo_script": "Run hermeswatch --demo"
   },
-  "build_status": "pending",
-  "phases_complete": []
+  "build_status": "in_progress",
+  "phases_complete": [
+    1
+  ],
+  "last_build": "2026-05-07T02:10:15.592100",
+  "phases_done": []
 }
