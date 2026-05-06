@@ -48,7 +48,8 @@ def call_mistral(prompt, model="mistral-small-latest", max_tokens=2000):
                 {"model":model,
                  "messages":[{"role":"user","content":prompt}],
                  "max_tokens":max_tokens,"temperature":0.3},
-                {"Authorization":f"Bearer {key}"})
+                {"Authorization":f"Bearer {key}"},
+                timeout=60)
             return r["choices"][0]["message"]["content"].strip()
         return _retry(fn)
     except Exception as e:
@@ -62,11 +63,44 @@ def call_gemini(prompt, max_tokens=2000):
             r = _post(
                 f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={key}",
                 {"contents":[{"parts":[{"text":prompt}]}],
-                 "generationConfig":{"maxOutputTokens":max_tokens,"temperature":0.3}})
+                 "generationConfig":{"maxOutputTokens":max_tokens,"temperature":0.3}},
+                timeout=60)
             return r["candidates"][0]["content"]["parts"][0]["text"].strip()
         return _retry(fn, retries=2, delay=5)
     except Exception as e:
         print(f"  Gemini failed: {e}"); return None
+
+def call_openai(prompt, max_tokens=2000):
+    key = os.getenv("OPENAI_API_KEY","")
+    if not key: return None
+    try:
+        def fn():
+            r = _post("https://api.openai.com/v1/chat/completions",
+                {"model":"gpt-4o-mini",
+                 "messages":[{"role":"user","content":prompt}],
+                 "max_tokens":max_tokens,"temperature":0.3},
+                {"Authorization":f"Bearer {key}"},
+                timeout=60)
+            return r["choices"][0]["message"]["content"].strip()
+        return _retry(fn, retries=2, delay=5)
+    except Exception as e:
+        print(f"  OpenAI failed: {e}"); return None
+
+def call_nvidia(prompt, max_tokens=2000):
+    key = os.getenv("NVIDIA_API_KEY","")
+    if not key: return None
+    try:
+        def fn():
+            r = _post("https://integrate.api.nvidia.com/v1/chat/completions",
+                {"model":"meta/llama-3.3-70b-instruct",
+                 "messages":[{"role":"user","content":prompt}],
+                 "max_tokens":max_tokens,"temperature":0.3},
+                {"Authorization":f"Bearer {key}"},
+                timeout=60)
+            return r["choices"][0]["message"]["content"].strip()
+        return _retry(fn, retries=2, delay=5)
+    except Exception as e:
+        print(f"  NVIDIA failed: {e}"); return None
 
 def call_openrouter(prompt, max_tokens=2000):
     key = os.getenv("OPENROUTER_API_KEY","")
@@ -85,7 +119,8 @@ def call_openrouter(prompt, max_tokens=2000):
                      "max_tokens":max_tokens},
                     {"Authorization":f"Bearer {key}",
                      "HTTP-Referer":"https://github.com/jarvis",
-                     "X-Title":"JARVIS"})
+                     "X-Title":"JARVIS"},
+                    timeout=60)
                 return r["choices"][0]["message"]["content"].strip()
             result = _retry(fn, retries=2, delay=5)
             if result: return result
@@ -117,14 +152,18 @@ def ask(prompt, max_tokens=2000, fast=False):
     Returns text or None.
     """
     if fast:
-        # Fast path: Mistral small → local
+        # Fast path: Mistral small → OpenAI → NVIDIA → coder local
         return (call_mistral(prompt, model="mistral-small-latest", max_tokens=500)
-                or call_local(prompt))
-    # Full path: Mistral → Gemini → OpenRouter → local
+                or call_openai(prompt, max_tokens=500)
+                or call_nvidia(prompt, max_tokens=500)
+                or call_local_coder(prompt))
+    # Full path: Mistral → OpenAI → NVIDIA → Gemini → OpenRouter → coder local
     return (call_mistral(prompt, max_tokens=max_tokens)
+            or call_openai(prompt, max_tokens=max_tokens)
+            or call_nvidia(prompt, max_tokens=max_tokens)
             or call_gemini(prompt, max_tokens=max_tokens)
             or call_openrouter(prompt, max_tokens=max_tokens)
-            or call_local(prompt))
+            or call_local_coder(prompt))
 
 def ask_json(prompt, max_tokens=2000):
     """Ask for JSON response. Strips markdown fences. Returns dict or None."""
