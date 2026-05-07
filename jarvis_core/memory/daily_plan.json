@@ -1,39 +1,54 @@
 {
-  "date": "2026-05-07T01:41:37.901513",
+  "date": "2026-05-08T00:00:08.016038",
   "idea": {
-    "source": "r/SideProject",
-    "title": "Reddit feedback changed my SaaS from \u201cAI captions\u201d to SRT cleanup",
-    "url": "https://www.reddit.com/r/SideProject/comments/1t589xy/reddit_feedback_changed_my_saas_from_ai_captions/",
-    "ts": "18:00",
+    "source": "r/LocalLLaMA",
+    "title": "ParoQuant: Pairwise Rotation Quantization for Efficient Reasoning LLM Inference",
+    "url": "https://i.redd.it/9gim2lznimzg1.jpeg",
+    "ts": "10:00",
     "score": 7,
     "verdict": "build"
   },
   "plan": {
-    "product_name": "HermesWatch",
-    "description": "Real-time dashboard for Hermes agent. Reads hermes_status.json, jarvis logs, build scores. SQLite history. CLI display.",
+    "product_name": "ParoQuant-CLI",
+    "tagline": "Quantize LLM weights pairwise for 3x faster inference with 1% accuracy loss",
+    "problem": "Running reasoning LLMs locally is slow and expensive due to large model sizes, making it inaccessible for indie hackers and small businesses",
+    "solution": "Implements pairwise rotation quantization to compress LLM weights while preserving reasoning capabilities, reducing model size by 70% and speeding up inference by 3x with minimal accuracy loss",
+    "target_market": "Indie hackers and small businesses running reasoning LLMs locally on CPU/GPU who need faster inference without cloud costs",
+    "monthly_price_usd": 29,
+    "mvp_features": [
+      "Pairwise rotation quantization for 70% model compression",
+      "Offline inference with quantized models",
+      "CLI for model quantization and inference",
+      "--demo mode with hardcoded quantized model",
+      "Performance metrics and accuracy reports"
+    ],
     "build_phases": [
       {
         "phase": 1,
-        "name": "Core DB + add",
-        "description": "SQLite core for HermesWatch, add/list commands"
+        "name": "Core quantization engine",
+        "description": "Implement pairwise rotation quantization algorithm and basic CLI commands",
+        "hours": 4
       },
       {
         "phase": 2,
-        "name": "Reports + alerts",
-        "description": "reports, status, output formatting"
+        "name": "Model handling",
+        "description": "Add model loading, saving, and inference pipeline",
+        "hours": 3
       },
       {
         "phase": 3,
         "name": "Demo + polish",
-        "description": "--demo with realistic HermesWatch data. --help works."
+        "description": "Add --demo mode with hardcoded data and finalize CLI interface",
+        "hours": 2
       }
     ],
-    "demo_script": "Run hermeswatch --demo"
+    "demo_script": "Runs quantization on a hardcoded 7B model, shows 3x speedup and 1% accuracy loss, outputs quantized model to disk",
+    "market_score": 8,
+    "buildability_score": 9,
+    "overall_score": 8,
+    "verdict": "build",
+    "phuket_angle": "none"
   },
-  "build_status": "in_progress",
-  "phases_complete": [
-    1
-  ],
-  "last_build": "2026-05-07T02:10:15.592100",
-  "phases_done": []
+  "build_status": "pending",
+  "phases_complete": []
 }
