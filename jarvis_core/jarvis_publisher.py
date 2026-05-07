@@ -118,6 +118,25 @@ def push_file(repo_path, content, commit_msg):
         data)
     return status in (200, 201)
 
+# ── ROOT INDEX GENERATOR ─────────────────────────────
+def generate_root_index():
+    db = get_pub_db()
+    rows = db.execute("SELECT product, page_url, date FROM published ORDER BY date DESC").fetchall()
+    db.close()
+    items = ""
+    for product, page_url, date in rows:
+        clean = product.replace("_", " ").title()
+        items += f'<div class="card"><h3><a href="{page_url}">{clean}</a></h3><p>{date[:10]}</p></div>'
+    return (
+        "<!DOCTYPE html><html lang=en><head><meta charset=UTF-8>"
+        "<title>JARVIS Products</title>"
+        "<style>body{font-family:sans-serif;background:#0a0a0a;color:#e0e0e0;padding:40px}"
+        "h1{color:#fff;margin-bottom:32px}"
+        ".card{background:#1a1a2e;padding:20px;margin:12px 0;border-radius:8px}"
+        "a{color:#60a5fa;text-decoration:none}</style></head>"
+        f"<body><h1>🤖 JARVIS Products</h1>{items}</body></html>"
+    )
+
 # ── LANDING PAGE GENERATOR ────────────────────────────
 def generate_landing_page(product_name, tagline, problem,
                            solution, tech_stack, github_url):
@@ -400,6 +419,7 @@ def send_product_notifications(product_info, summary):
         f"<a href='{github_url}'>View on GitHub</a>"
     )
     trigger_vercel() # Trigger Vercel after notifications
+    push_file("index.html", generate_root_index(), "🤖 JARVIS: update product index")
 
 # ── MAIN ──────────────────────────────────────────────
 if __name__ == "__main__":
