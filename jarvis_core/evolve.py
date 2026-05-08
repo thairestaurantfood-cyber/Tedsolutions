@@ -26,7 +26,7 @@ Never fails silently.
 #       # then print formatted table — never just 'loaded successfully'
 #
 # PATTERN: wrong_idea_type (2 failures)
-# RULE: NEVER build: hardware tools, FPGA, ML training, TensorFlow, image processing. ONLY build: data tools, automations, CLI utilities, freelancer tools, business workflows.
+# RULE: NEVER build: hardware tools, FPGA, ML training, TensorFlow, image processing, trading bots, arbitrage bots, betting bots, gambling tools, crypto trading, financial speculation. ONLY build: data tools, automations, CLI utilities, developer tools, agent infrastructure, AURA-related tools (agent rating, agent registry, agent identity, code quality).
 #
 # ═══════════════════════════════════════════════════
 # These rules were rewritten because patterns failed 3+ times.
@@ -46,7 +46,7 @@ Never fails silently.
 #       # then print formatted table — never just 'loaded successfully'
 #
 # PATTERN: wrong_idea_type (2 failures)
-# RULE: NEVER build: hardware tools, FPGA, ML training, TensorFlow, image processing. ONLY build: data tools, automations, CLI utilities, freelancer tools, business workflows.
+# RULE: NEVER build: hardware tools, FPGA, ML training, TensorFlow, image processing, trading bots, arbitrage bots, betting bots, gambling tools, crypto trading, financial speculation. ONLY build: data tools, automations, CLI utilities, developer tools, agent infrastructure, AURA-related tools (agent rating, agent registry, agent identity, code quality).
 #
 # ═══════════════════════════════════════════════════
 # These rules were rewritten because patterns failed 3+ times.
@@ -66,7 +66,7 @@ Never fails silently.
 #       # then print formatted table — never just 'loaded successfully'
 #
 # PATTERN: wrong_idea_type (2 failures)
-# RULE: NEVER build: hardware tools, FPGA, ML training, TensorFlow, image processing. ONLY build: data tools, automations, CLI utilities, freelancer tools, business workflows.
+# RULE: NEVER build: hardware tools, FPGA, ML training, TensorFlow, image processing, trading bots, arbitrage bots, betting bots, gambling tools, crypto trading, financial speculation. ONLY build: data tools, automations, CLI utilities, developer tools, agent infrastructure, AURA-related tools (agent rating, agent registry, agent identity, code quality).
 #
 # ═══════════════════════════════════════════════════
 # These rules were rewritten because patterns failed 3+ times.
@@ -86,7 +86,7 @@ Never fails silently.
 #       # then print formatted table — never just 'loaded successfully'
 #
 # PATTERN: wrong_idea_type (2 failures)
-# RULE: NEVER build: hardware tools, FPGA, ML training, TensorFlow, image processing. ONLY build: data tools, automations, CLI utilities, freelancer tools, business workflows.
+# RULE: NEVER build: hardware tools, FPGA, ML training, TensorFlow, image processing, trading bots, arbitrage bots, betting bots, gambling tools, crypto trading, financial speculation. ONLY build: data tools, automations, CLI utilities, developer tools, agent infrastructure, AURA-related tools (agent rating, agent registry, agent identity, code quality).
 #
 # ═══════════════════════════════════════════════════
 # These rules were rewritten because patterns failed 3+ times.
@@ -106,7 +106,7 @@ Never fails silently.
 #       # then print formatted table — never just 'loaded successfully'
 #
 # PATTERN: wrong_idea_type (2 failures)
-# RULE: NEVER build: hardware tools, FPGA, ML training, TensorFlow, image processing. ONLY build: data tools, automations, CLI utilities, freelancer tools, business workflows.
+# RULE: NEVER build: hardware tools, FPGA, ML training, TensorFlow, image processing, trading bots, arbitrage bots, betting bots, gambling tools, crypto trading, financial speculation. ONLY build: data tools, automations, CLI utilities, developer tools, agent infrastructure, AURA-related tools (agent rating, agent registry, agent identity, code quality).
 #
 # ═══════════════════════════════════════════════════
 # These rules were rewritten because patterns failed 3+ times.
@@ -126,7 +126,7 @@ Never fails silently.
 #       # then print formatted table — never just 'loaded successfully'
 #
 # PATTERN: wrong_idea_type (2 failures)
-# RULE: NEVER build: hardware tools, FPGA, ML training, TensorFlow, image processing. ONLY build: data tools, automations, CLI utilities, freelancer tools, business workflows.
+# RULE: NEVER build: hardware tools, FPGA, ML training, TensorFlow, image processing, trading bots, arbitrage bots, betting bots, gambling tools, crypto trading, financial speculation. ONLY build: data tools, automations, CLI utilities, developer tools, agent infrastructure, AURA-related tools (agent rating, agent registry, agent identity, code quality).
 #
 # ═══════════════════════════════════════════════════
 
