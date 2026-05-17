@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 JARVIS API — single source of truth for all LLM calls.
-Priority: Mistral → Gemini → OpenRouter → Local
+Priority: Gemini → Mistral → OpenAI → NVIDIA → OpenRouter → Local
 Import this in every JARVIS script.
 """
 import os, json, time, urllib.request, urllib.error
@@ -61,7 +61,7 @@ def call_gemini(prompt, max_tokens=2000):
     try:
         def fn():
             r = _post(
-                f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={key}",
+                f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={key}",
                 {"contents":[{"parts":[{"text":prompt}]}],
                  "generationConfig":{"maxOutputTokens":max_tokens,"temperature":0.3}},
                 timeout=60)
@@ -152,16 +152,17 @@ def ask(prompt, max_tokens=2000, fast=False):
     Returns text or None.
     """
     if fast:
-        # Fast path: Mistral small → OpenAI → NVIDIA → coder local
-        return (call_mistral(prompt, model="mistral-small-latest", max_tokens=500)
+        # Fast path: Gemini flash → Mistral small → OpenAI → NVIDIA → coder local
+        return (call_gemini(prompt, max_tokens=500)
+                or call_mistral(prompt, model="mistral-small-latest", max_tokens=500)
                 or call_openai(prompt, max_tokens=500)
                 or call_nvidia(prompt, max_tokens=500)
                 or call_local_coder(prompt))
-    # Full path: Mistral → OpenAI → NVIDIA → Gemini → OpenRouter → coder local
-    return (call_mistral(prompt, max_tokens=max_tokens)
+    # Full path: Gemini → Mistral → OpenAI → NVIDIA → OpenRouter → coder local
+    return (call_gemini(prompt, max_tokens=max_tokens)
+            or call_mistral(prompt, max_tokens=max_tokens)
             or call_openai(prompt, max_tokens=max_tokens)
             or call_nvidia(prompt, max_tokens=max_tokens)
-            or call_gemini(prompt, max_tokens=max_tokens)
             or call_openrouter(prompt, max_tokens=max_tokens)
             or call_local_coder(prompt))
 
