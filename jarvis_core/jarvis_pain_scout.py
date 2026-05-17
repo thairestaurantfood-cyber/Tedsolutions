@@ -33,7 +33,7 @@ REDDIT_SOURCES = [
     "SideProject", "indiehackers", "entrepreneur",
     "startups", "microsaas", "webdev", "Python",
     # Real world pain — global problems
-    "smallbusiness", "freelance", "digitalnomad",
+    "smallbusiness", "developers, businesses, and individuals globally", "digitalnomad",
     "personalfinance", "povertyfinance", "WorkReform",
     # Emerging tech
     "selfhosted", "homeautomation", "nocode",
@@ -294,7 +294,7 @@ Think: What tool would 100,000 developers/businesses want tomorrow?
 What gap exists in the AI agent ecosystem right now?
 What can be built in <200 lines that wraps something powerful?
 
-AVOID: more invoice trackers, more freelancer tools, basic CRUD apps
+AVOID: more invoice trackers, more developers, businesses, and individuals globallyr tools, basic CRUD apps
 TARGET: AI tools, agent infrastructure, developer tools, data tools,
         personal AI assistants, MCP servers, automation tools
 
@@ -318,7 +318,11 @@ OUTPUT — ONLY valid JSON, no other text:
         log("❌ No LLM response"); return []
     try:
         clean = re.sub(r'```json|```', '', response).strip()
-        ideas = json.loads(clean[clean.index('['):clean.rindex(']')+1])
+        import re as _re
+        clean = _re.sub(r",\s*([}\]])", r"\1", clean)
+        if "[" not in clean or "]" not in clean:
+            log("❌ No JSON array found in response"); return []
+        ideas = json.loads(clean[clean.index("["):clean.rindex("]")+1])
         log(f"✅ {len(ideas)} cutting-edge ideas generated")
         return ideas
     except Exception as e:
@@ -448,7 +452,7 @@ def demo():
   • Tools developers would pay for tomorrow
 
   WHAT CHANGED:
-  ❌ v1: only r/freelance
+  ❌ v1: only r/developers, businesses, and individuals globally
   ❌ v2: broad but unfocused, offline bias
   ✅ v3: AI-first, 2026 ecosystem, GitHub trending,
          can suggest wrapping existing tools
