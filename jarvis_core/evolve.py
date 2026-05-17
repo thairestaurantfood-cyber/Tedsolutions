@@ -728,6 +728,11 @@ CRITICAL RULES — YOUR CODE WILL BE AUTOMATICALLY TESTED:
 - --demo must insert hardcoded rows, query them, print results, then exit cleanly
 - CREATE TABLE must appear before INSERT — always
 - stdlib ONLY: os,sys,json,csv,sqlite3,argparse,datetime,pathlib,subprocess,re,time
+- NEVER: os.makedirs(path), exist_ok=True) — ALWAYS: os.makedirs(path, exist_ok=True)
+- NEVER: main() at module level — ALWAYS: if __name__ == "__main__": main()
+- NEVER: f-string split across lines — ALWAYS: close f-string on same line
+- NEVER: unclosed ( in SQL strings — ALWAYS: match every ( with )
+- DEMO must print formatted table using print(f"{{col:<10}}") style
 - No markdown fences — output raw Python only, starting with "import"
 - os.makedirs(os.path.dirname(os.path.abspath(db_path)), exist_ok=True) before sqlite3.connect()
 - Column names in INSERT must exactly match CREATE TABLE column names
@@ -786,6 +791,11 @@ THIS PHASE: {phase_desc}
 
 CRITICAL RULES — YOUR CODE WILL BE AUTOMATICALLY TESTED:
 - stdlib ONLY: os,sys,json,csv,sqlite3,argparse,datetime,pathlib,subprocess,re,time
+- NEVER: os.makedirs(path), exist_ok=True) — ALWAYS: os.makedirs(path, exist_ok=True)
+- NEVER: main() at module level — ALWAYS: if __name__ == "__main__": main()
+- NEVER: f-string split across lines — ALWAYS: close f-string on same line
+- NEVER: unclosed ( in SQL strings — ALWAYS: match every ( with )
+- DEMO must print formatted table using print(f"{{col:<10}}") style
 - NO PIL, flask, requests, pandas, numpy, tabulate, bs4
 - Use os.path.expanduser('~') for all paths
 - --demo flag MUST use ONLY hardcoded data, NO network calls, NO input()
