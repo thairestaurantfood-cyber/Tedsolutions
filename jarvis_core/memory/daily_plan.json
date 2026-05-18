@@ -1,58 +1,30 @@
 {
-  "date": "2026-05-18T00:00:27.710958",
-  "idea": {
-    "source": "r/SideProject",
-    "title": "The best reddit marketing tool out there right now?",
-    "url": "https://www.reddit.com/r/SideProject/comments/1tf963p/the_best_reddit_marketing_tool_out_there_right_now/",
-    "ts": "10:00",
-    "score": 7,
-    "verdict": "build"
-  },
+  "date": "2026-05-18T20:14:51.672843",
   "plan": {
-    "product_name": "Invoice Chaser CLI",
-    "tagline": "A minimalist Python CLI to track invoices and chase overdue payments for freelancers.",
-    "problem": "Freelancers and small businesses often lose valuable time manually tracking invoice due dates and sending follow-up reminders, leading to delayed payments and cash flow issues.",
-    "solution": "Invoice Chaser provides a simple command-line interface to add invoices, mark them as paid, list overdue invoices, and generate templated follow-up messages, ensuring timely payment reminders without complex software.",
-    "target_market": "Independent contractors, freelance developers, designers, writers, and small service-based businesses worldwide who prefer command-line tools and need an efficient, no-frills solution for invoice management.",
-    "monthly_price_usd": 29,
-    "mvp_features": [
-      "Add new invoices (client, amount, due date)",
-      "List all or overdue invoices",
-      "Mark invoices as paid",
-      "Generate overdue invoice report",
-      "Generate templated follow-up message for a specific invoice",
-      "--demo mode with hardcoded data"
-    ],
+    "product_name": "AgentOS",
+    "problem": "Local AI agents have no coordination layer - each runs in isolation with no shared memory, no task routing, no skill registry",
+    "solution": "A lightweight local-first agent operating system: process registry, task queue, shared memory bus, skill loader, and status dashboard in one CLI",
     "build_phases": [
       {
         "phase": 1,
-        "name": "Core DB + add/list",
-        "description": "Initialize sqlite3 DB, implement 'add' and 'list' commands for invoices.",
-        "hours": 2
+        "name": "Agent Registry + Task Queue",
+        "description": "SQLite-backed agent registry, task queue with priority, --demo shows agents registering and claiming tasks"
       },
       {
         "phase": 2,
-        "name": "Payment + Reports",
-        "description": "Add 'mark-paid' command, implement overdue invoice reporting and follow-up message generation.",
-        "hours": 2
+        "name": "Shared Memory Bus + Skill Loader",
+        "description": "Key-value memory store agents can read/write, skill discovery from ~/jarvis/products/, --demo shows memory sharing"
       },
       {
         "phase": 3,
-        "name": "Demo + Polish",
-        "description": "Implement '--demo' mode with sample data, add comprehensive '--help' and basic error handling.",
-        "hours": 1
+        "name": "Status Dashboard + Polish",
+        "description": "ASCII dashboard showing all agents, queue depth, memory usage, active skills. --demo runs full simulation"
       }
-    ],
-    "demo_script": "Run `invoice-chaser --demo`. It will populate a temporary DB with sample invoices, list all invoices, then list overdue invoices, and finally show a generated follow-up message for one overdue invoice.",
-    "market_score": 8,
-    "buildability_score": 9,
-    "overall_score": 8,
-    "verdict": "build",
-    "phuket_angle": "Freelancers and digital nomads in Phuket, often serving international clients, can use this tool to efficiently manage their cash flow without relying on cloud services or complex accounting software, fitting the lean, independent lifestyle common in the region. It helps them stay on top of payments from clients across different time zones."
+    ]
   },
   "build_status": "in_progress",
   "phases_complete": [
     1
   ],
-  "last_build": "2026-05-18T02:00:01.212963"
+  "last_build": "2026-05-19T02:00:04.282029"
 }
