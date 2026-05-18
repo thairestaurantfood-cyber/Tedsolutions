@@ -7,7 +7,27 @@ Never fails silently.
 
 # ═══════════════════════════════════════════════════
 # META-EVOLVED RULES — AUTO-GENERATED FROM FAILURES
-# Last updated: 2026-05-05 22:30
+# Last updated: 2026-05-18 22:30
+# ═══════════════════════════════════════════════════
+# These rules were rewritten because patterns failed 3+ times.
+#
+# PATTERN: argparse_broken (13 failures)
+# RULE: CRITICAL: Always use parse_known_args() for --demo BEFORE defining subparsers. NEVER use required=True on subparsers. ALWAYS check pre.demo first.
+#   pre, _ = parser.parse_known_args()
+#   if pre.demo:
+#       demo(); return
+#   subs = parser.add_subparsers(dest='command')  # NO required=True
+#
+# PATTERN: demo_broken (7 failures)
+# RULE: CRITICAL: Demo MUST delete DB first, insert realistic data in ALL fields, then PRINT formatted table output. NEVER just say 'use list to view'. NEVER leave zero values.
+#   def demo():
+#       if os.path.exists(DB_PATH): os.remove(DB_PATH)
+#       # insert data with ALL fields populated
+#       # then print formatted table — never just 'loaded successfully'
+#
+# PATTERN: wrong_idea_type (2 failures)
+# RULE: NEVER build: hardware tools, FPGA, ML training, TensorFlow, image processing. ONLY build: data tools, automations, CLI utilities, freelancer tools, business workflows.
+#
 # ═══════════════════════════════════════════════════
 # These rules were rewritten because patterns failed 3+ times.
 #
@@ -430,6 +450,25 @@ def call_openrouter(prompt, context=""):
         return None
 
 # ── Smart LLM caller: cloud first, local fallback ─────
+
+def log_to_tokentamer(model, prompt, result, label=""):
+    try:
+        import sqlite3
+        from pathlib import Path
+        from datetime import datetime
+        DB = Path.home() / "jarvis" / "memory" / "tokentamer.db"
+        if not DB.exists(): return
+        tin = len(prompt.split())
+        tout = len(result.split()) if result else 0
+        p = {"mistral-small-latest":{"in":0.10,"out":0.30}}.get(model,{"in":0.10,"out":0.30})
+        cost = (tin*p["in"]+tout*p["out"])/1_000_000
+        db = sqlite3.connect(DB)
+        db.execute("INSERT INTO usage(ts,script,model,prompt_tokens,completion_tokens,cost_usd,task) VALUES(?,?,?,?,?,?,?)",
+                   (datetime.now().isoformat(),"evolve",model,tin,tout,cost,label or "build"))
+        db.commit(); db.close()
+    except Exception:
+        pass
+
 def llm(prompt, context="", label=""):
     if label:
         print(f"  Calling LLM: {label}")
@@ -440,6 +479,7 @@ def llm(prompt, context="", label=""):
         result = call_mistral(prompt, context)
         if result:
             print(f"  ✓ Mistral answered ({len(result)} chars)")
+            log_to_tokentamer("mistral-small-latest", prompt, result, label)
             return result
         result = call_openrouter(prompt, context)
         if result:
