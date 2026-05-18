@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>20260517 Jarvisaas</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+          background:#0a0a0a; color:#e0e0e0; }
+  .hero { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+           padding: 80px 20px; text-align:center; }
+  .hero h1 { font-size:2.8rem; font-weight:800; color:#fff;
+              margin-bottom:16px; letter-spacing:-1px; }
+  .hero p  { font-size:1.2rem; color:#94a3b8; max-width:600px;
+              margin:0 auto 32px; line-height:1.6; }
+  .badge { display:inline-block; background:#0f3460; color:#60a5fa;
+            padding:6px 16px; border-radius:999px; font-size:0.85rem;
+            border:1px solid #1e40af; margin-bottom:24px; }
+  .btn { display:inline-block; background:#3b82f6; color:#fff;
+          padding:14px 32px; border-radius:8px; text-decoration:none;
+          font-weight:600; font-size:1rem; margin:8px;
+          transition:background 0.2s; }
+  .btn:hover { background:#2563eb; }
+  .btn.secondary { background:transparent; border:1px solid #374151; color:#9ca3af; }
+  .section { max-width:800px; margin:0 auto; padding:60px 20px; }
+  .section h2 { font-size:1.6rem; font-weight:700; margin-bottom:16px; color:#fff; }
+  .section p  { color:#94a3b8; line-height:1.8; margin-bottom:16px; }
+  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+            gap:16px; margin-top:24px; }
+  .card { background:#111; border:1px solid #1f2937; border-radius:12px;
+           padding:24px; }
+  .card h3 { color:#60a5fa; font-size:1rem; margin-bottom:8px; }
+  .card p  { color:#6b7280; font-size:0.9rem; line-height:1.6; }
+  .tech { display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+  .tech span { background:#1f2937; color:#9ca3af; padding:4px 12px;
+                border-radius:6px; font-size:0.8rem; font-family:monospace; }
+  .footer { text-align:center; padding:40px 20px; color:#374151;
+             font-size:0.85rem; border-top:1px solid #111; }
+  .jarvis-badge { color:#3b82f6; font-weight:600; }
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="badge">🤖 Built by JARVIS</div>
+  <h1>20260517 Jarvisaas</h1>
+  <p>Indie hackers want an AI that builds products overnight while they sleep but can't set up the infrastructure. They need a hosted version of JARVIS that runs autonomously.</p>
+  <a href="https://github.com/thairestaurantfood-cyber/Tedsolutions/tree/main/products/20260517_jarvisaas" class="btn">View on GitHub</a>
+  <a href="#about" class="btn secondary">Learn More</a>
+</div>
+
+<div class="section" id="about">
+  <h2>The Problem</h2>
+  <p>Indie hackers want an AI that builds products overnight while they sleep but can't set up the infrastructure. They need a hosted version of JARVIS that runs autonomously.</p>
+
+  <h2 style="margin-top:40px">The Solution</h2>
+  <p>A clean Python tool with demo mode and full documentation.</p>
+
+  <div class="cards" style="margin-top:40px">
+    <div class="card">
+      <h3>🚀 Open Source</h3>
+      <p>Full source code available on GitHub. Fork it, modify it, deploy it.</p>
+    </div>
+    <div class="card">
+      <h3>🐍 Pure Python</h3>
+      <p>No heavy dependencies. Runs anywhere Python runs.</p>
+    </div>
+    <div class="card">
+      <h3>💾 Local First</h3>
+      <p>Your data stays on your machine. SQLite storage, no cloud required.</p>
+    </div>
+  </div>
+
+  <h2 style="margin-top:48px">Tech Stack</h2>
+  <div class="tech">
+    <span>os</span><span>sys</span><span>json</span><span>csv</span><span>sqlite3</span><span>argparse</span><span>datetime</span><span>pathlib</span><span>subprocess</span><span>urllib.request</span><span>re</span><span>time</span>
+  </div>
+</div>
+
+<div class="footer">
+  Built autonomously by <span class="jarvis-badge">JARVIS</span> —
+  May 2026 ·
+  <a href="https://github.com/thairestaurantfood-cyber/Tedsolutions"
+     style="color:#3b82f6">tedsolutions</a>
+</div>
+</body>
+</html>
