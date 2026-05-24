@@ -7,7 +7,87 @@ Never fails silently.
 
 # ═══════════════════════════════════════════════════
 # META-EVOLVED RULES — AUTO-GENERATED FROM FAILURES
-# Last updated: 2026-05-18 22:30
+# Last updated: 2026-05-24 22:30
+# ═══════════════════════════════════════════════════
+# These rules were rewritten because patterns failed 3+ times.
+#
+# PATTERN: argparse_broken (13 failures)
+# RULE: CRITICAL: Always use parse_known_args() for --demo BEFORE defining subparsers. NEVER use required=True on subparsers. ALWAYS check pre.demo first.
+#   pre, _ = parser.parse_known_args()
+#   if pre.demo:
+#       demo(); return
+#   subs = parser.add_subparsers(dest='command')  # NO required=True
+#
+# PATTERN: demo_broken (9 failures)
+# RULE: CRITICAL: Demo MUST delete DB first, insert realistic data in ALL fields, then PRINT formatted table output. NEVER just say 'use list to view'. NEVER leave zero values.
+#   def demo():
+#       if os.path.exists(DB_PATH): os.remove(DB_PATH)
+#       # insert data with ALL fields populated
+#       # then print formatted table — never just 'loaded successfully'
+#
+# PATTERN: wrong_idea_type (2 failures)
+# RULE: NEVER build: hardware tools, FPGA, ML training, TensorFlow, image processing. ONLY build: data tools, automations, CLI utilities, developer tools, agent infrastructure, business workflows.
+#
+# ═══════════════════════════════════════════════════
+# These rules were rewritten because patterns failed 3+ times.
+#
+# PATTERN: argparse_broken (13 failures)
+# RULE: CRITICAL: Always use parse_known_args() for --demo BEFORE defining subparsers. NEVER use required=True on subparsers. ALWAYS check pre.demo first.
+#   pre, _ = parser.parse_known_args()
+#   if pre.demo:
+#       demo(); return
+#   subs = parser.add_subparsers(dest='command')  # NO required=True
+#
+# PATTERN: demo_broken (8 failures)
+# RULE: CRITICAL: Demo MUST delete DB first, insert realistic data in ALL fields, then PRINT formatted table output. NEVER just say 'use list to view'. NEVER leave zero values.
+#   def demo():
+#       if os.path.exists(DB_PATH): os.remove(DB_PATH)
+#       # insert data with ALL fields populated
+#       # then print formatted table — never just 'loaded successfully'
+#
+# PATTERN: wrong_idea_type (2 failures)
+# RULE: NEVER build: hardware tools, FPGA, ML training, TensorFlow, image processing. ONLY build: data tools, automations, CLI utilities, developer tools, agent infrastructure, business workflows.
+#
+# ═══════════════════════════════════════════════════
+# These rules were rewritten because patterns failed 3+ times.
+#
+# PATTERN: argparse_broken (13 failures)
+# RULE: CRITICAL: Always use parse_known_args() for --demo BEFORE defining subparsers. NEVER use required=True on subparsers. ALWAYS check pre.demo first.
+#   pre, _ = parser.parse_known_args()
+#   if pre.demo:
+#       demo(); return
+#   subs = parser.add_subparsers(dest='command')  # NO required=True
+#
+# PATTERN: demo_broken (8 failures)
+# RULE: CRITICAL: Demo MUST delete DB first, insert realistic data in ALL fields, then PRINT formatted table output. NEVER just say 'use list to view'. NEVER leave zero values.
+#   def demo():
+#       if os.path.exists(DB_PATH): os.remove(DB_PATH)
+#       # insert data with ALL fields populated
+#       # then print formatted table — never just 'loaded successfully'
+#
+# PATTERN: wrong_idea_type (2 failures)
+# RULE: NEVER build: hardware tools, FPGA, ML training, TensorFlow, image processing. ONLY build: data tools, automations, CLI utilities, developer tools, agent infrastructure, business workflows.
+#
+# ═══════════════════════════════════════════════════
+# These rules were rewritten because patterns failed 3+ times.
+#
+# PATTERN: argparse_broken (13 failures)
+# RULE: CRITICAL: Always use parse_known_args() for --demo BEFORE defining subparsers. NEVER use required=True on subparsers. ALWAYS check pre.demo first.
+#   pre, _ = parser.parse_known_args()
+#   if pre.demo:
+#       demo(); return
+#   subs = parser.add_subparsers(dest='command')  # NO required=True
+#
+# PATTERN: demo_broken (8 failures)
+# RULE: CRITICAL: Demo MUST delete DB first, insert realistic data in ALL fields, then PRINT formatted table output. NEVER just say 'use list to view'. NEVER leave zero values.
+#   def demo():
+#       if os.path.exists(DB_PATH): os.remove(DB_PATH)
+#       # insert data with ALL fields populated
+#       # then print formatted table — never just 'loaded successfully'
+#
+# PATTERN: wrong_idea_type (2 failures)
+# RULE: NEVER build: hardware tools, FPGA, ML training, TensorFlow, image processing. ONLY build: data tools, automations, CLI utilities, developer tools, agent infrastructure, business workflows.
+#
 # ═══════════════════════════════════════════════════
 # These rules were rewritten because patterns failed 3+ times.
 #
@@ -26,7 +106,7 @@ Never fails silently.
 #       # then print formatted table — never just 'loaded successfully'
 #
 # PATTERN: wrong_idea_type (2 failures)
-# RULE: NEVER build: hardware tools, FPGA, ML training, TensorFlow, image processing. ONLY build: data tools, automations, CLI utilities, freelancer tools, business workflows.
+# RULE: NEVER build: hardware tools, FPGA, ML training, TensorFlow, image processing. ONLY build: data tools, automations, CLI utilities, developer tools, agent infrastructure, business workflows.
 #
 # ═══════════════════════════════════════════════════
 # These rules were rewritten because patterns failed 3+ times.
@@ -472,40 +552,77 @@ def log_to_tokentamer(model, prompt, result, label=""):
 def llm(prompt, context="", label=""):
     if label:
         print(f"  Calling LLM: {label}")
-    
-    online = internet_ok()
-    
-    if online:
-        result = call_mistral(prompt, context)
-        if result:
-            print(f"  ✓ Mistral answered ({len(result)} chars)")
-            log_to_tokentamer("mistral-small-latest", prompt, result, label)
-            return result
-        result = call_openrouter(prompt, context)
-        if result:
-            print(f"  ✓ OpenRouter answered ({len(result)} chars)")
-            return result
-        result = call_cerebras(prompt, context)
-        if result:
-            print(f"  ✓ Cerebras answered ({len(result)} chars)")
-            return result
-        result = call_groq(prompt, context)
-        if result:
-            print(f"  ✓ Groq answered ({len(result)} chars)")
-            return result
-        print(f"  Cloud failed — using local")
-    else:
-        print(f"  Offline — using local directly")
-    
-    result = call_local(prompt, context)
-    if result:
-        print(f"  ✓ Local answered ({len(result)} chars)")
+    import sys as _s; _s.path.insert(0, os.path.expanduser("~/jarvis"))
+    from model_router import chat as _rc
+    try:
+        result, provider, model = _rc(prompt, task="code", system=context or None, verbose=True)
+        log_to_tokentamer(model, prompt, result, label)
         return result
-    
-    print(f"  ❌ All LLMs failed for: {label}")
-    return None
+    except RuntimeError:
+        print("  All cloud providers failed — trying local")
+        return call_local(prompt, context)
 
 # ── Extract Python code from LLM response ─────────────
+
+def auto_repair_code(code):
+    """Auto-fix common LLM code generation issues before BuildGuard."""
+    import ast, textwrap
+    lines = code.split('\n')
+    result = []
+    indent_stack = [0]  # stack of expected indent levels
+
+    BLOCK_STARTERS = ('def ', 'class ', 'if ', 'elif ', 'else:', 'try:', 
+                      'except', 'finally:', 'for ', 'with ', 'while ', 'async ')
+
+    for i, line in enumerate(lines):
+        stripped = line.strip()
+        if not stripped:
+            result.append('')
+            continue
+
+        curr_indent = len(line) - len(line.lstrip())
+        expected = indent_stack[-1]
+
+        # If line should be indented but isn't — fix it
+        if curr_indent < expected and stripped and not stripped.startswith('#'):
+            line = ' ' * expected + stripped
+            curr_indent = expected
+
+        result.append(line)
+
+        # Update indent stack
+        rstripped = line.rstrip()
+        if rstripped.endswith(':') and any(stripped.startswith(k) for k in BLOCK_STARTERS):
+            indent_stack.append(curr_indent + 4)
+        elif stripped in ('pass', 'return', 'break', 'continue', 'raise') or stripped.startswith('return '):
+            if len(indent_stack) > 1:
+                indent_stack.pop()
+
+    fixed = '\n'.join(result)
+
+    # Verify with ast — if still broken return original
+    try:
+        ast.parse(fixed)
+        return fixed
+    except SyntaxError:
+        # Try autopep8-style: just ensure docstrings after def are indented
+        lines2 = code.split('\n')
+        out = []
+        prev_def = False
+        prev_indent = 0
+        for line in lines2:
+            s = line.lstrip()
+            indent = len(line) - len(s)
+            if prev_def and s.startswith('"""') and indent == 0:
+                line = ' ' * (prev_indent + 4) + s
+            if s.startswith('def ') or s.startswith('class '):
+                prev_def = True
+                prev_indent = indent
+            elif s:
+                prev_def = False
+            out.append(line)
+        return '\n'.join(out)
+
 def extract_code(text):
     if not text:
         return None
@@ -743,6 +860,7 @@ if os.path.exists(main_file):
 # Build prompt
 tech_str = ", ".join(tech_stack)
 if existing_code:
+    _header = open(os.path.join(MEMORY, "build_prompt_header.txt")).read() if os.path.exists(os.path.join(MEMORY, "build_prompt_header.txt")) else ""
     prompt = f"""You are building phase {phase_num} ({phase_name}) of {product_name}.
 
 EXISTING CODE:
@@ -750,6 +868,7 @@ EXISTING CODE:
 
 PHASE {phase_num} TASK: {phase_desc}
 
+{_header}
 RULES — MUST FOLLOW ALL:
 - ONLY Python stdlib: os, sys, json, csv, sqlite3, argparse, datetime, pathlib, subprocess, urllib.request, re, time
 - BANNED (will crash): flask, django, requests, PIL, pillow, tensorflow, torch, numpy, pandas, bs4, tesseract, tabulate, rich, click, fastapi
@@ -910,6 +1029,8 @@ if not code:
 
 code = repair_imports(code)
 code = strip_banned_imports(code)
+code = auto_repair_code(code)
+print(f"  f527 Auto-repair applied")
 
 # Save
 with open(main_file, "w") as f:
@@ -975,6 +1096,9 @@ RULES YOU MUST FOLLOW:
 - --demo must work 100% offline, NO network calls, NO input() calls
 - stdlib only: os,sys,json,csv,sqlite3,argparse,datetime,pathlib,re,time
 - Never use: flask,requests,numpy,pandas,PIL,urllib in demo
+- CRITICAL: if '--demo' in sys.argv: demo(); return - ALWAYS at top of main() BEFORE subparsers
+- CRITICAL: demo is NOT a subcommand - check via sys.argv only
+- CRITICAL: ALL code inside functions MUST be indented 4 spaces
 
 Here is the broken code to fix:
 {_broken_code[:3000]}
@@ -986,6 +1110,7 @@ Return ONLY the complete fixed Python file, no explanation, no markdown fences."
         if _fixed_code:
             _fixed_code = repair_imports(_fixed_code)
             _fixed_code = strip_banned_imports(_fixed_code)
+            _fixed_code = auto_repair_code(_fixed_code)
             with open(main_file, "w") as _f:
                 _f.write(_fixed_code)
             code = _fixed_code
@@ -1048,6 +1173,33 @@ Built offline: {not internet_ok()}
     print(f"\n💾 Done. Score: {score}")
 
     print(f"Phase {phase_num} complete. Total: {phases_done}")
+    # == AGENT COORDINATION (auto-injected) ==
+    if len(phases_done) >= len(phases):
+        import json as _aj, shutil as _sh
+        _mem = os.path.expanduser("~/jarvis/memory")
+        _win = "/mnt/c/Users/tedsa/Documents/New project"
+        # 1. Notify Hermes
+        try:
+            _aj.dump({"last_updated": now.isoformat(), "last_build": {"product": product_name, "score": score, "status": "complete", "phases": phases_done, "product_dir": product_dir}, "total_products": len(os.listdir(os.path.expanduser("~/jarvis/products")))}, open(os.path.join(_mem, "jarvis_to_hermes.json"), "w"), indent=2)
+            print("  ✅ Hermes notified")
+        except Exception as _e: print(f"  ⚠ Hermes notify failed: {_e}")
+        # 2. Update system_state.json
+        try:
+            _ss_path = os.path.join(_mem, "system_state.json")
+            _ss = _aj.load(open(_ss_path)) if os.path.exists(_ss_path) else {}
+            _ss["last_updated"] = now.strftime("%Y-%m-%d")
+            _ss.setdefault("agents", {}).setdefault("jarvis", {}).update({"status": "active", "last_build": product_name, "last_score": score, "phases_complete": phases_done})
+            _aj.dump(_ss, open(_ss_path, "w"), indent=2)
+            print("  ✅ system_state.json updated")
+        except Exception as _e: print(f"  ⚠ system_state failed: {_e}")
+        # 3. Copy to Windows for Codex
+        try:
+            if os.path.exists(_win):
+                _dst = os.path.join(_win, os.path.basename(product_dir))
+                if os.path.exists(_dst): _sh.rmtree(_dst)
+                _sh.copytree(product_dir, _dst)
+                print(f"  ✅ Codex bridge: {os.path.basename(product_dir)} ready")
+        except Exception as _e: print(f"  ⚠ Codex bridge failed: {_e}")
     if len(phases_done) < len(phases):
         print(f"  ⏳ Waiting 20s before next phase (rate limit protection)...")
         time.sleep(20)
