@@ -1,30 +1,51 @@
 {
-  "date": "2026-05-18T20:14:51.672843",
+  "date": "2026-05-25T00:00:36.632939",
+  "idea": {
+    "title": "CostRadar \u2014 Real-time LLM API cost tracker across providers",
+    "score": 8,
+    "source": "seed"
+  },
   "plan": {
-    "product_name": "AgentOS",
-    "problem": "Local AI agents have no coordination layer - each runs in isolation with no shared memory, no task routing, no skill registry",
-    "solution": "A lightweight local-first agent operating system: process registry, task queue, shared memory bus, skill loader, and status dashboard in one CLI",
+    "product_name": "InvoiceChaser",
+    "tagline": "Automate overdue invoice follow-ups for freelancers with zero manual work.",
+    "problem": "Freelancers waste hours chasing late payments manually, losing revenue and productivity.",
+    "solution": "CLI tool that tracks invoices, sends automated polite reminders, and generates reports\u2014all offline-first with SQLite.",
+    "target_market": "Solo developers, designers, and small business owners who invoice clients worldwide and hate chasing payments.",
+    "monthly_price_usd": 29,
+    "mvp_features": [
+      "Add/edit invoices with due dates",
+      "Auto-send email reminders via local SMTP",
+      "Generate overdue invoice reports",
+      "Offline-first SQLite storage",
+      "--demo mode with hardcoded data"
+    ],
     "build_phases": [
       {
         "phase": 1,
-        "name": "Agent Registry + Task Queue",
-        "description": "SQLite-backed agent registry, task queue with priority, --demo shows agents registering and claiming tasks"
+        "name": "Core DB + add",
+        "description": "sqlite schema + add/list commands",
+        "hours": 2
       },
       {
         "phase": 2,
-        "name": "Shared Memory Bus + Skill Loader",
-        "description": "Key-value memory store agents can read/write, skill discovery from ~/jarvis/products/, --demo shows memory sharing"
+        "name": "Reports + alerts",
+        "description": "report generation + notification",
+        "hours": 2
       },
       {
         "phase": 3,
-        "name": "Status Dashboard + Polish",
-        "description": "ASCII dashboard showing all agents, queue depth, memory usage, active skills. --demo runs full simulation"
+        "name": "Demo + polish",
+        "description": "--demo mode + --help + edge cases",
+        "hours": 1
       }
-    ]
+    ],
+    "demo_script": "Run `invoicechase --demo` to see 3 mock invoices, auto-generated reminders, and a report showing $1,250 overdue\u2014all without internet.",
+    "market_score": 8,
+    "buildability_score": 9,
+    "overall_score": 8,
+    "verdict": "build",
+    "phuket_angle": "Thai freelancers (e.g., web devs, tour guides) often face late payments from expat clients\u2014tool\u2019s offline mode works great in Phuket\u2019s spotty WiFi areas."
   },
-  "build_status": "in_progress",
-  "phases_complete": [
-    1
-  ],
-  "last_build": "2026-05-19T02:00:04.282029"
+  "build_status": "pending",
+  "phases_complete": []
 }
