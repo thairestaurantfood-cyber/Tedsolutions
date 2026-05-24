@@ -1,1 +1,132 @@
-404: Not Found
+{
+  "version": "1.0",
+  "last_updated": "2026-05-24T18:00:04.717092",
+  "total_builds_analyzed": 100,
+  "success_rate": "66.0%",
+  "top_patterns": {
+    "argparse": {
+      "pattern_name": "parse_known_args_first",
+      "description": "Always use parse_known_args() for --demo BEFORE defining subparsers",
+      "code_example": "pre, _ = parser.parse_known_args()\nif pre.demo:\n    demo()\n    return\nsubs = parser.add_subparsers(dest='command')",
+      "success_rate": "92%",
+      "usage_count": 65,
+      "source": "Analysis of 72 builds - prevents 80% of argparse failures"
+    },
+    "demo_function": {
+      "pattern_name": "delete_db_first_then_print_table",
+      "description": "Demo must: 1) Delete DB first, 2) Insert realistic data in ALL fields, 3) Print formatted table output",
+      "code_example": "if os.path.exists(DB_PATH):\n    os.remove(DB_PATH)\n# Insert data...\n# Then print table:\nprint(f\"{'{ID':<5} {'Name':<20} {'Value':<10}\")\nprint(\"-\" * 40)\nfor row in cursor.execute('SELECT id, name, value FROM table'):\n    print(f\"{row[0]:<5} {row[1]:<20} {row[2]:<10}\")",
+      "success_rate": "95%",
+      "usage_count": 68,
+      "source": "All successful builds follow this pattern"
+    },
+    "database": {
+      "pattern_name": "sqlite_with_context_manager",
+      "description": "Use context managers for database connections to ensure proper cleanup",
+      "code_example": "with sqlite3.connect(DB_PATH) as conn:\n    cursor = conn.cursor()\n    # Execute queries...\n    conn.commit()",
+      "success_rate": "98%",
+      "usage_count": 70
+    }
+  },
+  "common_failure_patterns": {
+    "argparse_broken": {
+      "pattern": "required=True on subparsers",
+      "failure_rate": "85%",
+      "occurrences": 10,
+      "fix": "Use parse_known_args() first, never required=True on subparsers",
+      "example_failure": "parser.add_subparsers(dest='command', required=True) # WRONG"
+    },
+    "demo_unrecognized": {
+      "pattern": "--demo as subparser instead of global flag",
+      "failure_rate": "78%",
+      "occurrences": 8,
+      "fix": "Make --demo a global flag, not a subcommand",
+      "example_failure": "subparsers.add_parser('demo') # WRONG"
+    },
+    "syntax_errors": {
+      "pattern": "Indentation errors in function definitions",
+      "failure_rate": "100%",
+      "occurrences": 7,
+      "fix": "Ensure proper indentation after def statements",
+      "example_failure": "def func():\n'code' # WRONG - missing indent"
+    }
+  },
+  "product_type_analysis": {
+    "most_successful": {
+      "CLI_tools": {
+        "success_rate": "91%",
+        "average_score": 12.8,
+        "examples": [
+          "DataFlow",
+          "TokenTight",
+          "MemToken"
+        ]
+      },
+      "agent_infrastructure": {
+        "success_rate": "88%",
+        "average_score": 12.5,
+        "examples": [
+          "AgentBridge",
+          "JARVISLoop",
+          "AgentOS"
+        ]
+      },
+      "other": {
+        "success_rate": "TBD",
+        "average_score": "TBD",
+        "examples": []
+      },
+      "cli_tools": {
+        "success_rate": "TBD",
+        "average_score": "TBD",
+        "examples": []
+      },
+      "data_collection": {
+        "success_rate": "TBD",
+        "average_score": "TBD",
+        "examples": []
+      }
+    },
+    "challenging": {
+      "complex_workflows": {
+        "success_rate": "75%",
+        "average_score": 11.2,
+        "examples": [
+          "PromptVault",
+          "JARVISaaS"
+        ]
+      }
+    }
+  },
+  "recommended_practices": {
+    "always": [
+      "Use parse_known_args() for --demo handling",
+      "Delete database before demo to ensure clean state",
+      "Print formatted tables showing all inserted data",
+      "Use context managers for database connections",
+      "Keep main.py under 200 lines",
+      "Include comprehensive --help output"
+    ],
+    "avoid": [
+      "required=True on subparsers",
+      "--demo as a subcommand",
+      "Hardcoded paths without os.path.expanduser",
+      "Banned imports (flask, requests, pandas, etc.)",
+      "Complex nested functions"
+    ]
+  },
+  "learning_stats": {
+    "patterns_identified": 8,
+    "failure_types_cataloged": 4,
+    "successful_pattern_reuse": 65,
+    "build_quality_improvement": "18%",
+    "average_score_increase": "1.2 points",
+    "total_builds_analyzed": 100,
+    "analysis_date": "2026-05-19T19:36:20",
+    "recent_success_rate": "69.0%",
+    "most_common_failure": "demo_argparse (10 occurrences)",
+    "phase_1_success_rate": "67.4%",
+    "phase_2_success_rate": "62.1%",
+    "phase_3_success_rate": "80.0%"
+  }
+}
