@@ -1,50 +1,50 @@
 {
-  "date": "2026-05-25T00:00:36.632939",
+  "date": "2026-05-26T00:00:15.502947",
   "idea": {
-    "title": "CostRadar \u2014 Real-time LLM API cost tracker across providers",
-    "score": 8,
+    "title": "ToolForge \u2014 Generate MCP tools from OpenAPI specs automatically",
+    "score": 9,
     "source": "seed"
   },
   "plan": {
-    "product_name": "InvoiceChaser",
-    "tagline": "Automate overdue invoice follow-ups for freelancers with zero manual work.",
-    "problem": "Freelancers waste hours chasing late payments manually, losing revenue and productivity.",
-    "solution": "CLI tool that tracks invoices, sends automated polite reminders, and generates reports\u2014all offline-first with SQLite.",
-    "target_market": "Solo developers, designers, and small business owners who invoice clients worldwide and hate chasing payments.",
+    "product_name": "OpenAPI2MCP",
+    "tagline": "Turn any OpenAPI spec into ready-to-use MCP tools in seconds",
+    "problem": "Indie devs waste hours manually converting OpenAPI specs into MCP tools\u2014tedious, error-prone, and blocks automation projects",
+    "solution": "Parse OpenAPI specs, auto-generate Python MCP tool files with proper typing, CLI flags, and error handling\u2014just run and use instantly",
+    "target_market": "Solo Python devs and indie hackers building automation tools for APIs without backend teams",
     "monthly_price_usd": 29,
     "mvp_features": [
-      "Add/edit invoices with due dates",
-      "Auto-send email reminders via local SMTP",
-      "Generate overdue invoice reports",
-      "Offline-first SQLite storage",
-      "--demo mode with hardcoded data"
+      "Parse OpenAPI 3.0 JSON/YAML specs",
+      "Generate typed MCP tool files with docstrings",
+      "CLI with --add, --list, --demo modes",
+      "SQLite backend for tool storage",
+      "Hardcoded demo mode with GitHub API mock"
     ],
     "build_phases": [
       {
         "phase": 1,
         "name": "Core DB + add",
-        "description": "sqlite schema + add/list commands",
+        "description": "sqlite schema for tool storage + CLI add/list commands",
         "hours": 2
       },
       {
         "phase": 2,
         "name": "Reports + alerts",
-        "description": "report generation + notification",
+        "description": "report generation of generated tools + basic error alerts",
         "hours": 2
       },
       {
         "phase": 3,
         "name": "Demo + polish",
-        "description": "--demo mode + --help + edge cases",
+        "description": "--demo mode with hardcoded GitHub API mock + help text + edge cases",
         "hours": 1
       }
     ],
-    "demo_script": "Run `invoicechase --demo` to see 3 mock invoices, auto-generated reminders, and a report showing $1,250 overdue\u2014all without internet.",
+    "demo_script": "Run `openapi2mcp --demo` to see 3 pre-generated MCP tools from GitHub API spec\u2014no internet needed. Lists tools, shows sample usage, and validates output structure",
     "market_score": 8,
     "buildability_score": 9,
     "overall_score": 8,
     "verdict": "build",
-    "phuket_angle": "Thai freelancers (e.g., web devs, tour guides) often face late payments from expat clients\u2014tool\u2019s offline mode works great in Phuket\u2019s spotty WiFi areas."
+    "phuket_angle": "none"
   },
   "build_status": "pending",
   "phases_complete": []
