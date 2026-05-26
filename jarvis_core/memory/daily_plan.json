@@ -1,50 +1,53 @@
 {
-  "date": "2026-05-26T00:00:15.502947",
+  "date": "2026-05-27T00:00:48.447970",
   "idea": {
-    "title": "ToolForge \u2014 Generate MCP tools from OpenAPI specs automatically",
-    "score": 9,
-    "source": "seed"
+    "source": "r/LocalLLaMA",
+    "title": "SkillOpt treats markdown skill files as trainable parameters with proper optimization machinery",
+    "url": "https://i.redd.it/vun7zfxz8g3h1.jpeg",
+    "ts": "18:00",
+    "score": 7,
+    "verdict": "build"
   },
   "plan": {
-    "product_name": "OpenAPI2MCP",
-    "tagline": "Turn any OpenAPI spec into ready-to-use MCP tools in seconds",
-    "problem": "Indie devs waste hours manually converting OpenAPI specs into MCP tools\u2014tedious, error-prone, and blocks automation projects",
-    "solution": "Parse OpenAPI specs, auto-generate Python MCP tool files with proper typing, CLI flags, and error handling\u2014just run and use instantly",
-    "target_market": "Solo Python devs and indie hackers building automation tools for APIs without backend teams",
+    "product_name": "InvoiceChaser",
+    "tagline": "Automate overdue invoice reminders for freelancers with zero setup.",
+    "problem": "Freelancers waste hours weekly chasing late payments, hurting cash flow and productivity.",
+    "solution": "CLI tool that tracks invoices, sends polite automated reminders, and generates overdue reports\u2014all offline-first with local SQLite storage.",
+    "target_market": "Solo developers, indie hackers, and small business owners who invoice clients globally but lack accounting software.",
     "monthly_price_usd": 29,
     "mvp_features": [
-      "Parse OpenAPI 3.0 JSON/YAML specs",
-      "Generate typed MCP tool files with docstrings",
-      "CLI with --add, --list, --demo modes",
-      "SQLite backend for tool storage",
-      "Hardcoded demo mode with GitHub API mock"
+      "Add invoices with client/deadline/due-date",
+      "List upcoming/overdue invoices",
+      "Generate CSV/JSON reports",
+      "Offline-first SQLite storage",
+      "Automated reminder scheduling"
     ],
     "build_phases": [
       {
         "phase": 1,
         "name": "Core DB + add",
-        "description": "sqlite schema for tool storage + CLI add/list commands",
+        "description": "sqlite schema + add/list commands",
         "hours": 2
       },
       {
         "phase": 2,
         "name": "Reports + alerts",
-        "description": "report generation of generated tools + basic error alerts",
+        "description": "report generation + notification",
         "hours": 2
       },
       {
         "phase": 3,
         "name": "Demo + polish",
-        "description": "--demo mode with hardcoded GitHub API mock + help text + edge cases",
+        "description": "--demo mode + --help + edge cases",
         "hours": 1
       }
     ],
-    "demo_script": "Run `openapi2mcp --demo` to see 3 pre-generated MCP tools from GitHub API spec\u2014no internet needed. Lists tools, shows sample usage, and validates output structure",
+    "demo_script": "Run `invoicechase --demo` to see 3 overdue invoices auto-generated with client names, amounts, and reminder dates. Lists them sorted by urgency.",
     "market_score": 8,
     "buildability_score": 9,
     "overall_score": 8,
     "verdict": "build",
-    "phuket_angle": "none"
+    "phuket_angle": "Perfect for Phuket-based freelancers (e.g., diving instructors, tour guides) who invoice international clients but struggle with timezone delays in payments."
   },
   "build_status": "pending",
   "phases_complete": []
