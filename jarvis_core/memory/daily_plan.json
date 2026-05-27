@@ -1,53 +1,51 @@
 {
-  "date": "2026-05-27T00:00:48.447970",
+  "date": "2026-05-28T00:00:25.633593",
   "idea": {
-    "source": "r/LocalLLaMA",
-    "title": "SkillOpt treats markdown skill files as trainable parameters with proper optimization machinery",
-    "url": "https://i.redd.it/vun7zfxz8g3h1.jpeg",
-    "ts": "18:00",
-    "score": 7,
-    "verdict": "build"
+    "title": "Competitor price tracker \u2014 I check 6 sites manually every week, need automation",
+    "source": "brain/price_monitor",
+    "score": 10,
+    "buyer": "ecommerce sellers"
   },
   "plan": {
-    "product_name": "InvoiceChaser",
-    "tagline": "Automate overdue invoice reminders for freelancers with zero setup.",
-    "problem": "Freelancers waste hours weekly chasing late payments, hurting cash flow and productivity.",
-    "solution": "CLI tool that tracks invoices, sends polite automated reminders, and generates overdue reports\u2014all offline-first with local SQLite storage.",
-    "target_market": "Solo developers, indie hackers, and small business owners who invoice clients globally but lack accounting software.",
+    "product_name": "PricePulse",
+    "tagline": "Automate weekly competitor price checks across 6 sites in 60 seconds.",
+    "problem": "Indie hackers and small businesses waste hours weekly manually checking competitor prices on 6 different sites, leading to lost productivity and delayed pricing adjustments.",
+    "solution": "CLI tool that scrapes 6 competitor sites weekly, stores price history in SQLite, generates reports, and sends alerts when prices change\u2014fully automated with zero manual work.",
+    "target_market": "Indie hackers, solo developers, and small e-commerce businesses (e.g., dropshippers, SaaS solopreneurs) who sell products online and need to track competitor pricing without hiring help.",
     "monthly_price_usd": 29,
     "mvp_features": [
-      "Add invoices with client/deadline/due-date",
-      "List upcoming/overdue invoices",
-      "Generate CSV/JSON reports",
-      "Offline-first SQLite storage",
-      "Automated reminder scheduling"
+      "Add/edit competitor sites via CLI",
+      "Weekly automated scraping with --run",
+      "SQLite price history with --report",
+      "Price change alerts via --watch",
+      "100% offline --demo mode with hardcoded data"
     ],
     "build_phases": [
       {
         "phase": 1,
         "name": "Core DB + add",
-        "description": "sqlite schema + add/list commands",
+        "description": "sqlite schema for tracking sites/products + add/list commands to manage competitors",
         "hours": 2
       },
       {
         "phase": 2,
         "name": "Reports + alerts",
-        "description": "report generation + notification",
+        "description": "generate CSV/JSON reports of price changes + --watch flag for real-time alerts",
         "hours": 2
       },
       {
         "phase": 3,
         "name": "Demo + polish",
-        "description": "--demo mode + --help + edge cases",
+        "description": "--demo mode with hardcoded data + --help docs + edge case handling (timeouts, malformed HTML)",
         "hours": 1
       }
     ],
-    "demo_script": "Run `invoicechase --demo` to see 3 overdue invoices auto-generated with client names, amounts, and reminder dates. Lists them sorted by urgency.",
+    "demo_script": "Run `pricepulse --demo` to see a mock report of 3 competitors with prices changing over 2 weeks. No internet needed\u2014uses hardcoded data to simulate a full week of tracking.",
     "market_score": 8,
     "buildability_score": 9,
     "overall_score": 8,
     "verdict": "build",
-    "phuket_angle": "Perfect for Phuket-based freelancers (e.g., diving instructors, tour guides) who invoice international clients but struggle with timezone delays in payments."
+    "phuket_angle": "Thai small businesses (e.g., beachwear dropshippers) can track competitor prices on Shopee, Lazada, and local e-commerce sites to adjust pricing dynamically for Phuket tourist season demand spikes."
   },
   "build_status": "pending",
   "phases_complete": []
