@@ -1,51 +1,50 @@
 {
-  "date": "2026-05-28T00:00:25.633593",
+  "date": "2026-05-29T00:00:24.657767",
   "idea": {
-    "title": "Competitor price tracker \u2014 I check 6 sites manually every week, need automation",
-    "source": "brain/price_monitor",
-    "score": 10,
-    "buyer": "ecommerce sellers"
+    "title": "LocalLens \u2014 Privacy-first web scraper with local LLM analysis",
+    "score": 8,
+    "source": "seed"
   },
   "plan": {
-    "product_name": "PricePulse",
-    "tagline": "Automate weekly competitor price checks across 6 sites in 60 seconds.",
-    "problem": "Indie hackers and small businesses waste hours weekly manually checking competitor prices on 6 different sites, leading to lost productivity and delayed pricing adjustments.",
-    "solution": "CLI tool that scrapes 6 competitor sites weekly, stores price history in SQLite, generates reports, and sends alerts when prices change\u2014fully automated with zero manual work.",
-    "target_market": "Indie hackers, solo developers, and small e-commerce businesses (e.g., dropshippers, SaaS solopreneurs) who sell products online and need to track competitor pricing without hiring help.",
+    "product_name": "LocalLens",
+    "tagline": "Privacy-first CLI web scraper with local LLM analysis",
+    "problem": "Developers and small businesses need to extract and analyze web data without sending sensitive info to third-party APIs or cloud services.",
+    "solution": "Scrapes websites locally, stores data in SQLite, and analyzes it with a local LLM (no internet required). Runs entirely offline with optional cloud sync for backups.",
+    "target_market": "Indie hackers, developers, and small businesses needing automated web data extraction and analysis without privacy risks or API costs.",
     "monthly_price_usd": 29,
     "mvp_features": [
-      "Add/edit competitor sites via CLI",
-      "Weekly automated scraping with --run",
-      "SQLite price history with --report",
-      "Price change alerts via --watch",
-      "100% offline --demo mode with hardcoded data"
+      "CLI-based web scraping with URL input",
+      "Local SQLite storage for scraped data",
+      "Basic local LLM analysis (offline)",
+      "CSV/JSON export for reports",
+      "--demo mode with hardcoded data"
     ],
     "build_phases": [
       {
         "phase": 1,
         "name": "Core DB + add",
-        "description": "sqlite schema for tracking sites/products + add/list commands to manage competitors",
+        "description": "sqlite schema for storing scrapes + add/list commands",
         "hours": 2
       },
       {
         "phase": 2,
         "name": "Reports + alerts",
-        "description": "generate CSV/JSON reports of price changes + --watch flag for real-time alerts",
+        "description": "generate CSV/JSON reports + basic notifications",
         "hours": 2
       },
       {
         "phase": 3,
         "name": "Demo + polish",
-        "description": "--demo mode with hardcoded data + --help docs + edge case handling (timeouts, malformed HTML)",
+        "description": "implement --demo mode, --help, and edge-case handling",
         "hours": 1
       }
     ],
-    "demo_script": "Run `pricepulse --demo` to see a mock report of 3 competitors with prices changing over 2 weeks. No internet needed\u2014uses hardcoded data to simulate a full week of tracking.",
+    "demo_script": "Run `python local_lens.py --demo` to see a mock scrape of 'example.com' with local LLM analysis (offline). Outputs a CSV report and summary.",
     "market_score": 8,
     "buildability_score": 9,
     "overall_score": 8,
     "verdict": "build",
-    "phuket_angle": "Thai small businesses (e.g., beachwear dropshippers) can track competitor prices on Shopee, Lazada, and local e-commerce sites to adjust pricing dynamically for Phuket tourist season demand spikes."
+    "phuket_angle": "Thai small businesses (e.g., tour operators, real estate) can scrape local listings or competitor sites offline, avoiding API fees and privacy concerns."
   },
   "build_status": "pending",
   "phases_complete": []
