@@ -1,50 +1,53 @@
 {
-  "date": "2026-05-29T00:00:24.657767",
+  "date": "2026-05-30T00:00:32.591014",
   "idea": {
-    "title": "LocalLens \u2014 Privacy-first web scraper with local LLM analysis",
-    "score": 8,
-    "source": "seed"
+    "source": "HN",
+    "title": "Show HN: Ktx \u2013 Open-source executable context layer for data agents",
+    "url": "https://github.com/Kaelio/ktx",
+    "ts": "02:00",
+    "score": 7,
+    "verdict": "build"
   },
   "plan": {
-    "product_name": "LocalLens",
-    "tagline": "Privacy-first CLI web scraper with local LLM analysis",
-    "problem": "Developers and small businesses need to extract and analyze web data without sending sensitive info to third-party APIs or cloud services.",
-    "solution": "Scrapes websites locally, stores data in SQLite, and analyzes it with a local LLM (no internet required). Runs entirely offline with optional cloud sync for backups.",
-    "target_market": "Indie hackers, developers, and small businesses needing automated web data extraction and analysis without privacy risks or API costs.",
+    "product_name": "Ktx",
+    "tagline": "CLI tool that creates persistent context layers for AI agents using local SQLite",
+    "problem": "AI agents lose conversation history between sessions, requiring manual context reconstruction which breaks workflows for indie devs and small businesses",
+    "solution": "Stores agent interactions in a local SQLite database with CLI commands to add, list, and retrieve context layers, enabling seamless agent continuity",
+    "target_market": "Solo Python developers, indie hackers, and small business owners who build or use AI agents but lack persistent context management",
     "monthly_price_usd": 29,
     "mvp_features": [
-      "CLI-based web scraping with URL input",
-      "Local SQLite storage for scraped data",
-      "Basic local LLM analysis (offline)",
-      "CSV/JSON export for reports",
-      "--demo mode with hardcoded data"
+      "SQLite-based context storage",
+      "add/list context commands",
+      "offline --demo mode with hardcoded data",
+      "--help and CLI polish",
+      "basic report generation"
     ],
     "build_phases": [
       {
         "phase": 1,
         "name": "Core DB + add",
-        "description": "sqlite schema for storing scrapes + add/list commands",
+        "description": "sqlite schema + add/list commands",
         "hours": 2
       },
       {
         "phase": 2,
         "name": "Reports + alerts",
-        "description": "generate CSV/JSON reports + basic notifications",
+        "description": "report generation + notification",
         "hours": 2
       },
       {
         "phase": 3,
         "name": "Demo + polish",
-        "description": "implement --demo mode, --help, and edge-case handling",
+        "description": "--demo mode + --help + edge cases",
         "hours": 1
       }
     ],
-    "demo_script": "Run `python local_lens.py --demo` to see a mock scrape of 'example.com' with local LLM analysis (offline). Outputs a CSV report and summary.",
+    "demo_script": "Run `ktx --demo` to see 3 hardcoded agent sessions with timestamps, topics, and summaries. Lists them with `ktx list` and retrieves context via `ktx get 1`. No internet required.",
     "market_score": 8,
     "buildability_score": 9,
     "overall_score": 8,
     "verdict": "build",
-    "phuket_angle": "Thai small businesses (e.g., tour operators, real estate) can scrape local listings or competitor sites offline, avoiding API fees and privacy concerns."
+    "phuket_angle": "Phuket-based travel agencies or tour operators could use Ktx to maintain persistent context layers for customer interactions, ensuring agents remember past inquiries about trips, preferences, and bookings across sessions without cloud dependencies."
   },
   "build_status": "pending",
   "phases_complete": []
