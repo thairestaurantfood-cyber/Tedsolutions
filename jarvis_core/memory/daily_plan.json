@@ -1,26 +1,26 @@
 {
-  "date": "2026-05-30T00:00:32.591014",
+  "date": "2026-06-01T00:48:01.009230",
   "idea": {
     "source": "HN",
-    "title": "Show HN: Ktx \u2013 Open-source executable context layer for data agents",
-    "url": "https://github.com/Kaelio/ktx",
-    "ts": "02:00",
+    "title": "Show HN: Helios \u2013 what plug-in solar could generate for any address in Britain",
+    "url": "https://helios.southlondonscientific.com/",
+    "ts": "00:00",
     "score": 7,
     "verdict": "build"
   },
   "plan": {
-    "product_name": "Ktx",
-    "tagline": "CLI tool that creates persistent context layers for AI agents using local SQLite",
-    "problem": "AI agents lose conversation history between sessions, requiring manual context reconstruction which breaks workflows for indie devs and small businesses",
-    "solution": "Stores agent interactions in a local SQLite database with CLI commands to add, list, and retrieve context layers, enabling seamless agent continuity",
-    "target_market": "Solo Python developers, indie hackers, and small business owners who build or use AI agents but lack persistent context management",
+    "product_name": "InvoiceChaser",
+    "tagline": "Automate overdue invoice reminders for freelancers and small businesses.",
+    "problem": "Freelancers and small businesses waste hours manually chasing late payments, hurting cash flow and productivity.",
+    "solution": "CLI tool that tracks invoices, sends automated polite reminders, and generates reports\u2014all offline with optional email/SMS alerts.",
+    "target_market": "Indie hackers, developers, and small business owners who bill clients and need to automate payment follow-ups.",
     "monthly_price_usd": 29,
     "mvp_features": [
-      "SQLite-based context storage",
-      "add/list context commands",
-      "offline --demo mode with hardcoded data",
-      "--help and CLI polish",
-      "basic report generation"
+      "Add/edit invoices with due dates",
+      "List overdue invoices with urgency",
+      "Generate CSV/JSON reports",
+      "Offline demo mode with hardcoded data",
+      "Basic CLI interface with argparse"
     ],
     "build_phases": [
       {
@@ -42,13 +42,17 @@
         "hours": 1
       }
     ],
-    "demo_script": "Run `ktx --demo` to see 3 hardcoded agent sessions with timestamps, topics, and summaries. Lists them with `ktx list` and retrieves context via `ktx get 1`. No internet required.",
+    "demo_script": "Run `invoicechase --demo` to see 3 sample invoices (1 overdue), generate a report, and simulate sending a reminder\u2014all without internet.",
     "market_score": 8,
     "buildability_score": 9,
     "overall_score": 8,
     "verdict": "build",
-    "phuket_angle": "Phuket-based travel agencies or tour operators could use Ktx to maintain persistent context layers for customer interactions, ensuring agents remember past inquiries about trips, preferences, and bookings across sessions without cloud dependencies."
+    "phuket_angle": "Perfect for Phuket-based freelancers/cafes who serve tourists\u2014automate chasing payments from foreign clients while they enjoy the islands."
   },
-  "build_status": "pending",
-  "phases_complete": []
+  "build_status": "in_progress",
+  "phases_complete": [
+    1,
+    2
+  ],
+  "last_build": "2026-06-01T02:10:44.468994"
 }
