@@ -1,58 +1,54 @@
 {
-  "date": "2026-06-01T00:48:01.009230",
+  "date": "2026-06-02T00:00:18.872057",
   "idea": {
     "source": "HN",
-    "title": "Show HN: Helios \u2013 what plug-in solar could generate for any address in Britain",
-    "url": "https://helios.southlondonscientific.com/",
+    "title": "1-Bit Bonsai Image 4B Image Generation for Local Devices",
+    "url": "https://prismml.com/news/bonsai-image-4b",
     "ts": "00:00",
     "score": 7,
     "verdict": "build"
   },
   "plan": {
-    "product_name": "InvoiceChaser",
-    "tagline": "Automate overdue invoice reminders for freelancers and small businesses.",
-    "problem": "Freelancers and small businesses waste hours manually chasing late payments, hurting cash flow and productivity.",
-    "solution": "CLI tool that tracks invoices, sends automated polite reminders, and generates reports\u2014all offline with optional email/SMS alerts.",
-    "target_market": "Indie hackers, developers, and small business owners who bill clients and need to automate payment follow-ups.",
+    "product_name": "Bonsai4B",
+    "tagline": "Generate 1-bit 4B color bonsai images locally without internet or heavy dependencies",
+    "problem": "Designers and developers need simple, offline-friendly tools for generating minimalist bonsai art but lack lightweight CLI options without bloated dependencies",
+    "solution": "A Python CLI that creates 1-bit 4B color bonsai images using only stdlib, with offline demo mode and subscription-based updates for new styles",
+    "target_market": "Indie hackers, developers, and small businesses needing lightweight CLI tools for generating minimalist art assets",
     "monthly_price_usd": 29,
     "mvp_features": [
-      "Add/edit invoices with due dates",
-      "List overdue invoices with urgency",
-      "Generate CSV/JSON reports",
-      "Offline demo mode with hardcoded data",
-      "Basic CLI interface with argparse"
+      "1-bit 4B color bonsai generation",
+      "Offline demo mode with hardcoded samples",
+      "CLI with add/list commands",
+      "Report generation for image stats",
+      "Cross-platform (Windows/macOS/Linux)"
     ],
     "build_phases": [
       {
         "phase": 1,
         "name": "Core DB + add",
-        "description": "sqlite schema + add/list commands",
+        "description": "sqlite schema for storing bonsai styles + add/list commands",
         "hours": 2
       },
       {
         "phase": 2,
         "name": "Reports + alerts",
-        "description": "report generation + notification",
+        "description": "basic report generation + CLI alerts for updates",
         "hours": 2
       },
       {
         "phase": 3,
         "name": "Demo + polish",
-        "description": "--demo mode + --help + edge cases",
+        "description": "hardcoded demo mode + help text + edge case handling",
         "hours": 1
       }
     ],
-    "demo_script": "Run `invoicechase --demo` to see 3 sample invoices (1 overdue), generate a report, and simulate sending a reminder\u2014all without internet.",
+    "demo_script": "Run `bonsai4b --demo` to generate 3 sample 1-bit bonsai images with stats. Shows CLI usage and offline capability without downloads.",
     "market_score": 8,
     "buildability_score": 9,
     "overall_score": 8,
     "verdict": "build",
-    "phuket_angle": "Perfect for Phuket-based freelancers/cafes who serve tourists\u2014automate chasing payments from foreign clients while they enjoy the islands."
+    "phuket_angle": "Thai tourism businesses could use minimalist bonsai-style icons for offline-friendly marketing materials (menus, flyers) without needing design software"
   },
-  "build_status": "in_progress",
-  "phases_complete": [
-    1,
-    2
-  ],
-  "last_build": "2026-06-01T02:10:44.468994"
+  "build_status": "pending",
+  "phases_complete": []
 }
