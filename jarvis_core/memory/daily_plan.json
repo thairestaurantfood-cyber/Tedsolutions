@@ -1,52 +1,56 @@
 {
-  "date": "2026-06-04T00:00:17.672406",
+  "date": "2026-06-07T00:00:09.973353",
   "idea": {
-    "title": "SchemaSpy \u2014 Database schema visualizer and documentation generator",
-    "score": 8,
-    "source": "market_memory",
+    "title": "Self-hosted dev sandboxes with preview URLs (Docker, Go, no K8s)",
+    "pain": "Developers waste time setting up and maintaining isolated environments, slowing down testing and collaboration.",
+    "score": 7,
+    "source": "mistral_filtered",
     "verdict": "build"
   },
   "plan": {
-    "product_name": "SchemaSpy",
-    "tagline": "Turn any database into interactive docs in seconds.",
-    "problem": "Developers waste hours manually documenting database schemas or using complex tools that require setup and internet access.",
-    "solution": "A lightweight CLI tool that scans your local database (SQLite, MySQL, PostgreSQL via CLI tools) and generates a clean, searchable HTML/Markdown documentation file instantly\u2014no internet, no config, no bloat.",
-    "target_market": "Solo developers, indie hackers, and small businesses managing databases who need quick, offline schema documentation without DevOps overhead.",
+    "product_name": "Sandbox CLI",
+    "tagline": "Spin up disposable dev sandboxes with live preview URLs in seconds",
+    "problem": "Developers waste hours configuring environments and waiting for deployments just to test small changes",
+    "solution": "Run `sandbox add myapp` to create a Docker container with a live preview URL instantly, no cloud accounts or complex setups needed",
+    "target_market": "Indie hackers and small dev teams who need quick, isolated environments without Kubernetes or cloud complexity",
     "monthly_price_usd": 29,
     "mvp_features": [
-      "Scan SQLite/MySQL/PostgreSQL schemas via CLI",
-      "Generate interactive HTML/Markdown docs",
-      "--demo mode with hardcoded sample schema",
-      "Searchable tables/columns with relationships",
-      "Export to JSON/CSV for further processing"
+      "Add sandboxes with one command",
+      "Live preview URLs via ngrok tunnel",
+      "List/stop/remove sandboxes",
+      "SQLite-backed state management",
+      "--demo mode with hardcoded examples"
     ],
     "build_phases": [
       {
         "phase": 1,
         "name": "Core DB + add",
-        "description": "sqlite schema + add/list commands",
+        "description": "SQLite schema for sandbox tracking + add/list commands with Docker subprocess calls",
         "hours": 2
       },
       {
         "phase": 2,
         "name": "Reports + alerts",
-        "description": "report generation + notification",
+        "description": "Basic sandbox status reports and ngrok URL generation",
         "hours": 2
       },
       {
         "phase": 3,
         "name": "Demo + polish",
-        "description": "--demo mode + --help + edge cases",
+        "description": "Hardcoded demo mode, help text, and edge case handling for Docker/network failures",
         "hours": 1
       }
     ],
-    "demo_script": "Run `schemaspy --demo` to generate a sample schema doc for a fake e-commerce database with tables like users, products, and orders, showing relationships and sample data\u2014all offline with no setup.",
+    "demo_script": "Run `sandbox --demo` to see 3 prebuilt sandboxes (Python web server, Go API, static site) with live preview URLs generated offline",
     "market_score": 8,
     "buildability_score": 9,
     "overall_score": 8,
     "verdict": "build",
-    "phuket_angle": "Thai small businesses (e.g., hotels, tour operators) using SQLite for local inventory/booking systems can generate instant schema docs for new hires or audits without cloud dependencies."
+    "phuket_angle": "Thai tourism businesses can test booking widgets or microsites locally before deploying to their main site"
   },
-  "build_status": "pending",
-  "phases_complete": []
+  "build_status": "in_progress",
+  "phases_complete": [
+    1
+  ],
+  "last_build": "2026-06-07T02:10:54.502653"
 }
