@@ -1,8 +1,8 @@
 {
   "version": "1.0",
-  "last_updated": "2026-06-02T21:35:16.317138",
+  "last_updated": "2026-06-06T18:00:30.544333",
   "total_builds_analyzed": 100,
-  "success_rate": "69.0%",
+  "success_rate": "68.0%",
   "top_patterns": {
     "argparse": {
       "pattern_name": "parse_known_args_first",
