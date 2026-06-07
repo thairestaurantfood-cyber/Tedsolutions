@@ -1,56 +1,54 @@
 {
-  "date": "2026-06-07T00:00:09.973353",
+  "date": "2026-06-08T00:00:15.458062",
   "idea": {
-    "title": "Self-hosted dev sandboxes with preview URLs (Docker, Go, no K8s)",
-    "pain": "Developers waste time setting up and maintaining isolated environments, slowing down testing and collaboration.",
+    "source": "HN",
+    "title": "Universal Memory Protocol \u2013 a shared format for agent memory",
+    "url": "https://universalmemoryprotocol.io/",
+    "ts": "04:00",
     "score": 7,
-    "source": "mistral_filtered",
     "verdict": "build"
   },
   "plan": {
-    "product_name": "Sandbox CLI",
-    "tagline": "Spin up disposable dev sandboxes with live preview URLs in seconds",
-    "problem": "Developers waste hours configuring environments and waiting for deployments just to test small changes",
-    "solution": "Run `sandbox add myapp` to create a Docker container with a live preview URL instantly, no cloud accounts or complex setups needed",
-    "target_market": "Indie hackers and small dev teams who need quick, isolated environments without Kubernetes or cloud complexity",
+    "product_name": "MemProtocol",
+    "tagline": "A universal memory format for AI agents that works offline and across tools.",
+    "problem": "AI agents and automation tools lack a standardized way to share memory, causing fragmented workflows and duplicated effort.",
+    "solution": "A CLI tool that stores agent memory in a shared SQLite format, enabling seamless data exchange between scripts, agents, and services without external APIs.",
+    "target_market": "Indie hackers and small dev teams building agentic workflows who need lightweight, offline-first memory sharing.",
     "monthly_price_usd": 29,
     "mvp_features": [
-      "Add sandboxes with one command",
-      "Live preview URLs via ngrok tunnel",
-      "List/stop/remove sandboxes",
-      "SQLite-backed state management",
-      "--demo mode with hardcoded examples"
+      "SQLite-based memory store",
+      "add/list/clear commands",
+      "JSON export/import",
+      "--demo mode with hardcoded data",
+      "CLI help + error handling"
     ],
     "build_phases": [
       {
         "phase": 1,
         "name": "Core DB + add",
-        "description": "SQLite schema for sandbox tracking + add/list commands with Docker subprocess calls",
+        "description": "sqlite schema + add/list commands",
         "hours": 2
       },
       {
         "phase": 2,
         "name": "Reports + alerts",
-        "description": "Basic sandbox status reports and ngrok URL generation",
+        "description": "report generation + notification",
         "hours": 2
       },
       {
         "phase": 3,
         "name": "Demo + polish",
-        "description": "Hardcoded demo mode, help text, and edge case handling for Docker/network failures",
+        "description": "--demo mode + --help + edge cases",
         "hours": 1
       }
     ],
-    "demo_script": "Run `sandbox --demo` to see 3 prebuilt sandboxes (Python web server, Go API, static site) with live preview URLs generated offline",
+    "demo_script": "Run `memprotocol --demo` to see a simulated agent workflow with 3 stored memories, a JSON export, and a summary report\u2014all offline.",
     "market_score": 8,
     "buildability_score": 9,
     "overall_score": 8,
     "verdict": "build",
-    "phuket_angle": "Thai tourism businesses can test booking widgets or microsites locally before deploying to their main site"
+    "phuket_angle": "Thai tourism agencies could use it to sync client preferences (e.g., villa bookings, tour interests) across chatbots, CRM scripts, and email tools without cloud dependency."
   },
-  "build_status": "in_progress",
-  "phases_complete": [
-    1
-  ],
-  "last_build": "2026-06-07T02:10:54.502653"
+  "build_status": "pending",
+  "phases_complete": []
 }
