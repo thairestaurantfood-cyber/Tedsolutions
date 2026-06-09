@@ -1,54 +1,57 @@
 {
-  "date": "2026-06-08T00:00:15.458062",
+  "date": "2026-06-09T00:04:08.843702",
   "idea": {
     "source": "HN",
-    "title": "Universal Memory Protocol \u2013 a shared format for agent memory",
-    "url": "https://universalmemoryprotocol.io/",
-    "ts": "04:00",
+    "title": "Silurus/ooxml: Pixel-faithful Office documents, rendered in the browser",
+    "url": "https://github.com/yukiyokotani/office-open-xml-viewer",
+    "ts": "02:00",
     "score": 7,
     "verdict": "build"
   },
   "plan": {
-    "product_name": "MemProtocol",
-    "tagline": "A universal memory format for AI agents that works offline and across tools.",
-    "problem": "AI agents and automation tools lack a standardized way to share memory, causing fragmented workflows and duplicated effort.",
-    "solution": "A CLI tool that stores agent memory in a shared SQLite format, enabling seamless data exchange between scripts, agents, and services without external APIs.",
-    "target_market": "Indie hackers and small dev teams building agentic workflows who need lightweight, offline-first memory sharing.",
+    "product_name": "Invoice Chaser",
+    "tagline": "Automate your invoicing and collection process.",
+    "problem": "Freelancers and small businesses struggle with manual invoicing and chasing payments.",
+    "solution": "Invoice Chaser automates the creation, sending, and tracking of invoices. It sends reminders, generates reports, and helps in collecting payments efficiently.",
+    "target_market": "Indie hackers, developers, and small businesses worldwide who need to manage their finances effectively.",
     "monthly_price_usd": 29,
     "mvp_features": [
-      "SQLite-based memory store",
-      "add/list/clear commands",
-      "JSON export/import",
-      "--demo mode with hardcoded data",
-      "CLI help + error handling"
+      "Create Invoices",
+      "Send Reminders",
+      "Track Payments",
+      "Generate Reports",
+      "Notification System"
     ],
     "build_phases": [
       {
         "phase": 1,
         "name": "Core DB + add",
-        "description": "sqlite schema + add/list commands",
+        "description": "SQLite schema for storing invoices and payments, add/list commands",
         "hours": 2
       },
       {
         "phase": 2,
         "name": "Reports + alerts",
-        "description": "report generation + notification",
+        "description": "Report generation for outstanding invoices and payment alerts",
         "hours": 2
       },
       {
         "phase": 3,
         "name": "Demo + polish",
-        "description": "--demo mode + --help + edge cases",
+        "description": "--demo mode with hardcoded data, --help, edge case handling",
         "hours": 1
       }
     ],
-    "demo_script": "Run `memprotocol --demo` to see a simulated agent workflow with 3 stored memories, a JSON export, and a summary report\u2014all offline.",
+    "demo_script": "Shows creation of an invoice, sending a reminder, tracking payment status, generating reports, and receiving notifications.",
     "market_score": 8,
     "buildability_score": 9,
     "overall_score": 8,
     "verdict": "build",
-    "phuket_angle": "Thai tourism agencies could use it to sync client preferences (e.g., villa bookings, tour interests) across chatbots, CRM scripts, and email tools without cloud dependency."
+    "phuket_angle": "None"
   },
-  "build_status": "pending",
-  "phases_complete": []
+  "build_status": "in_progress",
+  "phases_complete": [
+    1
+  ],
+  "last_build": "2026-06-09T02:02:28.747932"
 }
