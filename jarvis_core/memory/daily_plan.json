@@ -1,57 +1,52 @@
 {
-  "date": "2026-06-09T00:04:08.843702",
+  "date": "2026-06-12T00:01:07.636404",
   "idea": {
-    "source": "HN",
-    "title": "Silurus/ooxml: Pixel-faithful Office documents, rendered in the browser",
-    "url": "https://github.com/yukiyokotani/office-open-xml-viewer",
-    "ts": "02:00",
-    "score": 7,
-    "verdict": "build"
+    "title": "Competitor price tracker \u2014 I check 6 sites manually every week, need automation",
+    "source": "brain/price_monitor",
+    "score": 10,
+    "buyer": "ecommerce sellers"
   },
   "plan": {
-    "product_name": "Invoice Chaser",
-    "tagline": "Automate your invoicing and collection process.",
-    "problem": "Freelancers and small businesses struggle with manual invoicing and chasing payments.",
-    "solution": "Invoice Chaser automates the creation, sending, and tracking of invoices. It sends reminders, generates reports, and helps in collecting payments efficiently.",
-    "target_market": "Indie hackers, developers, and small businesses worldwide who need to manage their finances effectively.",
+    "product_name": "PricePulse",
+    "tagline": "Automates competitor price tracking across multiple sites",
+    "problem": "Manually checking competitor prices on multiple sites is time-consuming and prone to errors",
+    "solution": "PricePulse automates the process by crawling specified sites, storing prices in a local database, generating reports, and sending alerts for price changes",
+    "target_market": "Indie hackers, developers, and small businesses worldwide",
     "monthly_price_usd": 29,
     "mvp_features": [
-      "Create Invoices",
-      "Send Reminders",
-      "Track Payments",
-      "Generate Reports",
-      "Notification System"
+      "Multi-site price crawling",
+      "Local database storage",
+      "Report generation",
+      "Price change alerts",
+      "Offline demo mode"
     ],
     "build_phases": [
       {
         "phase": 1,
         "name": "Core DB + add",
-        "description": "SQLite schema for storing invoices and payments, add/list commands",
+        "description": "Design sqlite schema and implement add/list commands",
         "hours": 2
       },
       {
         "phase": 2,
         "name": "Reports + alerts",
-        "description": "Report generation for outstanding invoices and payment alerts",
+        "description": "Implement report generation and notification system",
         "hours": 2
       },
       {
         "phase": 3,
         "name": "Demo + polish",
-        "description": "--demo mode with hardcoded data, --help, edge case handling",
+        "description": "Implement --demo mode, --help, and edge case handling",
         "hours": 1
       }
     ],
-    "demo_script": "Shows creation of an invoice, sending a reminder, tracking payment status, generating reports, and receiving notifications.",
+    "demo_script": "Runs a simulated price tracking scenario with hardcoded data, demonstrating report generation and alert notifications",
     "market_score": 8,
     "buildability_score": 9,
     "overall_score": 8,
     "verdict": "build",
-    "phuket_angle": "None"
+    "phuket_angle": "Helps Phuket-based tourism businesses track competitor pricing for services like snorkeling tours or hotel bookings"
   },
-  "build_status": "in_progress",
-  "phases_complete": [
-    1
-  ],
-  "last_build": "2026-06-09T02:02:28.747932"
+  "build_status": "pending",
+  "phases_complete": []
 }
