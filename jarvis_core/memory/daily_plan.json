@@ -1,51 +1,50 @@
 {
-  "date": "2026-06-12T00:01:07.636404",
+  "date": "2026-06-13T00:01:05.860980",
   "idea": {
-    "title": "Competitor price tracker \u2014 I check 6 sites manually every week, need automation",
-    "source": "brain/price_monitor",
-    "score": 10,
-    "buyer": "ecommerce sellers"
+    "title": "SignalScout \u2014 Real-time trend scanner for indie hackers",
+    "score": 8,
+    "source": "seed"
   },
   "plan": {
-    "product_name": "PricePulse",
-    "tagline": "Automates competitor price tracking across multiple sites",
-    "problem": "Manually checking competitor prices on multiple sites is time-consuming and prone to errors",
-    "solution": "PricePulse automates the process by crawling specified sites, storing prices in a local database, generating reports, and sending alerts for price changes",
+    "product_name": "SignalScout",
+    "tagline": "Scans for real-time trends to help indie hackers make informed decisions",
+    "problem": "Indie hackers and small businesses lack the resources to monitor market trends effectively",
+    "solution": "SignalScout scans online data, identifies trends, generates reports, and sends alerts to help users stay informed and make data-driven decisions",
     "target_market": "Indie hackers, developers, and small businesses worldwide",
     "monthly_price_usd": 29,
     "mvp_features": [
-      "Multi-site price crawling",
-      "Local database storage",
+      "Trend scanning",
       "Report generation",
-      "Price change alerts",
-      "Offline demo mode"
+      "Alert notifications",
+      "Offline demo mode",
+      "Command-line interface"
     ],
     "build_phases": [
       {
         "phase": 1,
         "name": "Core DB + add",
-        "description": "Design sqlite schema and implement add/list commands",
+        "description": "sqlite schema + add/list commands",
         "hours": 2
       },
       {
         "phase": 2,
         "name": "Reports + alerts",
-        "description": "Implement report generation and notification system",
+        "description": "report generation + notification",
         "hours": 2
       },
       {
         "phase": 3,
         "name": "Demo + polish",
-        "description": "Implement --demo mode, --help, and edge case handling",
+        "description": "--demo mode + --help + edge cases",
         "hours": 1
       }
     ],
-    "demo_script": "Runs a simulated price tracking scenario with hardcoded data, demonstrating report generation and alert notifications",
+    "demo_script": "Runs a simulated trend scan, generates a report, and sends a notification using hardcoded data",
     "market_score": 8,
     "buildability_score": 9,
     "overall_score": 8,
     "verdict": "build",
-    "phuket_angle": "Helps Phuket-based tourism businesses track competitor pricing for services like snorkeling tours or hotel bookings"
+    "phuket_angle": "Helping Phuket tourism businesses identify trends in traveler preferences to inform their marketing strategies"
   },
   "build_status": "pending",
   "phases_complete": []
