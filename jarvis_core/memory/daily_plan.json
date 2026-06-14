@@ -1,23 +1,23 @@
 {
-  "date": "2026-06-13T00:01:05.860980",
+  "date": "2026-06-15T00:00:20.466498",
   "idea": {
-    "title": "SignalScout \u2014 Real-time trend scanner for indie hackers",
+    "title": "CostRadar \u2014 Real-time LLM API cost tracker across providers",
     "score": 8,
     "source": "seed"
   },
   "plan": {
-    "product_name": "SignalScout",
-    "tagline": "Scans for real-time trends to help indie hackers make informed decisions",
-    "problem": "Indie hackers and small businesses lack the resources to monitor market trends effectively",
-    "solution": "SignalScout scans online data, identifies trends, generates reports, and sends alerts to help users stay informed and make data-driven decisions",
+    "product_name": "CostRadar",
+    "tagline": "Tracks real-time LLM API costs across providers",
+    "problem": "Indie hackers and small businesses struggle to monitor and manage their LLM API costs effectively",
+    "solution": "CostRadar tracks API costs in real-time, providing detailed reports and alerts to help businesses optimize their expenses",
     "target_market": "Indie hackers, developers, and small businesses worldwide",
     "monthly_price_usd": 29,
     "mvp_features": [
-      "Trend scanning",
-      "Report generation",
-      "Alert notifications",
-      "Offline demo mode",
-      "Command-line interface"
+      "Real-time cost tracking",
+      "Multi-provider support",
+      "Detailed reporting",
+      "Customizable alerts",
+      "Offline demo mode"
     ],
     "build_phases": [
       {
@@ -39,12 +39,12 @@
         "hours": 1
       }
     ],
-    "demo_script": "Runs a simulated trend scan, generates a report, and sends a notification using hardcoded data",
+    "demo_script": "Simulates real-time cost tracking, generates a sample report, and triggers a mock alert, all offline",
     "market_score": 8,
     "buildability_score": 9,
     "overall_score": 8,
     "verdict": "build",
-    "phuket_angle": "Helping Phuket tourism businesses identify trends in traveler preferences to inform their marketing strategies"
+    "phuket_angle": "Helps Phuket-based tourism businesses optimize their LLM API costs for chatbots and virtual assistants"
   },
   "build_status": "pending",
   "phases_complete": []
