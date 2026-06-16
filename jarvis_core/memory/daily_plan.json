@@ -1,50 +1,53 @@
 {
-  "date": "2026-06-15T00:00:20.466498",
+  "date": "2026-06-17T00:00:31.762579",
   "idea": {
-    "title": "CostRadar \u2014 Real-time LLM API cost tracker across providers",
-    "score": 8,
-    "source": "seed"
+    "source": "HN",
+    "title": "Openrouter Fusion API",
+    "url": "https://openrouter.ai/openrouter/fusion",
+    "ts": "18:00",
+    "score": 7,
+    "verdict": "build"
   },
   "plan": {
-    "product_name": "CostRadar",
-    "tagline": "Tracks real-time LLM API costs across providers",
-    "problem": "Indie hackers and small businesses struggle to monitor and manage their LLM API costs effectively",
-    "solution": "CostRadar tracks API costs in real-time, providing detailed reports and alerts to help businesses optimize their expenses",
+    "product_name": "Openrouter Fusion API",
+    "tagline": "Unifies network device data for easy management and monitoring",
+    "problem": "Indie hackers and small businesses struggle to manage and monitor their network devices efficiently",
+    "solution": "The Openrouter Fusion API provides a simple CLI tool to add, list, and report on network devices, with customizable alerts and notifications, all using a local SQLite database for offline access",
     "target_market": "Indie hackers, developers, and small businesses worldwide",
     "monthly_price_usd": 29,
     "mvp_features": [
-      "Real-time cost tracking",
-      "Multi-provider support",
-      "Detailed reporting",
-      "Customizable alerts",
-      "Offline demo mode"
+      "Add network devices to the database",
+      "List all network devices in the database",
+      "Generate reports on network device status",
+      "Customizable alerts and notifications",
+      "Offline access with --demo mode"
     ],
     "build_phases": [
       {
         "phase": 1,
         "name": "Core DB + add",
-        "description": "sqlite schema + add/list commands",
+        "description": "Create SQLite schema and implement add and list commands",
         "hours": 2
       },
       {
         "phase": 2,
         "name": "Reports + alerts",
-        "description": "report generation + notification",
+        "description": "Implement report generation and notification system",
         "hours": 2
       },
       {
         "phase": 3,
         "name": "Demo + polish",
-        "description": "--demo mode + --help + edge cases",
+        "description": "Implement --demo mode, --help, and edge case handling",
         "hours": 1
       }
     ],
-    "demo_script": "Simulates real-time cost tracking, generates a sample report, and triggers a mock alert, all offline",
+    "demo_script": "The --demo mode shows a pre-populated database with 5 network devices, demonstrating add, list, and report functionality",
     "market_score": 8,
     "buildability_score": 9,
     "overall_score": 8,
     "verdict": "build",
-    "phuket_angle": "Helps Phuket-based tourism businesses optimize their LLM API costs for chatbots and virtual assistants"
+    "phuket_angle": "None"
   },
   "build_status": "pending",
   "phases_complete": []
