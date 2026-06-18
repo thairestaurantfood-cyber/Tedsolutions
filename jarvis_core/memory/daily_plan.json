@@ -1,53 +1,53 @@
 {
-  "date": "2026-06-17T00:00:31.762579",
+  "date": "2026-06-19T00:01:13.027734",
   "idea": {
     "source": "HN",
-    "title": "Openrouter Fusion API",
-    "url": "https://openrouter.ai/openrouter/fusion",
-    "ts": "18:00",
+    "title": "Loreline \u2013 Tools for writing interactive fiction",
+    "url": "https://loreline.app/en/",
+    "ts": "06:00",
     "score": 7,
     "verdict": "build"
   },
   "plan": {
-    "product_name": "Openrouter Fusion API",
-    "tagline": "Unifies network device data for easy management and monitoring",
-    "problem": "Indie hackers and small businesses struggle to manage and monitor their network devices efficiently",
-    "solution": "The Openrouter Fusion API provides a simple CLI tool to add, list, and report on network devices, with customizable alerts and notifications, all using a local SQLite database for offline access",
-    "target_market": "Indie hackers, developers, and small businesses worldwide",
+    "product_name": "InvoiceChase",
+    "tagline": "Automates invoice tracking and reminders for freelancers and small businesses",
+    "problem": "Manual invoice tracking and follow-ups are time-consuming and prone to errors",
+    "solution": "InvoiceChase allows users to add invoices, track their status, and receive reminders for follow-ups, all from a simple command-line interface",
+    "target_market": "Indie hackers, developers, and small businesses worldwide, particularly those with limited resources and a need for efficient invoicing",
     "monthly_price_usd": 29,
     "mvp_features": [
-      "Add network devices to the database",
-      "List all network devices in the database",
-      "Generate reports on network device status",
-      "Customizable alerts and notifications",
-      "Offline access with --demo mode"
+      "Add invoices with client details and due dates",
+      "List all invoices with their status",
+      "Mark invoices as paid or pending",
+      "Generate reports on invoice status and client payments",
+      "Send reminders for upcoming invoice due dates"
     ],
     "build_phases": [
       {
         "phase": 1,
         "name": "Core DB + add",
-        "description": "Create SQLite schema and implement add and list commands",
+        "description": "Design a SQLite schema to store invoices and implement add and list commands",
         "hours": 2
       },
       {
         "phase": 2,
         "name": "Reports + alerts",
-        "description": "Implement report generation and notification system",
+        "description": "Implement report generation for invoice status and client payments, and add notification system for reminders",
         "hours": 2
       },
       {
         "phase": 3,
         "name": "Demo + polish",
-        "description": "Implement --demo mode, --help, and edge case handling",
+        "description": "Implement --demo mode with hardcoded data, add --help documentation, and handle edge cases",
         "hours": 1
       }
     ],
-    "demo_script": "The --demo mode shows a pre-populated database with 5 network devices, demonstrating add, list, and report functionality",
+    "demo_script": "The --demo mode shows 5 invoices with different statuses, demonstrates adding a new invoice, and displays a report on client payments",
     "market_score": 8,
     "buildability_score": 9,
     "overall_score": 8,
     "verdict": "build",
-    "phuket_angle": "None"
+    "phuket_angle": "None, but could be marketed to tourism-related businesses in Phuket, such as freelance tour guides or small hotels, who need to manage invoices for their services"
   },
   "build_status": "pending",
   "phases_complete": []
