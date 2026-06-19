@@ -1,5 +1,5 @@
 {
-  "date": "2026-06-19T00:01:13.027734",
+  "date": "2026-06-20T00:01:10.266122",
   "idea": {
     "source": "HN",
     "title": "Loreline \u2013 Tools for writing interactive fiction",
@@ -9,45 +9,45 @@
     "verdict": "build"
   },
   "plan": {
-    "product_name": "InvoiceChase",
-    "tagline": "Automates invoice tracking and reminders for freelancers and small businesses",
-    "problem": "Manual invoice tracking and follow-ups are time-consuming and prone to errors",
-    "solution": "InvoiceChase allows users to add invoices, track their status, and receive reminders for follow-ups, all from a simple command-line interface",
-    "target_market": "Indie hackers, developers, and small businesses worldwide, particularly those with limited resources and a need for efficient invoicing",
+    "product_name": "Loreline",
+    "tagline": "Loreline helps writers create interactive fiction with a simple command-line tool",
+    "problem": "Writing interactive fiction can be cumbersome and disorganized, with multiple story paths and characters to keep track of",
+    "solution": "Loreline provides a step-by-step solution for writing interactive fiction, including creating and managing story nodes, adding choices and outcomes, generating reports, and receiving alerts for inconsistencies or unfinished storylines",
+    "target_market": "Indie hackers, developers, and small businesses worldwide who want to create interactive stories, games, or training simulations",
     "monthly_price_usd": 29,
     "mvp_features": [
-      "Add invoices with client details and due dates",
-      "List all invoices with their status",
-      "Mark invoices as paid or pending",
-      "Generate reports on invoice status and client payments",
-      "Send reminders for upcoming invoice due dates"
+      "Create and manage story nodes",
+      "Add choices and outcomes to story nodes",
+      "Generate reports on story progress and inconsistencies",
+      "Receive alerts for unfinished storylines or inconsistencies",
+      "Demo mode with sample story and offline functionality"
     ],
     "build_phases": [
       {
         "phase": 1,
         "name": "Core DB + add",
-        "description": "Design a SQLite schema to store invoices and implement add and list commands",
+        "description": "Design sqlite schema and implement add and list commands",
         "hours": 2
       },
       {
         "phase": 2,
         "name": "Reports + alerts",
-        "description": "Implement report generation for invoice status and client payments, and add notification system for reminders",
+        "description": "Implement report generation and notification system",
         "hours": 2
       },
       {
         "phase": 3,
         "name": "Demo + polish",
-        "description": "Implement --demo mode with hardcoded data, add --help documentation, and handle edge cases",
+        "description": "Implement --demo mode, --help, and edge case handling",
         "hours": 1
       }
     ],
-    "demo_script": "The --demo mode shows 5 invoices with different statuses, demonstrates adding a new invoice, and displays a report on client payments",
+    "demo_script": "The --demo mode shows a sample interactive story with choices and outcomes, demonstrating how to create and manage story nodes, add choices, and generate reports",
     "market_score": 8,
     "buildability_score": 9,
     "overall_score": 8,
     "verdict": "build",
-    "phuket_angle": "None, but could be marketed to tourism-related businesses in Phuket, such as freelance tour guides or small hotels, who need to manage invoices for their services"
+    "phuket_angle": "Tourism businesses in Phuket can use Loreline to create interactive stories and games for visitors, showcasing the island's history, culture, and attractions"
   },
   "build_status": "pending",
   "phases_complete": []
