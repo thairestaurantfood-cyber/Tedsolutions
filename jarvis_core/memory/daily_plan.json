@@ -1,32 +1,32 @@
 {
-  "date": "2026-06-20T00:01:10.266122",
+  "date": "2026-06-22T00:01:00.368859",
   "idea": {
     "source": "HN",
-    "title": "Loreline \u2013 Tools for writing interactive fiction",
-    "url": "https://loreline.app/en/",
-    "ts": "06:00",
+    "title": "Temporary Cloudflare Accounts for AI Agents",
+    "url": "https://blog.cloudflare.com/temporary-accounts/",
+    "ts": "22:00",
     "score": 7,
     "verdict": "build"
   },
   "plan": {
-    "product_name": "Loreline",
-    "tagline": "Loreline helps writers create interactive fiction with a simple command-line tool",
-    "problem": "Writing interactive fiction can be cumbersome and disorganized, with multiple story paths and characters to keep track of",
-    "solution": "Loreline provides a step-by-step solution for writing interactive fiction, including creating and managing story nodes, adding choices and outcomes, generating reports, and receiving alerts for inconsistencies or unfinished storylines",
-    "target_market": "Indie hackers, developers, and small businesses worldwide who want to create interactive stories, games, or training simulations",
+    "product_name": "CloudAgent",
+    "tagline": "Creates temporary Cloudflare accounts for AI agents",
+    "problem": "Managing multiple Cloudflare accounts for AI agents is cumbersome and prone to errors",
+    "solution": "CloudAgent creates temporary Cloudflare accounts, assigns them to AI agents, generates reports, and sends notifications, all from a simple CLI interface",
+    "target_market": "Indie hackers, developers, and small businesses worldwide who use Cloudflare and AI agents",
     "monthly_price_usd": 29,
     "mvp_features": [
-      "Create and manage story nodes",
-      "Add choices and outcomes to story nodes",
-      "Generate reports on story progress and inconsistencies",
-      "Receive alerts for unfinished storylines or inconsistencies",
-      "Demo mode with sample story and offline functionality"
+      "Create temporary Cloudflare accounts",
+      "Assign accounts to AI agents",
+      "Generate reports on account usage",
+      "Send notifications on account expiration",
+      "Offline demo mode with hardcoded data"
     ],
     "build_phases": [
       {
         "phase": 1,
         "name": "Core DB + add",
-        "description": "Design sqlite schema and implement add and list commands",
+        "description": "Design sqlite schema and implement add/list commands",
         "hours": 2
       },
       {
@@ -38,16 +38,16 @@
       {
         "phase": 3,
         "name": "Demo + polish",
-        "description": "Implement --demo mode, --help, and edge case handling",
+        "description": "Implement --demo mode, --help, and edge cases",
         "hours": 1
       }
     ],
-    "demo_script": "The --demo mode shows a sample interactive story with choices and outcomes, demonstrating how to create and manage story nodes, add choices, and generate reports",
+    "demo_script": "Creates a temporary Cloudflare account, assigns it to an AI agent, generates a report, and sends a notification, all offline with hardcoded data",
     "market_score": 8,
     "buildability_score": 9,
     "overall_score": 8,
     "verdict": "build",
-    "phuket_angle": "Tourism businesses in Phuket can use Loreline to create interactive stories and games for visitors, showcasing the island's history, culture, and attractions"
+    "phuket_angle": "None"
   },
   "build_status": "pending",
   "phases_complete": []
