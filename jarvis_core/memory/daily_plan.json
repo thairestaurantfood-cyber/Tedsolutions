@@ -1,53 +1,53 @@
 {
-  "date": "2026-06-22T00:01:00.368859",
+  "date": "2026-06-24T00:00:56.673759",
   "idea": {
     "source": "HN",
-    "title": "Temporary Cloudflare Accounts for AI Agents",
-    "url": "https://blog.cloudflare.com/temporary-accounts/",
-    "ts": "22:00",
+    "title": "Good results fine tuning a local LLM like Qwen 3:0.6B to categorize questions",
+    "url": "https://www.teachmecoolstuff.com/viewarticle/fine-tuning-a-local-llm-to-categorize-questions",
+    "ts": "10:00",
     "score": 7,
     "verdict": "build"
   },
   "plan": {
-    "product_name": "CloudAgent",
-    "tagline": "Creates temporary Cloudflare accounts for AI agents",
-    "problem": "Managing multiple Cloudflare accounts for AI agents is cumbersome and prone to errors",
-    "solution": "CloudAgent creates temporary Cloudflare accounts, assigns them to AI agents, generates reports, and sends notifications, all from a simple CLI interface",
-    "target_market": "Indie hackers, developers, and small businesses worldwide who use Cloudflare and AI agents",
+    "product_name": "QwenCat",
+    "tagline": "Fine-tunes a local LLM to categorize questions with high accuracy",
+    "problem": "Small businesses and developers struggle to efficiently categorize questions without relying on expensive or complex cloud-based solutions",
+    "solution": "QwenCat fine-tunes a local LLM, allowing users to train and deploy a custom question categorization model on their own machine, using a simple CLI interface to add, list, and report on categorized questions",
+    "target_market": "Indie hackers, developers, and small businesses worldwide who need a cost-effective and easy-to-use question categorization solution",
     "monthly_price_usd": 29,
     "mvp_features": [
-      "Create temporary Cloudflare accounts",
-      "Assign accounts to AI agents",
-      "Generate reports on account usage",
-      "Send notifications on account expiration",
-      "Offline demo mode with hardcoded data"
+      "Local LLM fine-tuning",
+      "CLI interface for adding and listing categorized questions",
+      "Report generation and notification",
+      "Offline --demo mode with hardcoded data",
+      "Simple and intuitive --help documentation"
     ],
     "build_phases": [
       {
         "phase": 1,
         "name": "Core DB + add",
-        "description": "Design sqlite schema and implement add/list commands",
+        "description": "Design and implement sqlite schema, add and list commands",
         "hours": 2
       },
       {
         "phase": 2,
         "name": "Reports + alerts",
-        "description": "Implement report generation and notification system",
+        "description": "Implement report generation and notification functionality",
         "hours": 2
       },
       {
         "phase": 3,
         "name": "Demo + polish",
-        "description": "Implement --demo mode, --help, and edge cases",
+        "description": "Implement --demo mode, --help documentation, and edge case handling",
         "hours": 1
       }
     ],
-    "demo_script": "Creates a temporary Cloudflare account, assigns it to an AI agent, generates a report, and sends a notification, all offline with hardcoded data",
+    "demo_script": "Demonstrates QwenCat's ability to fine-tune a local LLM, add and list categorized questions, and generate reports, all offline with hardcoded data",
     "market_score": 8,
     "buildability_score": 9,
     "overall_score": 8,
     "verdict": "build",
-    "phuket_angle": "None"
+    "phuket_angle": "none"
   },
   "build_status": "pending",
   "phases_complete": []
