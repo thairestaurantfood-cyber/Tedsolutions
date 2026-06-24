@@ -1,53 +1,50 @@
 {
-  "date": "2026-06-24T00:00:56.673759",
+  "date": "2026-06-25T00:00:16.578786",
   "idea": {
-    "source": "HN",
-    "title": "Good results fine tuning a local LLM like Qwen 3:0.6B to categorize questions",
-    "url": "https://www.teachmecoolstuff.com/viewarticle/fine-tuning-a-local-llm-to-categorize-questions",
-    "ts": "10:00",
-    "score": 7,
-    "verdict": "build"
+    "title": "SignalScout \u2014 Real-time trend scanner for indie hackers",
+    "score": 8,
+    "source": "seed"
   },
   "plan": {
-    "product_name": "QwenCat",
-    "tagline": "Fine-tunes a local LLM to categorize questions with high accuracy",
-    "problem": "Small businesses and developers struggle to efficiently categorize questions without relying on expensive or complex cloud-based solutions",
-    "solution": "QwenCat fine-tunes a local LLM, allowing users to train and deploy a custom question categorization model on their own machine, using a simple CLI interface to add, list, and report on categorized questions",
-    "target_market": "Indie hackers, developers, and small businesses worldwide who need a cost-effective and easy-to-use question categorization solution",
+    "product_name": "SignalScout",
+    "tagline": "Real-time trend scanner for indie hackers.",
+    "problem": "Indie hackers struggle to identify and capitalize on emerging trends in their niche quickly.",
+    "solution": "1. Users input their niche keywords. 2. The tool scans predefined sources for trends. 3. It generates a report of current trends. 4. Users receive alerts for significant changes. 5. Data is stored locally for offline access.",
+    "target_market": "Indie hackers, developers, and small businesses looking for actionable insights on market trends.",
     "monthly_price_usd": 29,
     "mvp_features": [
-      "Local LLM fine-tuning",
-      "CLI interface for adding and listing categorized questions",
-      "Report generation and notification",
-      "Offline --demo mode with hardcoded data",
-      "Simple and intuitive --help documentation"
+      "Keyword input",
+      "Trend scanning",
+      "Report generation",
+      "Alerts for changes",
+      "Offline data storage"
     ],
     "build_phases": [
       {
         "phase": 1,
         "name": "Core DB + add",
-        "description": "Design and implement sqlite schema, add and list commands",
+        "description": "sqlite schema + add/list commands",
         "hours": 2
       },
       {
         "phase": 2,
         "name": "Reports + alerts",
-        "description": "Implement report generation and notification functionality",
+        "description": "report generation + notification",
         "hours": 2
       },
       {
         "phase": 3,
         "name": "Demo + polish",
-        "description": "Implement --demo mode, --help documentation, and edge case handling",
+        "description": "--demo mode + --help + edge cases",
         "hours": 1
       }
     ],
-    "demo_script": "Demonstrates QwenCat's ability to fine-tune a local LLM, add and list categorized questions, and generate reports, all offline with hardcoded data",
+    "demo_script": "The --demo mode showcases hardcoded data for three niche keywords, displaying current trends, a sample report, and alert notifications without needing an internet connection.",
     "market_score": 8,
     "buildability_score": 9,
     "overall_score": 8,
     "verdict": "build",
-    "phuket_angle": "none"
+    "phuket_angle": "Targeting local businesses in Phuket to identify tourism trends and optimize offerings."
   },
   "build_status": "pending",
   "phases_complete": []
