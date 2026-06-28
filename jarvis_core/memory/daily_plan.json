@@ -1,36 +1,38 @@
 {
-  "date": "2026-06-26T00:00:31.863624",
+  "date": "2026-06-29T00:05:03.014959",
   "idea": {
-    "title": "Dockerfile Linter",
-    "score": 9,
-    "source": "market_memory",
+    "source": "HN",
+    "title": "Wayfinder Router: deterministic routing of queries between local and hosted LLM",
+    "url": "https://github.com/itsthelore/wayfinder-router",
+    "ts": "12:00",
+    "score": 7,
     "verdict": "build"
   },
   "plan": {
-    "product_name": "DockLint",
-    "tagline": "A simple linter for Dockerfiles to ensure best practices.",
-    "problem": "Developers often face issues with poorly optimized Dockerfiles leading to larger images and longer build times.",
-    "solution": "1. User provides a Dockerfile path. 2. The linter reads the file and checks for common best practices. 3. It outputs warnings and suggestions for improvements. 4. In demo mode, it shows hardcoded examples of Dockerfiles and their linting results. 5. Users can save their configurations for future use.",
-    "target_market": "Indie hackers, developers, and small businesses looking to optimize their Docker usage.",
+    "product_name": "Invoice Chaser",
+    "tagline": "Automate your invoice collection process.",
+    "problem": "Freelancers and small businesses struggle to manually chase unpaid invoices.",
+    "solution": "Tracks outstanding invoices, sends reminders, and generates reports.",
+    "target_market": "Indie hackers, developers, and small businesses worldwide who need to manage their finances efficiently.",
     "monthly_price_usd": 29,
     "mvp_features": [
-      "Linting for common Dockerfile issues",
-      "Customizable rules",
-      "Offline demo mode",
-      "Help documentation",
-      "Basic reporting of linting results"
+      "Create invoice",
+      "List invoices",
+      "Send reminder",
+      "Generate report",
+      "Set alert"
     ],
     "build_phases": [
       {
         "phase": 1,
         "name": "Core DB + add",
-        "description": "sqlite schema + add/list commands",
+        "description": "SQLite schema + add/list commands",
         "hours": 2
       },
       {
         "phase": 2,
         "name": "Reports + alerts",
-        "description": "report generation + notification",
+        "description": "Report generation + notification",
         "hours": 2
       },
       {
@@ -40,12 +42,12 @@
         "hours": 1
       }
     ],
-    "demo_script": "The --demo mode showcases three hardcoded Dockerfiles, highlighting issues like missing labels, unnecessary layers, and best practices for caching. It provides feedback on each example and suggests improvements.",
+    "demo_script": "Shows creating an invoice, listing all invoices, sending a reminder, generating a report, and setting an alert.",
     "market_score": 8,
     "buildability_score": 9,
     "overall_score": 8,
     "verdict": "build",
-    "phuket_angle": "Local tech startups in Phuket can benefit from optimized Dockerfiles to enhance their deployment processes."
+    "phuket_angle": "None"
   },
   "build_status": "pending",
   "phases_complete": []
