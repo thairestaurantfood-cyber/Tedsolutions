@@ -1,53 +1,51 @@
 {
-  "date": "2026-06-29T00:05:03.014959",
+  "date": "2026-06-30T00:01:32.327504",
   "idea": {
-    "source": "HN",
-    "title": "Wayfinder Router: deterministic routing of queries between local and hosted LLM",
-    "url": "https://github.com/itsthelore/wayfinder-router",
-    "ts": "12:00",
-    "score": 7,
-    "verdict": "build"
+    "title": "Competitor price tracker \u2014 I check 6 sites manually every week, need automation",
+    "source": "brain/price_monitor",
+    "score": 10,
+    "buyer": "ecommerce sellers"
   },
   "plan": {
-    "product_name": "Invoice Chaser",
-    "tagline": "Automate your invoice collection process.",
-    "problem": "Freelancers and small businesses struggle to manually chase unpaid invoices.",
-    "solution": "Tracks outstanding invoices, sends reminders, and generates reports.",
-    "target_market": "Indie hackers, developers, and small businesses worldwide who need to manage their finances efficiently.",
+    "product_name": "InvoiceChase",
+    "tagline": "Automates invoice tracking and reminders for freelancers and small businesses",
+    "problem": "Manual invoice tracking and follow-ups are time-consuming and prone to errors",
+    "solution": "InvoiceChase allows users to add invoices, list pending payments, generate reports, and receive alerts for overdue payments, all from a simple command-line interface",
+    "target_market": "Indie hackers, developers, and small businesses worldwide, especially those with limited accounting staff",
     "monthly_price_usd": 29,
     "mvp_features": [
-      "Create invoice",
-      "List invoices",
-      "Send reminder",
-      "Generate report",
-      "Set alert"
+      "Add invoices with client details and due dates",
+      "List pending payments with sorting and filtering options",
+      "Generate reports on invoice status and client balances",
+      "Receive alerts for overdue payments via email or in-app notifications",
+      "Support for --demo mode with sample data for offline testing"
     ],
     "build_phases": [
       {
         "phase": 1,
         "name": "Core DB + add",
-        "description": "SQLite schema + add/list commands",
+        "description": "Design sqlite schema and implement add and list commands",
         "hours": 2
       },
       {
         "phase": 2,
         "name": "Reports + alerts",
-        "description": "Report generation + notification",
+        "description": "Implement report generation and notification features",
         "hours": 2
       },
       {
         "phase": 3,
         "name": "Demo + polish",
-        "description": "--demo mode + --help + edge cases",
+        "description": "Implement --demo mode, --help, and edge case handling",
         "hours": 1
       }
     ],
-    "demo_script": "Shows creating an invoice, listing all invoices, sending a reminder, generating a report, and setting an alert.",
+    "demo_script": "Runs a simulated invoice tracking scenario with sample clients and payments, demonstrating add, list, report, and alert features",
     "market_score": 8,
     "buildability_score": 9,
     "overall_score": 8,
     "verdict": "build",
-    "phuket_angle": "None"
+    "phuket_angle": "Useful for Phuket-based tourism businesses to track invoices from clients worldwide, with support for multiple currencies and languages"
   },
   "build_status": "pending",
   "phases_complete": []
