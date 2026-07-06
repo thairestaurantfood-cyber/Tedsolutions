@@ -7,7 +7,27 @@ Never fails silently.
 
 # ═══════════════════════════════════════════════════
 # META-EVOLVED RULES — AUTO-GENERATED FROM FAILURES
-# Last updated: 2026-07-05 22:30
+# Last updated: 2026-07-06 22:30
+# ═══════════════════════════════════════════════════
+# These rules were rewritten because patterns failed 3+ times.
+#
+# PATTERN: argparse_broken (13 failures)
+# RULE: CRITICAL: Always use parse_known_args() for --demo BEFORE defining subparsers. NEVER use required=True on subparsers. ALWAYS check pre.demo first.
+#   pre, _ = parser.parse_known_args()
+#   if pre.demo:
+#       demo(); return
+#   subs = parser.add_subparsers(dest='command')  # NO required=True
+#
+# PATTERN: demo_broken (13 failures)
+# RULE: CRITICAL: Demo MUST delete DB first, insert realistic data in ALL fields, then PRINT formatted table output. NEVER just say 'use list to view'. NEVER leave zero values.
+#   def demo():
+#       if os.path.exists(DB_PATH): os.remove(DB_PATH)
+#       # insert data with ALL fields populated
+#       # then print formatted table — never just 'loaded successfully'
+#
+# PATTERN: wrong_idea_type (2 failures)
+# RULE: NEVER build: hardware tools, FPGA, ML training, TensorFlow, image processing. ONLY build: data tools, automations, CLI utilities, developer tools, agent infrastructure, business workflows.
+#
 # ═══════════════════════════════════════════════════
 # These rules were rewritten because patterns failed 3+ times.
 #
