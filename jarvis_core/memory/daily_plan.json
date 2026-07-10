@@ -1,51 +1,51 @@
 {
-  "date": "2026-06-30T00:01:32.327504",
+  "date": "2026-07-11T00:00:33.558159",
   "idea": {
-    "title": "Competitor price tracker \u2014 I check 6 sites manually every week, need automation",
-    "source": "brain/price_monitor",
-    "score": 10,
-    "buyer": "ecommerce sellers"
+    "title": "API Mock \\u2014 Instant mock REST API from OpenAPI spec",
+    "score": 9,
+    "source": "market_memory",
+    "verdict": "build"
   },
   "plan": {
-    "product_name": "InvoiceChase",
-    "tagline": "Automates invoice tracking and reminders for freelancers and small businesses",
-    "problem": "Manual invoice tracking and follow-ups are time-consuming and prone to errors",
-    "solution": "InvoiceChase allows users to add invoices, list pending payments, generate reports, and receive alerts for overdue payments, all from a simple command-line interface",
-    "target_market": "Indie hackers, developers, and small businesses worldwide, especially those with limited accounting staff",
+    "product_name": "InvoiceChaser",
+    "tagline": "Automate overdue invoice reminders for freelancers and small businesses.",
+    "problem": "Freelancers and small businesses lose revenue due to unpaid invoices and manual follow-ups.",
+    "solution": "Tracks invoices, sends automated polite reminders, and generates reports\u2014all via a simple CLI tool.",
+    "target_market": "Solo developers, indie hackers, and small business owners who invoice clients globally.",
     "monthly_price_usd": 29,
     "mvp_features": [
-      "Add invoices with client details and due dates",
-      "List pending payments with sorting and filtering options",
-      "Generate reports on invoice status and client balances",
-      "Receive alerts for overdue payments via email or in-app notifications",
-      "Support for --demo mode with sample data for offline testing"
+      "Add/list invoices with due dates",
+      "Auto-generate polite reminder emails",
+      "CSV/JSON export of invoice status",
+      "Offline-first SQLite storage",
+      "CLI with --demo mode"
     ],
     "build_phases": [
       {
         "phase": 1,
         "name": "Core DB + add",
-        "description": "Design sqlite schema and implement add and list commands",
+        "description": "sqlite schema + add/list commands",
         "hours": 2
       },
       {
         "phase": 2,
         "name": "Reports + alerts",
-        "description": "Implement report generation and notification features",
+        "description": "report generation + notification",
         "hours": 2
       },
       {
         "phase": 3,
         "name": "Demo + polish",
-        "description": "Implement --demo mode, --help, and edge case handling",
+        "description": "--demo mode + --help + edge cases",
         "hours": 1
       }
     ],
-    "demo_script": "Runs a simulated invoice tracking scenario with sample clients and payments, demonstrating add, list, report, and alert features",
+    "demo_script": "Run `invoicechase --demo` to see 3 mock invoices with automated reminders sent to a local SQLite DB.",
     "market_score": 8,
     "buildability_score": 9,
     "overall_score": 8,
     "verdict": "build",
-    "phuket_angle": "Useful for Phuket-based tourism businesses to track invoices from clients worldwide, with support for multiple currencies and languages"
+    "phuket_angle": "Perfect for Phuket-based freelancers (e.g., dive instructors, digital nomads) who invoice international clients and need automated, timezone-aware reminders."
   },
   "build_status": "pending",
   "phases_complete": []
