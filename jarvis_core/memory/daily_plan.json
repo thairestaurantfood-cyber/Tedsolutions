@@ -1,23 +1,23 @@
 {
-  "date": "2026-07-13T00:00:11.129610",
+  "date": "2026-07-14T00:00:26.468551",
   "idea": {
-    "title": "SignalScout \u2014 Real-time trend scanner for indie hackers",
+    "title": "DevDigest \u2014 Daily AI-curated summary of GitHub + HN for developers",
     "score": 8,
     "source": "seed"
   },
   "plan": {
-    "product_name": "SignalScout",
-    "tagline": "Scan global trends in real-time without drowning in data",
-    "problem": "Indie hackers waste hours manually checking multiple sources for trending topics, missing opportunities due to slow or fragmented data",
-    "solution": "CLI tool that aggregates trending topics from GitHub, Hacker News, Reddit, and Product Hunt into a single real-time dashboard with alerts and reports",
-    "target_market": "Solo developers and small teams building bootstrapped products who need actionable trend data without complex setups",
+    "product_name": "InvoiceChaser",
+    "tagline": "Automate overdue invoice reminders for freelancers with zero setup.",
+    "problem": "Freelancers waste hours weekly chasing late payments, hurting cash flow and productivity.",
+    "solution": "CLI tool that tracks invoices, sends automated polite reminders, and generates reports\u2014all offline-first with SQLite.",
+    "target_market": "Solo developers, indie hackers, and small business owners who bill hourly or per-project and need lightweight automation.",
     "monthly_price_usd": 29,
     "mvp_features": [
-      "Real-time trend aggregation from 4 sources",
-      "Custom keyword filtering",
-      "SQLite-based local storage",
-      "CSV/JSON export for analysis",
-      "CLI alerts for new trends"
+      "Add/edit invoices with due dates",
+      "Auto-send email reminders via local SMTP",
+      "Generate overdue reports (CSV/JSON)",
+      "Offline-first SQLite storage",
+      "--demo mode with hardcoded invoices"
     ],
     "build_phases": [
       {
@@ -39,12 +39,12 @@
         "hours": 1
       }
     ],
-    "demo_script": "Run `signalscout --demo` to see hardcoded trends in AI tools, SaaS, and indie hacking. Shows top 5 trending topics with source links in terminal output.",
+    "demo_script": "Run `invoice-chaser --demo` to see 3 mock invoices (1 overdue), generate a report, and simulate email reminders\u2014all without internet.",
     "market_score": 8,
     "buildability_score": 9,
     "overall_score": 8,
     "verdict": "build",
-    "phuket_angle": "none"
+    "phuket_angle": "Perfect for Phuket-based freelancers (e.g., diving instructors, tour guides) who bill tourists post-service and need lightweight, offline-friendly payment tracking."
   },
   "build_status": "pending",
   "phases_complete": []
