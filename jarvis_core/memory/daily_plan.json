@@ -1,50 +1,51 @@
 {
-  "date": "2026-07-14T00:00:26.468551",
+  "date": "2026-07-15T00:01:12.250640",
   "idea": {
-    "title": "DevDigest \u2014 Daily AI-curated summary of GitHub + HN for developers",
+    "title": "CostRadar \u2014 Real-time LLM API cost tracker across providers",
     "score": 8,
     "source": "seed"
   },
   "plan": {
-    "product_name": "InvoiceChaser",
-    "tagline": "Automate overdue invoice reminders for freelancers with zero setup.",
-    "problem": "Freelancers waste hours weekly chasing late payments, hurting cash flow and productivity.",
-    "solution": "CLI tool that tracks invoices, sends automated polite reminders, and generates reports\u2014all offline-first with SQLite.",
-    "target_market": "Solo developers, indie hackers, and small business owners who bill hourly or per-project and need lightweight automation.",
+    "product_name": "CostRadar",
+    "tagline": "Real-time cost tracker for LLM APIs across providers in your terminal.",
+    "problem": "Indie hackers and small teams waste money on unmonitored LLM API usage, leading to unexpected bills and no visibility into spending patterns.",
+    "solution": "Tracks API calls, costs, and usage in real-time with a Python CLI. Aggregates data from multiple providers, generates reports, and alerts when thresholds are exceeded\u2014all offline-capable with --demo mode.",
+    "target_market": "Solo developers, indie hackers, and small businesses using multiple LLM APIs (OpenAI, Anthropic, Mistral, etc.) who need cost transparency without complex dashboards.",
     "monthly_price_usd": 29,
     "mvp_features": [
-      "Add/edit invoices with due dates",
-      "Auto-send email reminders via local SMTP",
-      "Generate overdue reports (CSV/JSON)",
-      "Offline-first SQLite storage",
-      "--demo mode with hardcoded invoices"
+      "Track costs per API provider (OpenAI, Anthropic, etc.)",
+      "Real-time cost aggregation with per-call breakdowns",
+      "Monthly/weekly report generation in CSV",
+      "Threshold-based alerts (e.g., $50 spent)",
+      "--demo mode with hardcoded offline data",
+      "SQLite-backed local storage (no cloud dependency)"
     ],
     "build_phases": [
       {
         "phase": 1,
         "name": "Core DB + add",
-        "description": "sqlite schema + add/list commands",
+        "description": "Implement SQLite schema for storing API calls, costs, and providers. Add commands to log calls and list entries.",
         "hours": 2
       },
       {
         "phase": 2,
         "name": "Reports + alerts",
-        "description": "report generation + notification",
+        "description": "Generate CSV reports by provider/time. Add threshold-based alerting via stdout or email (if configured).",
         "hours": 2
       },
       {
         "phase": 3,
         "name": "Demo + polish",
-        "description": "--demo mode + --help + edge cases",
+        "description": "Add --demo mode with hardcoded data. Improve --help, edge cases (e.g., invalid providers), and CLI polish.",
         "hours": 1
       }
     ],
-    "demo_script": "Run `invoice-chaser --demo` to see 3 mock invoices (1 overdue), generate a report, and simulate email reminders\u2014all without internet.",
+    "demo_script": "Run `python costradar.py --demo`. Shows 3 hardcoded API calls (OpenAI, Anthropic, Mistral) with costs, a summary report, and a $100 threshold alert triggered by demo data.",
     "market_score": 8,
     "buildability_score": 9,
     "overall_score": 8,
     "verdict": "build",
-    "phuket_angle": "Perfect for Phuket-based freelancers (e.g., diving instructors, tour guides) who bill tourists post-service and need lightweight, offline-friendly payment tracking."
+    "phuket_angle": "Phuket-based digital nomads or small agencies using LLMs for client projects (e.g., chatbots, content generation) can monitor API spending to avoid bill shocks from fluctuating token costs."
   },
   "build_status": "pending",
   "phases_complete": []
