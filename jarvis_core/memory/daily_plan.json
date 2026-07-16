@@ -1,51 +1,53 @@
 {
-  "date": "2026-07-15T00:01:12.250640",
+  "date": "2026-07-17T00:00:13.479318",
   "idea": {
-    "title": "CostRadar \u2014 Real-time LLM API cost tracker across providers",
-    "score": 8,
-    "source": "seed"
+    "source": "HN",
+    "title": "Brainless: Shadcn components that look like Claude Code, Codex and Grok",
+    "url": "https://brainless.swerdlow.dev",
+    "ts": "04:00",
+    "score": 7,
+    "verdict": "build"
   },
   "plan": {
-    "product_name": "CostRadar",
-    "tagline": "Real-time cost tracker for LLM APIs across providers in your terminal.",
-    "problem": "Indie hackers and small teams waste money on unmonitored LLM API usage, leading to unexpected bills and no visibility into spending patterns.",
-    "solution": "Tracks API calls, costs, and usage in real-time with a Python CLI. Aggregates data from multiple providers, generates reports, and alerts when thresholds are exceeded\u2014all offline-capable with --demo mode.",
-    "target_market": "Solo developers, indie hackers, and small businesses using multiple LLM APIs (OpenAI, Anthropic, Mistral, etc.) who need cost transparency without complex dashboards.",
+    "product_name": "ClaudeCLI",
+    "tagline": "Turn any Python CLI into a sleek AI assistant with Shadcn-inspired UI components",
+    "problem": "Developers waste hours building custom CLI UIs that look outdated, while AI tools like Claude Code set the visual standard but aren't accessible for local development",
+    "solution": "Provides pre-built Shadcn-style components (inputs, tables, cards) that mimic Claude Code's aesthetic, packaged as a Python CLI library. Users import components to build polished CLIs in minutes with zero frontend work",
+    "target_market": "Solo Python developers and indie hackers building internal tools, small businesses automating workflows, and remote teams needing professional-looking CLIs",
     "monthly_price_usd": 29,
     "mvp_features": [
-      "Track costs per API provider (OpenAI, Anthropic, etc.)",
-      "Real-time cost aggregation with per-call breakdowns",
-      "Monthly/weekly report generation in CSV",
-      "Threshold-based alerts (e.g., $50 spent)",
-      "--demo mode with hardcoded offline data",
-      "SQLite-backed local storage (no cloud dependency)"
+      "Shadcn-style components (inputs, cards, tables)",
+      "Offline --demo mode with hardcoded AI assistant demo",
+      "--help with interactive examples",
+      "SQLite-backed state management",
+      "Copy-paste ready component snippets"
     ],
     "build_phases": [
       {
         "phase": 1,
         "name": "Core DB + add",
-        "description": "Implement SQLite schema for storing API calls, costs, and providers. Add commands to log calls and list entries.",
+        "description": "sqlite schema for component storage + basic add/list commands",
         "hours": 2
       },
       {
         "phase": 2,
         "name": "Reports + alerts",
-        "description": "Generate CSV reports by provider/time. Add threshold-based alerting via stdout or email (if configured).",
+        "description": "component rendering engine + error handling",
         "hours": 2
       },
       {
         "phase": 3,
         "name": "Demo + polish",
-        "description": "Add --demo mode with hardcoded data. Improve --help, edge cases (e.g., invalid providers), and CLI polish.",
+        "description": "--demo mode with hardcoded AI assistant flow + docs",
         "hours": 1
       }
     ],
-    "demo_script": "Run `python costradar.py --demo`. Shows 3 hardcoded API calls (OpenAI, Anthropic, Mistral) with costs, a summary report, and a $100 threshold alert triggered by demo data.",
+    "demo_script": "Run `claudecli --demo` to see a mock AI assistant CLI with Shadcn-styled input/output cards, markdown tables, and a chat interface - all 100% offline with hardcoded data",
     "market_score": 8,
     "buildability_score": 9,
     "overall_score": 8,
     "verdict": "build",
-    "phuket_angle": "Phuket-based digital nomads or small agencies using LLMs for client projects (e.g., chatbots, content generation) can monitor API spending to avoid bill shocks from fluctuating token costs."
+    "phuket_angle": "none"
   },
   "build_status": "pending",
   "phases_complete": []
