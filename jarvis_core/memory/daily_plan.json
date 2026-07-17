@@ -1,53 +1,51 @@
 {
-  "date": "2026-07-17T00:00:13.479318",
+  "date": "2026-07-18T00:00:31.237642",
   "idea": {
-    "source": "HN",
-    "title": "Brainless: Shadcn components that look like Claude Code, Codex and Grok",
-    "url": "https://brainless.swerdlow.dev",
-    "ts": "04:00",
-    "score": 7,
-    "verdict": "build"
+    "title": "Competitor price tracker \u2014 I check 6 sites manually every week, need automation",
+    "source": "brain/price_monitor",
+    "score": 10,
+    "buyer": "ecommerce sellers"
   },
   "plan": {
-    "product_name": "ClaudeCLI",
-    "tagline": "Turn any Python CLI into a sleek AI assistant with Shadcn-inspired UI components",
-    "problem": "Developers waste hours building custom CLI UIs that look outdated, while AI tools like Claude Code set the visual standard but aren't accessible for local development",
-    "solution": "Provides pre-built Shadcn-style components (inputs, tables, cards) that mimic Claude Code's aesthetic, packaged as a Python CLI library. Users import components to build polished CLIs in minutes with zero frontend work",
-    "target_market": "Solo Python developers and indie hackers building internal tools, small businesses automating workflows, and remote teams needing professional-looking CLIs",
+    "product_name": "InvoiceChaser",
+    "tagline": "Automate overdue invoice reminders for freelancers with zero setup.",
+    "problem": "Freelancers waste hours chasing late payments manually, losing revenue and productivity.",
+    "solution": "CLI tool that tracks invoices, sends automated polite reminders, and generates reports\u2014all offline with optional email/SMS via system tools.",
+    "target_market": "Solo developers, designers, and small business owners who invoice clients globally and need a lightweight, no-frills solution.",
     "monthly_price_usd": 29,
     "mvp_features": [
-      "Shadcn-style components (inputs, cards, tables)",
-      "Offline --demo mode with hardcoded AI assistant demo",
-      "--help with interactive examples",
-      "SQLite-backed state management",
-      "Copy-paste ready component snippets"
+      "Add/edit invoices with due dates",
+      "Auto-generate polite reminder emails",
+      "CSV/JSON export for accounting",
+      "Offline-first with --demo mode",
+      "SQLite backend for persistence"
     ],
     "build_phases": [
       {
         "phase": 1,
         "name": "Core DB + add",
-        "description": "sqlite schema for component storage + basic add/list commands",
+        "description": "SQLite schema for invoices + CLI add/list commands",
         "hours": 2
       },
       {
         "phase": 2,
         "name": "Reports + alerts",
-        "description": "component rendering engine + error handling",
+        "description": "Generate overdue reports + system-level email/SMS reminders",
         "hours": 2
       },
       {
         "phase": 3,
         "name": "Demo + polish",
-        "description": "--demo mode with hardcoded AI assistant flow + docs",
+        "description": "Hardcoded --demo mode + help text + edge case handling",
         "hours": 1
       }
     ],
-    "demo_script": "Run `claudecli --demo` to see a mock AI assistant CLI with Shadcn-styled input/output cards, markdown tables, and a chat interface - all 100% offline with hardcoded data",
+    "demo_script": "Run `invoicechase --demo` to see 3 sample invoices, 1 overdue, with auto-generated reminder emails printed to console. No internet needed.",
     "market_score": 8,
     "buildability_score": 9,
     "overall_score": 8,
     "verdict": "build",
-    "phuket_angle": "none"
+    "phuket_angle": "Perfect for Phuket-based digital nomads and small businesses (e.g., dive shops, tour operators) who invoice international clients and need a simple, offline-capable tool to chase payments without relying on unstable Thai internet."
   },
   "build_status": "pending",
   "phases_complete": []
