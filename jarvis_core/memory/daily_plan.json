@@ -1,51 +1,52 @@
 {
-  "date": "2026-07-18T00:00:31.237642",
+  "date": "2026-07-20T00:00:13.161029",
   "idea": {
-    "title": "Competitor price tracker \u2014 I check 6 sites manually every week, need automation",
-    "source": "brain/price_monitor",
-    "score": 10,
-    "buyer": "ecommerce sellers"
+    "title": "Static search trees: 40x faster than binary search (2024)",
+    "pain": "Slow search functionality in applications leads to poor user experience and lost revenue.",
+    "score": 7,
+    "source": "mistral_filtered",
+    "verdict": "build"
   },
   "plan": {
-    "product_name": "InvoiceChaser",
-    "tagline": "Automate overdue invoice reminders for freelancers with zero setup.",
-    "problem": "Freelancers waste hours chasing late payments manually, losing revenue and productivity.",
-    "solution": "CLI tool that tracks invoices, sends automated polite reminders, and generates reports\u2014all offline with optional email/SMS via system tools.",
-    "target_market": "Solo developers, designers, and small business owners who invoice clients globally and need a lightweight, no-frills solution.",
+    "product_name": "FastTree CLI",
+    "tagline": "Index and search 100k+ items instantly with static search trees in Python CLI.",
+    "problem": "Binary search is too slow for large datasets in CLI apps, causing 5-10s delays in searches.",
+    "solution": "Pre-build static search trees (B-trees) for O(1) lookups, 40x faster than binary search, with zero dependencies.",
+    "target_market": "Indie hackers and small dev teams needing high-speed local search without complex setups.",
     "monthly_price_usd": 29,
     "mvp_features": [
-      "Add/edit invoices with due dates",
-      "Auto-generate polite reminder emails",
-      "CSV/JSON export for accounting",
-      "Offline-first with --demo mode",
-      "SQLite backend for persistence"
+      "Pre-built static search trees (B-tree)",
+      "Add/list/search CLI commands",
+      "Offline --demo mode",
+      "CSV/JSON import",
+      "100k+ item support"
     ],
     "build_phases": [
       {
         "phase": 1,
         "name": "Core DB + add",
-        "description": "SQLite schema for invoices + CLI add/list commands",
+        "description": "sqlite schema + add/list commands",
         "hours": 2
       },
       {
         "phase": 2,
         "name": "Reports + alerts",
-        "description": "Generate overdue reports + system-level email/SMS reminders",
+        "description": "report generation + notification",
         "hours": 2
       },
       {
         "phase": 3,
         "name": "Demo + polish",
-        "description": "Hardcoded --demo mode + help text + edge case handling",
+        "description": "--demo mode + --help + edge cases",
         "hours": 1
       }
     ],
-    "demo_script": "Run `invoicechase --demo` to see 3 sample invoices, 1 overdue, with auto-generated reminder emails printed to console. No internet needed.",
+    "demo_script": "Run `FastTree --demo` to see 10k hardcoded items indexed in 0.1s, then search for 'apple' in 0.001s.",
     "market_score": 8,
     "buildability_score": 9,
     "overall_score": 8,
     "verdict": "build",
-    "phuket_angle": "Perfect for Phuket-based digital nomads and small businesses (e.g., dive shops, tour operators) who invoice international clients and need a simple, offline-capable tool to chase payments without relying on unstable Thai internet."
+    "phuket_angle": "None"
   },
   "build_status": "pending",
   "phases_complete": []
