@@ -1,47 +1,46 @@
 {
-  "date": "2026-07-20T00:00:13.161029",
+  "date": "2026-07-21T00:00:18.359885",
   "idea": {
-    "title": "Static search trees: 40x faster than binary search (2024)",
-    "pain": "Slow search functionality in applications leads to poor user experience and lost revenue.",
-    "score": 7,
-    "source": "mistral_filtered",
+    "title": "ChangelogGen \u2003 Generate conventional changelogs from git commits with conventional commits format",
+    "score": 8,
+    "source": "market_memory",
     "verdict": "build"
   },
   "plan": {
-    "product_name": "FastTree CLI",
-    "tagline": "Index and search 100k+ items instantly with static search trees in Python CLI.",
-    "problem": "Binary search is too slow for large datasets in CLI apps, causing 5-10s delays in searches.",
-    "solution": "Pre-build static search trees (B-trees) for O(1) lookups, 40x faster than binary search, with zero dependencies.",
-    "target_market": "Indie hackers and small dev teams needing high-speed local search without complex setups.",
+    "product_name": "ChangelogGen",
+    "tagline": "Generate conventional changelogs from git commits in one command",
+    "problem": "Indie hackers and small dev teams waste hours manually writing changelogs from git commits, especially when using Conventional Commits format inconsistently.",
+    "solution": "Parse git commits, validate Conventional Commits format, group changes by type (feat/fix/perf/docs), and output a clean markdown changelog with semantic versioning suggestions. Works offline, integrates with CI/CD via CLI.",
+    "target_market": "Solo developers, indie hackers, and small tech teams (1-10 people) who use Git and need professional changelogs without manual effort.",
     "monthly_price_usd": 29,
     "mvp_features": [
-      "Pre-built static search trees (B-tree)",
-      "Add/list/search CLI commands",
-      "Offline --demo mode",
-      "CSV/JSON import",
-      "100k+ item support"
+      "Parse local git commits since last tag",
+      "Validate Conventional Commits format",
+      "Generate markdown changelog with sections (Features, Fixes, etc.)",
+      "Output to stdout or file",
+      "Basic CLI with --version, --help, --demo"
     ],
     "build_phases": [
       {
         "phase": 1,
         "name": "Core DB + add",
-        "description": "sqlite schema + add/list commands",
+        "description": "sqlite schema for commit cache + add/list commands",
         "hours": 2
       },
       {
         "phase": 2,
         "name": "Reports + alerts",
-        "description": "report generation + notification",
+        "description": "changelog generation + version bump suggestions",
         "hours": 2
       },
       {
         "phase": 3,
         "name": "Demo + polish",
-        "description": "--demo mode + --help + edge cases",
+        "description": "--demo mode with hardcoded commits + edge case handling",
         "hours": 1
       }
     ],
-    "demo_script": "Run `FastTree --demo` to see 10k hardcoded items indexed in 0.1s, then search for 'apple' in 0.001s.",
+    "demo_script": "Run `changeloggen --demo` to see a simulated changelog generated from hardcoded commits (feat, fix, docs) with version v1.2.3 output to stdout.",
     "market_score": 8,
     "buildability_score": 9,
     "overall_score": 8,
