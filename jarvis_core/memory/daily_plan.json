@@ -1,46 +1,48 @@
 {
-  "date": "2026-07-21T00:00:18.359885",
+  "date": "2026-07-23T00:02:28.458098",
   "idea": {
-    "title": "ChangelogGen \u2003 Generate conventional changelogs from git commits with conventional commits format",
-    "score": 8,
-    "source": "market_memory",
+    "source": "HN",
+    "title": "Jack Dorsey launches Buzz to combine team chat, AI agents and Git hosting",
+    "url": "https://runtimewire.com/article/jack-dorsey-block-buzz-team-chat-ai-agents-git",
+    "ts": "02:00",
+    "score": 7,
     "verdict": "build"
   },
   "plan": {
-    "product_name": "ChangelogGen",
-    "tagline": "Generate conventional changelogs from git commits in one command",
-    "problem": "Indie hackers and small dev teams waste hours manually writing changelogs from git commits, especially when using Conventional Commits format inconsistently.",
-    "solution": "Parse git commits, validate Conventional Commits format, group changes by type (feat/fix/perf/docs), and output a clean markdown changelog with semantic versioning suggestions. Works offline, integrates with CI/CD via CLI.",
-    "target_market": "Solo developers, indie hackers, and small tech teams (1-10 people) who use Git and need professional changelogs without manual effort.",
+    "product_name": "Buzz",
+    "tagline": "Effortlessly manage your team chat, AI agents, and Git hosting all in one place.",
+    "problem": "Indie hackers, developers, and small businesses struggle with managing multiple tools for communication, collaboration, and version control.",
+    "solution": "Buzz combines team chat, AI agents, and Git hosting into a single, user-friendly CLI tool. It allows users to communicate, automate tasks, and manage code repositories in one place.",
+    "target_market": "Indie hackers, developers, and small businesses worldwide who need efficient tools for remote work and project management.",
     "monthly_price_usd": 29,
     "mvp_features": [
-      "Parse local git commits since last tag",
-      "Validate Conventional Commits format",
-      "Generate markdown changelog with sections (Features, Fixes, etc.)",
-      "Output to stdout or file",
-      "Basic CLI with --version, --help, --demo"
+      "Team chat",
+      "AI agents",
+      "Git hosting",
+      "Reports",
+      "Alerts"
     ],
     "build_phases": [
       {
         "phase": 1,
         "name": "Core DB + add",
-        "description": "sqlite schema for commit cache + add/list commands",
+        "description": "SQLite schema + add/list commands",
         "hours": 2
       },
       {
         "phase": 2,
         "name": "Reports + alerts",
-        "description": "changelog generation + version bump suggestions",
+        "description": "Report generation + notification",
         "hours": 2
       },
       {
         "phase": 3,
         "name": "Demo + polish",
-        "description": "--demo mode with hardcoded commits + edge case handling",
+        "description": "--demo mode + --help + edge cases",
         "hours": 1
       }
     ],
-    "demo_script": "Run `changeloggen --demo` to see a simulated changelog generated from hardcoded commits (feat, fix, docs) with version v1.2.3 output to stdout.",
+    "demo_script": "Shows basic team chat functionality, AI agent responses, and Git repository management.",
     "market_score": 8,
     "buildability_score": 9,
     "overall_score": 8,
