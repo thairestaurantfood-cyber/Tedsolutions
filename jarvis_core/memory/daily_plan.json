@@ -1,38 +1,36 @@
 {
-  "date": "2026-07-23T00:02:28.458098",
+  "date": "2026-08-25T00:00:21.917888",
   "idea": {
-    "source": "HN",
-    "title": "Jack Dorsey launches Buzz to combine team chat, AI agents and Git hosting",
-    "url": "https://runtimewire.com/article/jack-dorsey-block-buzz-team-chat-ai-agents-git",
-    "ts": "02:00",
-    "score": 7,
+    "title": "ConfigLint \u2014 Configuration file validator and linter for YAML/JSON/TOML",
+    "score": 8,
+    "source": "market_memory",
     "verdict": "build"
   },
   "plan": {
-    "product_name": "Buzz",
-    "tagline": "Effortlessly manage your team chat, AI agents, and Git hosting all in one place.",
-    "problem": "Indie hackers, developers, and small businesses struggle with managing multiple tools for communication, collaboration, and version control.",
-    "solution": "Buzz combines team chat, AI agents, and Git hosting into a single, user-friendly CLI tool. It allows users to communicate, automate tasks, and manage code repositories in one place.",
-    "target_market": "Indie hackers, developers, and small businesses worldwide who need efficient tools for remote work and project management.",
+    "product_name": "ConfigLint",
+    "tagline": "CLI tool to validate and lint YAML/JSON/TOML config files with zero dependencies",
+    "problem": "Indie hackers and small teams waste hours debugging misconfigured YAML/JSON/TOML files that break deployments or cause silent failures",
+    "solution": "Run ConfigLint against any config file to get instant validation, schema checks, and linting\u2014all via a simple CLI command with no external dependencies",
+    "target_market": "Solo developers, indie hackers, and small businesses managing infrastructure, apps, or automation scripts with config files",
     "monthly_price_usd": 29,
     "mvp_features": [
-      "Team chat",
-      "AI agents",
-      "Git hosting",
-      "Reports",
-      "Alerts"
+      "Validate YAML/JSON/TOML files against common schemas",
+      "Basic linting for syntax errors and style issues",
+      "Offline demo mode with hardcoded examples",
+      "CLI with --check, --fix, and --demo flags",
+      "SQLite-backed config history for tracking changes"
     ],
     "build_phases": [
       {
         "phase": 1,
         "name": "Core DB + add",
-        "description": "SQLite schema + add/list commands",
+        "description": "sqlite schema + add/list commands",
         "hours": 2
       },
       {
         "phase": 2,
         "name": "Reports + alerts",
-        "description": "Report generation + notification",
+        "description": "report generation + notification",
         "hours": 2
       },
       {
@@ -42,12 +40,12 @@
         "hours": 1
       }
     ],
-    "demo_script": "Shows basic team chat functionality, AI agent responses, and Git repository management.",
+    "demo_script": "Run `configlint --demo` to see 3 sample configs (YAML/JSON/TOML) validated with errors highlighted, then fix them interactively",
     "market_score": 8,
     "buildability_score": 9,
     "overall_score": 8,
     "verdict": "build",
-    "phuket_angle": "None"
+    "phuket_angle": "Phuket-based digital nomads running small SaaS apps can use ConfigLint to validate their server configs (e.g., Docker Compose, Nginx) before deployment, avoiding downtime during peak tourist season"
   },
   "build_status": "pending",
   "phases_complete": []
