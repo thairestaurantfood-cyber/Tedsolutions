@@ -1,51 +1,50 @@
 {
-  "date": "2026-08-25T00:00:21.917888",
+  "date": "2026-08-27T00:00:26.527032",
   "idea": {
-    "title": "ConfigLint \u2014 Configuration file validator and linter for YAML/JSON/TOML",
-    "score": 8,
-    "source": "market_memory",
-    "verdict": "build"
+    "title": "ToolForge \u2014 Generate MCP tools from OpenAPI specs automatically",
+    "score": 9,
+    "source": "seed"
   },
   "plan": {
-    "product_name": "ConfigLint",
-    "tagline": "CLI tool to validate and lint YAML/JSON/TOML config files with zero dependencies",
-    "problem": "Indie hackers and small teams waste hours debugging misconfigured YAML/JSON/TOML files that break deployments or cause silent failures",
-    "solution": "Run ConfigLint against any config file to get instant validation, schema checks, and linting\u2014all via a simple CLI command with no external dependencies",
-    "target_market": "Solo developers, indie hackers, and small businesses managing infrastructure, apps, or automation scripts with config files",
+    "product_name": "OpenAPI Forge",
+    "tagline": "Turn any OpenAPI spec into ready-to-use MCP tools in seconds",
+    "problem": "Indie hackers and small dev teams waste hours manually converting OpenAPI specs into MCP tooling instead of building their core product",
+    "solution": "Parse OpenAPI specs, auto-generate Python MCP tool files with proper typing, CLI integration, and offline demo mode\u2014all with zero external dependencies",
+    "target_market": "Solo Python developers and small teams shipping AI agents who need fast MCP tool integration without heavy frameworks",
     "monthly_price_usd": 29,
     "mvp_features": [
-      "Validate YAML/JSON/TOML files against common schemas",
-      "Basic linting for syntax errors and style issues",
-      "Offline demo mode with hardcoded examples",
-      "CLI with --check, --fix, and --demo flags",
-      "SQLite-backed config history for tracking changes"
+      "Parse OpenAPI 3.0 specs to MCP tools",
+      "Generate typed Python CLI tools with argparse",
+      "Offline --demo mode with hardcoded weather API mock",
+      "SQLite-backed tool registry for persistence",
+      "--help and --version flags with rich output"
     ],
     "build_phases": [
       {
         "phase": 1,
         "name": "Core DB + add",
-        "description": "sqlite schema + add/list commands",
+        "description": "sqlite schema for tool registry + add/list commands with OpenAPI parsing",
         "hours": 2
       },
       {
         "phase": 2,
         "name": "Reports + alerts",
-        "description": "report generation + notification",
+        "description": "generate MCP tool files from specs + basic error handling",
         "hours": 2
       },
       {
         "phase": 3,
         "name": "Demo + polish",
-        "description": "--demo mode + --help + edge cases",
+        "description": "--demo mode with hardcoded weather data + CLI polish",
         "hours": 1
       }
     ],
-    "demo_script": "Run `configlint --demo` to see 3 sample configs (YAML/JSON/TOML) validated with errors highlighted, then fix them interactively",
+    "demo_script": "Run `openapi-forge --demo` to generate 3 mock MCP tools (weather, stock, translate) from hardcoded specs, list them with `openapi-forge list`, and inspect generated Python files in ./tools/",
     "market_score": 8,
     "buildability_score": 9,
     "overall_score": 8,
     "verdict": "build",
-    "phuket_angle": "Phuket-based digital nomads running small SaaS apps can use ConfigLint to validate their server configs (e.g., Docker Compose, Nginx) before deployment, avoiding downtime during peak tourist season"
+    "phuket_angle": "Thai travel agencies could auto-generate MCP tools from their booking API specs to integrate with AI agents for instant hotel/flight queries without custom backend work"
   },
   "build_status": "pending",
   "phases_complete": []
