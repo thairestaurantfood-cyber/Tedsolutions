@@ -1,50 +1,51 @@
 {
-  "date": "2026-08-27T00:00:26.527032",
+  "date": "2026-08-28T00:00:36.219828",
   "idea": {
-    "title": "ToolForge \u2014 Generate MCP tools from OpenAPI specs automatically",
-    "score": 9,
-    "source": "seed"
+    "title": "QueryBuilder \u2014 SQL query builder CLI with visual syntax tree",
+    "score": 8,
+    "source": "market_memory",
+    "verdict": "build"
   },
   "plan": {
-    "product_name": "OpenAPI Forge",
-    "tagline": "Turn any OpenAPI spec into ready-to-use MCP tools in seconds",
-    "problem": "Indie hackers and small dev teams waste hours manually converting OpenAPI specs into MCP tooling instead of building their core product",
-    "solution": "Parse OpenAPI specs, auto-generate Python MCP tool files with proper typing, CLI integration, and offline demo mode\u2014all with zero external dependencies",
-    "target_market": "Solo Python developers and small teams shipping AI agents who need fast MCP tool integration without heavy frameworks",
+    "product_name": "QueryBuilder",
+    "tagline": "Build SQL queries visually in your terminal with instant syntax tree feedback",
+    "problem": "Developers waste hours debugging SQL syntax errors or writing complex queries from scratch, especially when working with unfamiliar databases or APIs",
+    "solution": "A CLI tool that lets you construct SQL queries step-by-step with visual feedback, error checking, and reusable components\u2014all offline with hardcoded demo data",
+    "target_market": "Indie hackers and small dev teams building data-driven apps who need quick, reliable SQL without heavy IDEs or cloud services",
     "monthly_price_usd": 29,
     "mvp_features": [
-      "Parse OpenAPI 3.0 specs to MCP tools",
-      "Generate typed Python CLI tools with argparse",
-      "Offline --demo mode with hardcoded weather API mock",
-      "SQLite-backed tool registry for persistence",
-      "--help and --version flags with rich output"
+      "Interactive query builder with step-by-step prompts",
+      "Real-time syntax tree visualization",
+      "Export queries to clipboard or file",
+      "--demo mode with hardcoded SQLite data",
+      "Basic CRUD operations (SELECT/INSERT/UPDATE/DELETE)"
     ],
     "build_phases": [
       {
         "phase": 1,
         "name": "Core DB + add",
-        "description": "sqlite schema for tool registry + add/list commands with OpenAPI parsing",
+        "description": "sqlite schema + add/list commands",
         "hours": 2
       },
       {
         "phase": 2,
         "name": "Reports + alerts",
-        "description": "generate MCP tool files from specs + basic error handling",
+        "description": "report generation + notification",
         "hours": 2
       },
       {
         "phase": 3,
         "name": "Demo + polish",
-        "description": "--demo mode with hardcoded weather data + CLI polish",
+        "description": "--demo mode + --help + edge cases",
         "hours": 1
       }
     ],
-    "demo_script": "Run `openapi-forge --demo` to generate 3 mock MCP tools (weather, stock, translate) from hardcoded specs, list them with `openapi-forge list`, and inspect generated Python files in ./tools/",
+    "demo_script": "Run `querybuilder --demo` to see a 3-table schema, build a JOIN query step-by-step, and export the final SQL to clipboard",
     "market_score": 8,
     "buildability_score": 9,
     "overall_score": 8,
     "verdict": "build",
-    "phuket_angle": "Thai travel agencies could auto-generate MCP tools from their booking API specs to integrate with AI agents for instant hotel/flight queries without custom backend work"
+    "phuket_angle": "Thai small businesses (e.g., tour operators) can use it to quickly build custom reports from their SQLite-based booking systems without hiring SQL experts"
   },
   "build_status": "pending",
   "phases_complete": []
