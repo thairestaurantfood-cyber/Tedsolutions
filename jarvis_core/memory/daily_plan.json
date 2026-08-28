@@ -1,51 +1,51 @@
 {
-  "date": "2026-08-28T00:00:36.219828",
+  "date": "2026-08-29T00:00:22.326200",
   "idea": {
-    "title": "QueryBuilder \u2014 SQL query builder CLI with visual syntax tree",
-    "score": 8,
+    "title": "APIMock \u2014 Mock REST API server with instant JSON schema validation",
+    "score": 9,
     "source": "market_memory",
     "verdict": "build"
   },
   "plan": {
-    "product_name": "QueryBuilder",
-    "tagline": "Build SQL queries visually in your terminal with instant syntax tree feedback",
-    "problem": "Developers waste hours debugging SQL syntax errors or writing complex queries from scratch, especially when working with unfamiliar databases or APIs",
-    "solution": "A CLI tool that lets you construct SQL queries step-by-step with visual feedback, error checking, and reusable components\u2014all offline with hardcoded demo data",
-    "target_market": "Indie hackers and small dev teams building data-driven apps who need quick, reliable SQL without heavy IDEs or cloud services",
+    "product_name": "APIMock",
+    "tagline": "Instant local REST API mocking with JSON schema validation",
+    "problem": "Developers waste hours writing fake API servers or waiting for backend teams to build endpoints for frontend testing.",
+    "solution": "Run a local mock REST API server in seconds with predefined JSON schemas and instant validation\u2014no internet, no dependencies, no Flask.",
+    "target_market": "Solo developers, indie hackers, and small businesses building web/mobile apps that need to test API integrations before real backend exists.",
     "monthly_price_usd": 29,
     "mvp_features": [
-      "Interactive query builder with step-by-step prompts",
-      "Real-time syntax tree visualization",
-      "Export queries to clipboard or file",
-      "--demo mode with hardcoded SQLite data",
-      "Basic CRUD operations (SELECT/INSERT/UPDATE/DELETE)"
+      "Instant local API server with --start command",
+      "JSON schema validation on every request",
+      "Add/edit mock endpoints via CLI",
+      "List active endpoints and schemas",
+      "--demo mode with hardcoded endpoints (100% offline)"
     ],
     "build_phases": [
       {
         "phase": 1,
         "name": "Core DB + add",
-        "description": "sqlite schema + add/list commands",
+        "description": "sqlite schema for endpoints + add/list commands",
         "hours": 2
       },
       {
         "phase": 2,
         "name": "Reports + alerts",
-        "description": "report generation + notification",
+        "description": "endpoint activity logs + validation error alerts",
         "hours": 2
       },
       {
         "phase": 3,
         "name": "Demo + polish",
-        "description": "--demo mode + --help + edge cases",
+        "description": "--demo mode with 3 endpoints + --help + edge case fixes",
         "hours": 1
       }
     ],
-    "demo_script": "Run `querybuilder --demo` to see a 3-table schema, build a JOIN query step-by-step, and export the final SQL to clipboard",
+    "demo_script": "Run 'apimock --demo' to start a mock server on port 8000 with 3 endpoints (/users, /products, /orders). Each returns valid JSON matching its schema. Test with curl or Postman\u2014no internet needed.",
     "market_score": 8,
     "buildability_score": 9,
     "overall_score": 8,
     "verdict": "build",
-    "phuket_angle": "Thai small businesses (e.g., tour operators) can use it to quickly build custom reports from their SQLite-based booking systems without hiring SQL experts"
+    "phuket_angle": "Phuket hotels/restaurants can use it to mock booking/order APIs for their mobile apps without waiting for backend development during peak season."
   },
   "build_status": "pending",
   "phases_complete": []
