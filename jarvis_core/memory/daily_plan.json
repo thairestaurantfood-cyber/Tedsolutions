@@ -1,51 +1,50 @@
 {
-  "date": "2026-08-29T00:00:22.326200",
+  "date": "2026-08-30T00:00:13.630862",
   "idea": {
-    "title": "APIMock \u2014 Mock REST API server with instant JSON schema validation",
-    "score": 9,
-    "source": "market_memory",
-    "verdict": "build"
+    "title": "SignalScout \u2014 Real-time trend scanner for indie hackers",
+    "score": 8,
+    "source": "seed"
   },
   "plan": {
-    "product_name": "APIMock",
-    "tagline": "Instant local REST API mocking with JSON schema validation",
-    "problem": "Developers waste hours writing fake API servers or waiting for backend teams to build endpoints for frontend testing.",
-    "solution": "Run a local mock REST API server in seconds with predefined JSON schemas and instant validation\u2014no internet, no dependencies, no Flask.",
-    "target_market": "Solo developers, indie hackers, and small businesses building web/mobile apps that need to test API integrations before real backend exists.",
+    "product_name": "SignalScout",
+    "tagline": "Real-time trend scanner for indie hackers to spot profitable opportunities instantly.",
+    "problem": "Indie hackers waste hours manually checking Reddit, Twitter, and Product Hunt for trending topics, missing time-sensitive opportunities.",
+    "solution": "CLI tool that aggregates trending signals from multiple sources, filters noise, and alerts you to high-potential niches with one command.",
+    "target_market": "Solo developers, indie hackers, and small SaaS founders worldwide who rely on organic trend discovery for product ideas.",
     "monthly_price_usd": 29,
     "mvp_features": [
-      "Instant local API server with --start command",
-      "JSON schema validation on every request",
-      "Add/edit mock endpoints via CLI",
-      "List active endpoints and schemas",
-      "--demo mode with hardcoded endpoints (100% offline)"
+      "Trend aggregation from Reddit/Twitter/Product Hunt",
+      "Keyword filtering (e.g., 'AI', 'no-code')",
+      "SQLite storage for historical trends",
+      "CLI commands: add, list, report, alert",
+      "--demo mode with hardcoded trends"
     ],
     "build_phases": [
       {
         "phase": 1,
         "name": "Core DB + add",
-        "description": "sqlite schema for endpoints + add/list commands",
+        "description": "sqlite schema for trends + add/list commands with local scraping",
         "hours": 2
       },
       {
         "phase": 2,
         "name": "Reports + alerts",
-        "description": "endpoint activity logs + validation error alerts",
+        "description": "generate CSV reports + basic alerting via stdout",
         "hours": 2
       },
       {
         "phase": 3,
         "name": "Demo + polish",
-        "description": "--demo mode with 3 endpoints + --help + edge case fixes",
+        "description": "add --demo mode, --help, error handling, and edge cases",
         "hours": 1
       }
     ],
-    "demo_script": "Run 'apimock --demo' to start a mock server on port 8000 with 3 endpoints (/users, /products, /orders). Each returns valid JSON matching its schema. Test with curl or Postman\u2014no internet needed.",
+    "demo_script": "Run `signalscout --demo` to see hardcoded trends like 'AI side hustles' and 'no-code tools' with timestamps. Lists top 5 trends in a table format.",
     "market_score": 8,
     "buildability_score": 9,
     "overall_score": 8,
     "verdict": "build",
-    "phuket_angle": "Phuket hotels/restaurants can use it to mock booking/order APIs for their mobile apps without waiting for backend development during peak season."
+    "phuket_angle": "None"
   },
   "build_status": "pending",
   "phases_complete": []
