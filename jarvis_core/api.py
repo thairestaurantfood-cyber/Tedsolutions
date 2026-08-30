@@ -4,6 +4,7 @@ JARVIS API — single source of truth for all LLM calls.
 Priority: Gemini → Mistral → OpenAI → NVIDIA → OpenRouter → Local
 Import this in every JARVIS script.
 """
+
 import os, json, time, urllib.request, urllib.error
 
 def _load_env():
@@ -172,16 +173,42 @@ def ask_json(prompt, max_tokens=2000):
     if not raw: return None
     try:
         raw = raw.strip()
-        # Strip markdown fences
+        # Strip markdown fences - handle various formats
+        # Handle ```json\n{...}\n``` or ```\n{...}\n``` or just {...}
         if raw.startswith("```"):
-            raw = "\n".join(raw.split("\n")[1:])
+            # Find first newline after opening fence
+            newline_idx = raw.find('\n')
+            if newline_idx != -1:
+                raw = raw[newline_idx + 1:]  # Remove the fence line
+            else:
+                # No newline, just remove opening fence
+                raw = raw[3:]
+        
+        # Remove closing fence if present at the end
         if raw.endswith("```"):
-            raw = "\n".join(raw.split("\n")[:-1])
-        s = raw.find("{"); e = raw.rfind("}") + 1
-        if s == -1: return None
-        return json.loads(raw[s:e])
+            raw = raw[:-3].rstrip()  # Remove fence and trailing whitespace
+        
+        # Also handle case where closing fence is on its own line
+        lines = raw.split('\n')
+        # Remove trailing empty lines and fence lines
+        while lines and (not lines[-1].strip() or lines[-1].strip() == "```"):
+            lines.pop()
+        # Remove leading empty lines or fence lines  
+        while lines and (not lines[0].strip() or lines[0].strip().startswith("```")):
+            lines.pop(0)
+        raw = '\n'.join(lines) if lines else ""
+        
+        # Now find JSON object
+        s = raw.find("{")
+        e = raw.rfind("}") + 1
+        if s == -1 or e == 0: 
+            print(f"  JSON parse failed: No {{}} found in response: {raw[:100]}...")
+            return None
+        json_str = raw[s:e]
+        return json.loads(json_str)
     except Exception as ex:
         print(f"  JSON parse failed: {ex}")
+        print(f"  Raw response (first 200 chars): {repr(raw[:200])}")
         return None
 
 if __name__ == "__main__":
