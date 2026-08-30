@@ -1,50 +1,51 @@
 {
-  "date": "2026-08-30T00:00:13.630862",
+  "date": "2026-08-31T00:00:28.190063",
   "idea": {
-    "title": "SignalScout \u2014 Real-time trend scanner for indie hackers",
+    "title": "SchemaSync \u2014 Database migration CLI for SQLite/PostgreSQL",
     "score": 8,
-    "source": "seed"
+    "source": "market_memory",
+    "verdict": "build"
   },
   "plan": {
-    "product_name": "SignalScout",
-    "tagline": "Real-time trend scanner for indie hackers to spot profitable opportunities instantly.",
-    "problem": "Indie hackers waste hours manually checking Reddit, Twitter, and Product Hunt for trending topics, missing time-sensitive opportunities.",
-    "solution": "CLI tool that aggregates trending signals from multiple sources, filters noise, and alerts you to high-potential niches with one command.",
-    "target_market": "Solo developers, indie hackers, and small SaaS founders worldwide who rely on organic trend discovery for product ideas.",
+    "product_name": "SchemaSync",
+    "tagline": "CLI tool to sync SQLite/PostgreSQL schemas across environments with zero downtime.",
+    "problem": "Developers waste hours manually syncing database schemas between dev, staging, and production, risking data loss or downtime with complex tools.",
+    "solution": "Run 'schemasync add' to capture schema changes, then 'schemasync sync' to apply them safely. Works offline with --demo mode. No GUI needed\u2014just CLI commands.",
+    "target_market": "Solo devs, indie hackers, and small teams building apps with SQLite/PostgreSQL who avoid complex migration tools.",
     "monthly_price_usd": 29,
     "mvp_features": [
-      "Trend aggregation from Reddit/Twitter/Product Hunt",
-      "Keyword filtering (e.g., 'AI', 'no-code')",
-      "SQLite storage for historical trends",
-      "CLI commands: add, list, report, alert",
-      "--demo mode with hardcoded trends"
+      "SQLite/PostgreSQL schema diff",
+      "add/list/rollback commands",
+      "--demo mode with hardcoded schema",
+      "JSON output for CI/CD integration",
+      "Offline-first with no external dependencies"
     ],
     "build_phases": [
       {
         "phase": 1,
         "name": "Core DB + add",
-        "description": "sqlite schema for trends + add/list commands with local scraping",
+        "description": "SQLite schema diff + add/list commands",
         "hours": 2
       },
       {
         "phase": 2,
         "name": "Reports + alerts",
-        "description": "generate CSV reports + basic alerting via stdout",
+        "description": "JSON diff reports + dry-run warnings",
         "hours": 2
       },
       {
         "phase": 3,
         "name": "Demo + polish",
-        "description": "add --demo mode, --help, error handling, and edge cases",
+        "description": "--demo mode + --help + edge cases",
         "hours": 1
       }
     ],
-    "demo_script": "Run `signalscout --demo` to see hardcoded trends like 'AI side hustles' and 'no-code tools' with timestamps. Lists top 5 trends in a table format.",
+    "demo_script": "Run 'schemasync --demo' to see a fake schema diff between dev and prod SQLite files, then sync it with one command.",
     "market_score": 8,
     "buildability_score": 9,
     "overall_score": 8,
     "verdict": "build",
-    "phuket_angle": "None"
+    "phuket_angle": "Thai small businesses running SQLite-based POS systems (e.g., restaurants) can sync schema changes across branches without IT headaches."
   },
   "build_status": "pending",
   "phases_complete": []
