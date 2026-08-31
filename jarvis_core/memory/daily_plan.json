@@ -1,51 +1,53 @@
 {
-  "date": "2026-08-31T00:00:28.190063",
+  "date": "2026-09-01T00:00:58.072689",
   "idea": {
-    "title": "SchemaSync \u2014 Database migration CLI for SQLite/PostgreSQL",
-    "score": 8,
-    "source": "market_memory",
+    "source": "HN",
+    "title": "monty-go: Pure-Go wrapper for Pydantic's Monty Python Interpreter",
+    "url": "https://github.com/fugue-labs/monty-go",
+    "ts": "20:00",
+    "score": 7,
     "verdict": "build"
   },
   "plan": {
-    "product_name": "SchemaSync",
-    "tagline": "CLI tool to sync SQLite/PostgreSQL schemas across environments with zero downtime.",
-    "problem": "Developers waste hours manually syncing database schemas between dev, staging, and production, risking data loss or downtime with complex tools.",
-    "solution": "Run 'schemasync add' to capture schema changes, then 'schemasync sync' to apply them safely. Works offline with --demo mode. No GUI needed\u2014just CLI commands.",
-    "target_market": "Solo devs, indie hackers, and small teams building apps with SQLite/PostgreSQL who avoid complex migration tools.",
+    "product_name": "InvoiceChaser",
+    "tagline": "Automate overdue invoice reminders for freelancers with a simple CLI tool.",
+    "problem": "Freelancers waste hours chasing late payments manually, losing revenue and productivity.",
+    "solution": "A lightweight CLI that tracks invoices, sends automated polite reminders, and generates reports\u2014no setup, no fluff.",
+    "target_market": "Solo developers, indie hackers, and small business owners who invoice clients and hate follow-ups.",
     "monthly_price_usd": 29,
     "mvp_features": [
-      "SQLite/PostgreSQL schema diff",
-      "add/list/rollback commands",
-      "--demo mode with hardcoded schema",
-      "JSON output for CI/CD integration",
-      "Offline-first with no external dependencies"
+      "Add/edit invoices via CLI",
+      "Auto-send email reminders (SMTP)",
+      "Overdue alerts with custom templates",
+      "CSV/JSON export for accounting",
+      "--demo mode with hardcoded data"
     ],
     "build_phases": [
       {
         "phase": 1,
         "name": "Core DB + add",
-        "description": "SQLite schema diff + add/list commands",
+        "description": "SQLite schema + add/list commands with basic validation",
         "hours": 2
       },
       {
         "phase": 2,
         "name": "Reports + alerts",
-        "description": "JSON diff reports + dry-run warnings",
+        "description": "Overdue detection + SMTP email reminders + report generation",
         "hours": 2
       },
       {
         "phase": 3,
         "name": "Demo + polish",
-        "description": "--demo mode + --help + edge cases",
+        "description": "Offline demo mode, help text, edge cases (e.g., invalid dates)",
         "hours": 1
       }
     ],
-    "demo_script": "Run 'schemasync --demo' to see a fake schema diff between dev and prod SQLite files, then sync it with one command.",
+    "demo_script": "Run `invoicechase --demo` to see 3 invoices (1 overdue), auto-send a reminder, and generate a report\u2014all offline with hardcoded data.",
     "market_score": 8,
     "buildability_score": 9,
     "overall_score": 8,
     "verdict": "build",
-    "phuket_angle": "Thai small businesses running SQLite-based POS systems (e.g., restaurants) can sync schema changes across branches without IT headaches."
+    "phuket_angle": "Perfect for Phuket-based freelancers/cafes who invoice tourists\u2014auto-reminders reduce payment delays in cash-heavy markets."
   },
   "build_status": "pending",
   "phases_complete": []
