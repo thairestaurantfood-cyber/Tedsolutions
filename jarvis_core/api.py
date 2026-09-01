@@ -170,14 +170,18 @@ def ask(prompt, max_tokens=2000, fast=False):
 def ask_json(prompt, max_tokens=2000):
     """Ask for JSON response. Strips markdown fences. Returns dict or None."""
     raw = ask(prompt, max_tokens=max_tokens)
-    if not raw: return None
+    if not raw: 
+        print("  JSON parse failed: No response from LLM")
+        return None
+    
     try:
         raw = raw.strip()
+        
         # Strip markdown fences - handle various formats
-        # Handle ```json\n{...}\n``` or ```\n{...}\n``` or just {...}
+        # Handle ```json\n{...}\n```, ```\n{...}\n```, or just {...}
         if raw.startswith("```"):
             # Find first newline after opening fence
-            newline_idx = raw.find('\n')
+            newline_idx = raw.find('\\n')
             if newline_idx != -1:
                 raw = raw[newline_idx + 1:]  # Remove the fence line
             else:
@@ -189,26 +193,129 @@ def ask_json(prompt, max_tokens=2000):
             raw = raw[:-3].rstrip()  # Remove fence and trailing whitespace
         
         # Also handle case where closing fence is on its own line
-        lines = raw.split('\n')
+        lines = raw.split('\\n')
         # Remove trailing empty lines and fence lines
         while lines and (not lines[-1].strip() or lines[-1].strip() == "```"):
             lines.pop()
         # Remove leading empty lines or fence lines  
         while lines and (not lines[0].strip() or lines[0].strip().startswith("```")):
             lines.pop(0)
-        raw = '\n'.join(lines) if lines else ""
+        raw = '\\n'.join(lines) if lines else ""
         
-        # Now find JSON object
+        # Now find JSON object - look for the largest valid JSON object
         s = raw.find("{")
         e = raw.rfind("}") + 1
         if s == -1 or e == 0: 
             print(f"  JSON parse failed: No {{}} found in response: {raw[:100]}...")
-            return None
+            # Fallback: try to extract key-value pairs
+            return _extract_key_value_pairs(raw)
         json_str = raw[s:e]
-        return json.loads(json_str)
+        
+        # Validate that we have balanced braces
+        brace_count = 0
+        in_string = False
+        escape_next = False
+        for i, char in enumerate(json_str):
+            if escape_next:
+                escape_next = False
+                continue
+            if char == '\\"':
+                escape_next = True
+                continue
+            if char == '"' and not escape_next:
+                in_string = not in_string
+                continue
+            if not in_string:
+                if char == '{':
+                    brace_count += 1
+                elif char == '}':
+                    brace_count -= 1
+                    if brace_count == 0:
+                        # Found complete JSON object
+                        json_str = json_str[:i+1]
+                        break
+        
+        # Try to parse the JSON
+        result = json.loads(json_str)
+        return result
+        
+    except json.JSONDecodeError as ex:
+        print(f"  JSON decode failed: {ex}")
+        print(f"  Raw response (first 200 chars): {repr(raw[:200])}")
+        # Fallback: try to extract key-value pairs
+        return _extract_key_value_pairs(raw)
     except Exception as ex:
         print(f"  JSON parse failed: {ex}")
         print(f"  Raw response (first 200 chars): {repr(raw[:200])}")
+        return None
+
+def _extract_key_value_pairs(text):
+    """Fallback function to extract key-value pairs when JSON parsing fails."""
+    try:
+        # Look for patterns like "key": value or key: value
+        import re
+        result = {}
+        
+        # Pattern for quoted keys: "key": value
+        quoted_pattern = r'"([^"]+)"\s*:\s*([^,}\][\]})]*?)(?=,|\\}|\\]|$)'
+        for match in re.finditer(quoted_pattern, text):
+            key = match.group(1)
+            value_str = match.group(2).strip()
+            # Try to parse common value types
+            if value_str.lower() == 'true':
+                value = True
+            elif value_str.lower() == 'false':
+                value = False
+            elif value_str.lower() == 'null' or value_str.lower() == 'none':
+                value = None
+            elif value_str.isdigit():
+                value = int(value_str)
+            elif re.match(r'^-?\\d+\\.\\d+$', value_str):
+                value = float(value_str)
+            elif value_str.startswith('"') and value_str.endswith('"') and len(value_str) >= 2:
+                value = value_str[1:-1]  # Remove quotes
+            elif value_str.startswith("'") and value_str.endswith("'") and len(value_str) >= 2:
+                value = value_str[1:-1]  # Remove quotes
+            else:
+                value = value_str  # Keep as string
+            result[key] = value
+        
+        # Pattern for unquoted keys: key: value (more risky but sometimes needed)
+        if not result:
+            unquoted_pattern = r'([a-zA-Z_][a-zA-Z0-9_]*)\s*:\s*([^,}\][\]})]*?)(?=,|\\}|\\]|$)'
+            for match in re.finditer(unquoted_pattern, text):
+                key = match.group(1)
+                value_str = match.group(2).strip()
+                # Skip if key looks like a JSON keyword or common false positive
+                if key.lower() in ['true', 'false', 'null', 'function', 'var', 'let', 'const']:
+                    continue
+                # Try to parse common value types (same as above)
+                if value_str.lower() == 'true':
+                    value = True
+                elif value_str.lower() == 'false':
+                    value = False
+                elif value_str.lower() == 'null' or value_str.lower() == 'none':
+                    value = None
+                elif value_str.isdigit():
+                    value = int(value_str)
+                elif re.match(r'^-?\\d+\\.\\d+$', value_str):
+                    value = float(value_str)
+                elif value_str.startswith('"') and value_str.endswith('"') and len(value_str) >= 2:
+                    value = value_str[1:-1]  # Remove quotes
+                elif value_str.startswith("'") and value_str.endswith("'") and len(value_str) >= 2:
+                    value = value_str[1:-1]  # Remove quotes
+                else:
+                    value = value_str  # Keep as string
+                result[key] = value
+        
+        if result:
+            print(f"  JSON fallback successful: extracted {len(result)} key-value pairs")
+            return result
+        else:
+            print(f"  JSON fallback failed: no key-value pairs found")
+            return None
+    except Exception as ex:
+        print(f"  JSON fallback failed with exception: {ex}")
         return None
 
 if __name__ == "__main__":
