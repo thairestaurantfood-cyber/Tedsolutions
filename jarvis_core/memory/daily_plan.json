@@ -1,53 +1,50 @@
 {
-  "date": "2026-09-01T00:00:58.072689",
+  "date": "2026-09-02T00:00:16.708395",
   "idea": {
-    "source": "HN",
-    "title": "monty-go: Pure-Go wrapper for Pydantic's Monty Python Interpreter",
-    "url": "https://github.com/fugue-labs/monty-go",
-    "ts": "20:00",
-    "score": 7,
-    "verdict": "build"
+    "title": "MemoryMesh \u2014 Persistent memory layer for local LLM agents",
+    "score": 9,
+    "source": "seed"
   },
   "plan": {
-    "product_name": "InvoiceChaser",
-    "tagline": "Automate overdue invoice reminders for freelancers with a simple CLI tool.",
-    "problem": "Freelancers waste hours chasing late payments manually, losing revenue and productivity.",
-    "solution": "A lightweight CLI that tracks invoices, sends automated polite reminders, and generates reports\u2014no setup, no fluff.",
-    "target_market": "Solo developers, indie hackers, and small business owners who invoice clients and hate follow-ups.",
+    "product_name": "MeshMem",
+    "tagline": "Persistent memory layer to make local LLM agents remember everything",
+    "problem": "Local LLM agents forget context between sessions, requiring manual input of prior knowledge each time",
+    "solution": "Creates a persistent SQLite-based memory layer that stores agent interactions, context, and learned data for instant recall in future sessions",
+    "target_market": "Indie hackers building agentic tools, developers prototyping LLM workflows, small businesses automating knowledge tasks",
     "monthly_price_usd": 29,
     "mvp_features": [
-      "Add/edit invoices via CLI",
-      "Auto-send email reminders (SMTP)",
-      "Overdue alerts with custom templates",
-      "CSV/JSON export for accounting",
-      "--demo mode with hardcoded data"
+      "SQLite-backed persistent memory storage",
+      "CLI commands to add/list/query memories",
+      "Context-aware memory retrieval",
+      "Offline operation with --demo mode",
+      "JSON export/import for portability"
     ],
     "build_phases": [
       {
         "phase": 1,
         "name": "Core DB + add",
-        "description": "SQLite schema + add/list commands with basic validation",
+        "description": "sqlite schema + add/list commands",
         "hours": 2
       },
       {
         "phase": 2,
         "name": "Reports + alerts",
-        "description": "Overdue detection + SMTP email reminders + report generation",
+        "description": "report generation + notification",
         "hours": 2
       },
       {
         "phase": 3,
         "name": "Demo + polish",
-        "description": "Offline demo mode, help text, edge cases (e.g., invalid dates)",
+        "description": "--demo mode + --help + edge cases",
         "hours": 1
       }
     ],
-    "demo_script": "Run `invoicechase --demo` to see 3 invoices (1 overdue), auto-send a reminder, and generate a report\u2014all offline with hardcoded data.",
+    "demo_script": "Run `meshmem --demo` to see a simulated agent remembering user preferences across 3 sessions without retraining",
     "market_score": 8,
     "buildability_score": 9,
     "overall_score": 8,
     "verdict": "build",
-    "phuket_angle": "Perfect for Phuket-based freelancers/cafes who invoice tourists\u2014auto-reminders reduce payment delays in cash-heavy markets."
+    "phuket_angle": "Thai tourism businesses could use MeshMem to store guest preferences (dietary restrictions, room preferences) across multiple agent interactions without cloud dependency"
   },
   "build_status": "pending",
   "phases_complete": []
