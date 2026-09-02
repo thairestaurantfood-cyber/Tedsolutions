@@ -1,50 +1,53 @@
 {
-  "date": "2026-09-02T00:00:16.708395",
+  "date": "2026-09-03T00:00:14.564241",
   "idea": {
-    "title": "MemoryMesh \u2014 Persistent memory layer for local LLM agents",
-    "score": 9,
-    "source": "seed"
+    "source": "HN",
+    "title": "WebLLM: high-performance in-browser LLM inference engine",
+    "url": "https://github.com/mlc-ai/web-llm",
+    "ts": "22:00",
+    "score": 7,
+    "verdict": "build"
   },
   "plan": {
-    "product_name": "MeshMem",
-    "tagline": "Persistent memory layer to make local LLM agents remember everything",
-    "problem": "Local LLM agents forget context between sessions, requiring manual input of prior knowledge each time",
-    "solution": "Creates a persistent SQLite-based memory layer that stores agent interactions, context, and learned data for instant recall in future sessions",
-    "target_market": "Indie hackers building agentic tools, developers prototyping LLM workflows, small businesses automating knowledge tasks",
+    "product_name": "LLMCLI",
+    "tagline": "Run LLMs locally in your browser with pure Python CLI",
+    "problem": "Developers waste time configuring complex LLM inference stacks (PyTorch, TensorFlow) just to test models offline",
+    "solution": "Provides a zero-config CLI that serves LLMs directly in-browser via WebAssembly, using only Python standard library for portability",
+    "target_market": "Indie hackers and small dev teams needing lightweight LLM inference without heavy dependencies",
     "monthly_price_usd": 29,
     "mvp_features": [
-      "SQLite-backed persistent memory storage",
-      "CLI commands to add/list/query memories",
-      "Context-aware memory retrieval",
-      "Offline operation with --demo mode",
-      "JSON export/import for portability"
+      "Pure Python stdlib implementation",
+      "--demo mode with hardcoded 7B model",
+      "SQLite model registry",
+      "Offline inference via WebAssembly",
+      "CLI-only deployment"
     ],
     "build_phases": [
       {
         "phase": 1,
-        "name": "Core DB + add",
-        "description": "sqlite schema + add/list commands",
-        "hours": 2
+        "name": "Core Engine",
+        "description": "WASM loader + model registry with add/list commands",
+        "hours": 3
       },
       {
         "phase": 2,
-        "name": "Reports + alerts",
-        "description": "report generation + notification",
-        "hours": 2
+        "name": "Inference Loop",
+        "description": "Prompt processing + token streaming to browser",
+        "hours": 4
       },
       {
         "phase": 3,
-        "name": "Demo + polish",
-        "description": "--demo mode + --help + edge cases",
-        "hours": 1
+        "name": "Demo + Packaging",
+        "description": "Hardcoded demo model + PyPI packaging + docs",
+        "hours": 2
       }
     ],
-    "demo_script": "Run `meshmem --demo` to see a simulated agent remembering user preferences across 3 sessions without retraining",
+    "demo_script": "Run `llmcli --demo` to load a 3B parameter model, type 'What is Python?' and get a streaming response in your terminal via WebSocket",
     "market_score": 8,
     "buildability_score": 9,
     "overall_score": 8,
     "verdict": "build",
-    "phuket_angle": "Thai tourism businesses could use MeshMem to store guest preferences (dietary restrictions, room preferences) across multiple agent interactions without cloud dependency"
+    "phuket_angle": "Thai tourism SMEs could use it to run offline chatbots for guest queries without cloud costs"
   },
   "build_status": "pending",
   "phases_complete": []
