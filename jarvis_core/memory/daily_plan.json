@@ -1,17 +1,14 @@
 {
-  "date": "2026-09-05T00:00:26.216201",
+  "date": "2026-09-06T00:02:57.467602",
   "idea": {
-    "source": "HN",
-    "title": "Carbon-aware electricity pricing, measured daily on 38 grids",
-    "url": "https://carbonawarepricing.com/",
-    "ts": "16:00",
-    "score": 7,
-    "verdict": "build"
+    "title": "ToolForge \u2014 Generate MCP tools from OpenAPI specs automatically",
+    "score": 9,
+    "source": "seed"
   },
   "plan": {
-    "product_name": "GridCarbon CLI",
-    "tagline": "Optimize your electricity consumption for lower carbon footprint and cost across global grids.",
-    "problem": "\"Businesses and developers struggle to easily access and act on real-time carbon intensity and pricing data for electricity grids"
+    "product_name": "ToolForge",
+    "tagline": "Turn any OpenAPI spec into a custom Python CLI tool instantly.",
+    "problem": "\"Developers spend valuable time manually writing boilerplate code to create command-line interfaces for APIs. Parsing OpenAPI specs and implementing API calls with `argparse` and `urllib.request` is repetitive"
   },
   "build_status": "pending",
   "phases_complete": []
