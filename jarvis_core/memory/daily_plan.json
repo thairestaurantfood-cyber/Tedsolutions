@@ -1,14 +1,15 @@
 {
-  "date": "2026-09-06T00:02:57.467602",
+  "date": "2026-09-07T00:02:58.737874",
   "idea": {
-    "title": "ToolForge \u2014 Generate MCP tools from OpenAPI specs automatically",
+    "title": "MemoryMesh \u2014 Persistent memory layer for local LLM agents",
     "score": 9,
     "source": "seed"
   },
   "plan": {
-    "product_name": "ToolForge",
-    "tagline": "Turn any OpenAPI spec into a custom Python CLI tool instantly.",
-    "problem": "\"Developers spend valuable time manually writing boilerplate code to create command-line interfaces for APIs. Parsing OpenAPI specs and implementing API calls with `argparse` and `urllib.request` is repetitive"
+    "product_name": "InvoiceCLI",
+    "tagline": "Automate your invoice follow-ups directly from your terminal.",
+    "problem": "\"Freelancers and small businesses often struggle with unpaid invoices",
+    "solution": "\"Invoice"
   },
   "build_status": "pending",
   "phases_complete": []
