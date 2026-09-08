@@ -1,16 +1,14 @@
 {
-  "date": "2026-09-08T00:02:59.734411",
+  "date": "2026-09-09T00:00:22.368249",
   "idea": {
-    "title": "Competitor price tracker \u2014 I check 6 sites manually every week, need automation",
-    "source": "brain/price_monitor",
-    "score": 10,
-    "buyer": "ecommerce sellers"
+    "title": "DevDigest \u2014 Daily AI-curated summary of GitHub + HN for developers",
+    "score": 8,
+    "source": "seed"
   },
   "plan": {
-    "product_name": "Invoice Chaser CLI",
-    "tagline": "\"Automate invoice reminders for freelancers and get paid faster",
-    "problem": "\"Freelancers waste valuable time manually tracking and chasing late invoice payments",
-    "solution": "\"A"
+    "product_name": "DevDigest",
+    "tagline": "\"Daily AI-curated summaries of top GitHub projects and Hacker News discussions",
+    "problem": "\"Developers and indie hackers are overwhelmed by information overload"
   },
   "build_status": "pending",
   "phases_complete": []
