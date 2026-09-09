@@ -1,14 +1,14 @@
 {
-  "date": "2026-09-09T00:00:22.368249",
+  "date": "2026-09-10T00:00:22.714318",
   "idea": {
-    "title": "DevDigest \u2014 Daily AI-curated summary of GitHub + HN for developers",
+    "title": "CostRadar \u2014 Real-time LLM API cost tracker across providers",
     "score": 8,
     "source": "seed"
   },
   "plan": {
-    "product_name": "DevDigest",
-    "tagline": "\"Daily AI-curated summaries of top GitHub projects and Hacker News discussions",
-    "problem": "\"Developers and indie hackers are overwhelmed by information overload"
+    "product_name": "CostRadar",
+    "tagline": "Track and manage your LLM API costs across providers with a simple CLI.",
+    "problem": "\"LLM API costs can quickly escalate and become unpredictable"
   },
   "build_status": "pending",
   "phases_complete": []
