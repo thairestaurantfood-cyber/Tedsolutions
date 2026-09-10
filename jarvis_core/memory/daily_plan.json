@@ -1,14 +1,12 @@
 {
-  "date": "2026-09-10T00:00:22.714318",
+  "date": "2026-09-11T00:02:10.229663",
   "idea": {
-    "title": "CostRadar \u2014 Real-time LLM API cost tracker across providers",
-    "score": 8,
+    "title": "ToolForge \u2014 Generate MCP tools from OpenAPI specs automatically",
+    "score": 9,
     "source": "seed"
   },
   "plan": {
-    "product_name": "CostRadar",
-    "tagline": "Track and manage your LLM API costs across providers with a simple CLI.",
-    "problem": "\"LLM API costs can quickly escalate and become unpredictable"
+    ":name": "\"This help add add help for specific use cases case help help for specific add help add help help help for help add add help add help add add help addadd add help help add add add help add add help add add add"
   },
   "build_status": "pending",
   "phases_complete": []
