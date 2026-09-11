@@ -1,12 +1,20 @@
 {
-  "date": "2026-09-11T00:02:10.229663",
+  "date": "2026-09-12T00:00:40.331471",
   "idea": {
-    "title": "ToolForge \u2014 Generate MCP tools from OpenAPI specs automatically",
+    "title": "MemoryMesh \u2014 Persistent memory layer for local LLM agents",
     "score": 9,
     "source": "seed"
   },
   "plan": {
-    ":name": "\"This help add add help for specific use cases case help help for specific add help add help help help for help add add help add help add add help addadd add help help add add add help add add help add add add"
+    "product_name": "MemoryMesh",
+    "tagline": "\"Empower your local LLM agents with long-term",
+    "problem": "\"Local LLM agents often lack persistent memory",
+    "solution": "\"MemoryMesh provides a lightweight",
+    "target_market": "\"Indie hackers building AI tools",
+    "monthly_price_usd": 29,
+    "phase": 3,
+    "name": "Search + Delete",
+    "description": "Implement 'search' command for keyword/tag retrieval and 'delete' command for memory management."
   },
   "build_status": "pending",
   "phases_complete": []
