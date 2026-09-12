@@ -1,20 +1,16 @@
 {
-  "date": "2026-09-12T00:00:40.331471",
+  "date": "2026-09-13T00:02:43.280077",
   "idea": {
-    "title": "MemoryMesh \u2014 Persistent memory layer for local LLM agents",
-    "score": 9,
-    "source": "seed"
+    "title": "Competitor price tracker \u2014 I check 6 sites manually every week, need automation",
+    "source": "brain/price_monitor",
+    "score": 10,
+    "buyer": "ecommerce sellers"
   },
   "plan": {
-    "product_name": "MemoryMesh",
-    "tagline": "\"Empower your local LLM agents with long-term",
-    "problem": "\"Local LLM agents often lack persistent memory",
-    "solution": "\"MemoryMesh provides a lightweight",
-    "target_market": "\"Indie hackers building AI tools",
-    "monthly_price_usd": 29,
-    "phase": 3,
-    "name": "Search + Delete",
-    "description": "Implement 'search' command for keyword/tag retrieval and 'delete' command for memory management."
+    "productuct_name": "Competitor Price Tracker",
+    "tagline": ": \"Stay ahead of the competition with real-time price tracking  \"ONLY_feature\": \"Autom can track to  24//7/2/",
+    "solutionion": "\":: \"Track your prices's prices intime and 24ly\n  \"buyers_market\": \"Buyn1 hackers",
+    "it_price": 299999
   },
   "build_status": "pending",
   "phases_complete": []
