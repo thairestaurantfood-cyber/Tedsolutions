@@ -2,255 +2,253 @@
   {
     "title": "Invoice Chaser \u2014 auto payment reminder sequences for freelancers",
     "pain_score": 8,
-    "pain_evidence": "Freelancers frequently complain on forums and social media about the time-consuming and awkward process of chasing late payments, impacting their cash flow and productivity.",
+    "pain_evidence": "Freelancers and small business owners frequently express frustration on forums like Reddit's r/freelance and r/smallbusiness about the time, stress, and awkwardness involved in chasing late payments.",
     "existing_tools": [
-      "Chaser $20-100+/mo",
-      "FreshBooks $15-50/mo",
-      "Zoho Invoice Free-$9/mo"
+      "FreshBooks ($19-33/mo for plans with reminders)",
+      "QuickBooks Self-Employed ($15/mo for plans with reminders)",
+      "Chaser (dedicated, ~$37/mo)",
+      "Wave (free basic invoicing, paid integrations for advanced reminders)"
     ],
     "buyer_search_terms": [
-      "automated payment reminders",
-      "freelance invoice chasing software",
-      "late payment reminder system"
+      "automated invoice reminders",
+      "freelance payment reminder software",
+      "how to get clients to pay on time",
+      "invoice chasing automation"
     ],
-    "sea_fit": "The problem of late payments is universal, and the growing freelance and small business sectors in SE Asia would benefit significantly from automated solutions to improve cash flow.",
+    "sea_fit": "The burgeoning freelance and startup scene in Southeast Asia, particularly among tech-savvy individuals, makes cash flow management and payment automation a highly relevant and valuable solution.",
     "verdict": "build",
-    "reason": "The problem of late payments is a significant, recurring pain point for freelancers globally, and a focused, efficient solution could greatly improve their cash flow and reduce administrative burden.",
-    "validated_at": "2026-09-06T06:00:16.020105"
+    "reason": "The problem of late payments is a universal, recurring, and financially impactful pain point for freelancers and small businesses, making a focused automation tool highly desirable.",
+    "validated_at": "2026-09-13T06:00:18.646450"
   },
   {
     "title": "Proposal Generator \u2014 5 questions to professional text proposal",
     "pain_score": 8,
-    "pain_evidence": "Freelancers and small business owners frequently complain on forums and social media about the time-consuming, repetitive, and often daunting task of writing effective proposals that win clients.",
+    "pain_evidence": "Freelancers and small business owners frequently lament the time-consuming nature, writer's block, and low conversion rates associated with crafting effective proposals on forums like Reddit's r/freelance and various business owner groups.",
     "existing_tools": [
       "PandaDoc $19-49/mo",
-      "Better Proposals $19-49/mo",
-      "Proposify $49/mo"
+      "Better Proposals $19-49/mo"
     ],
     "buyer_search_terms": [
-      "proposal generator",
+      "proposal generator software",
       "freelance proposal template",
-      "client proposal software",
-      "small business proposal tool"
+      "AI proposal writer"
     ],
-    "sea_fit": "SE Asia has a large and growing freelance and small business sector where professional proposals are crucial for winning clients, and cost-effective solutions are highly valued.",
+    "sea_fit": "The rapidly growing freelance and small business sectors in SE Asia, often dealing with international clients, have a strong need for efficient, professional, and potentially cost-effective proposal solutions.",
     "verdict": "build",
-    "reason": "The problem of generating professional proposals is a significant and recurring pain point for the target audience, directly impacting their ability to secure work and grow their business.",
-    "validated_at": "2026-09-06T06:00:26.591228"
-  },
-  {
-    "title": "Contract Expiry Tracker \u2014 alert before renewal deadlines",
-    "pain_score": 8,
-    "pain_evidence": "People frequently complain on forums like Reddit's r/smallbusiness or r/freelance about unexpected renewal charges, forgotten subscriptions, and the administrative overhead of tracking various contracts.",
-    "existing_tools": [
-      "TrackMySubs $5-15/mo",
-      "Google Sheets $0 (manual)"
-    ],
-    "buyer_search_terms": [
-      "subscription renewal reminder",
-      "contract expiry tracker",
-      "SaaS subscription management for small business",
-      "freelance contract deadline software"
-    ],
-    "sea_fit": "The rapidly growing freelance and startup ecosystem in SE Asia faces universal challenges like managing operational costs and administrative tasks efficiently, making a cost-effective solution appealing.",
-    "verdict": "build",
-    "reason": "The problem is common and costly for the target audience, who often lack dedicated administrative support and could benefit from a focused, efficient tool.",
-    "validated_at": "2026-09-06T06:00:54.890185"
-  },
-  {
-    "title": "Lead Qualifier \u2014 score inbound leads from CSV ranked list",
-    "pain_score": 8,
-    "pain_evidence": "Sales and marketing professionals frequently discuss the inefficiency of manual lead qualification and the high cost of pursuing unqualified leads in industry forums and blogs.",
-    "existing_tools": [
-      "HubSpot Sales Hub (Lead Scoring in higher tiers): ~$50/month",
-      "Zoho CRM (Professional edition with scoring): ~$20/user/month"
-    ],
-    "buyer_search_terms": [
-      "lead scoring software",
-      "how to qualify leads efficiently"
-    ],
-    "sea_fit": "The growing startup and SME ecosystem in SE Asia values efficient, cost-effective solutions for sales processes, making a focused lead qualification tool highly relevant.",
-    "verdict": "build",
-    "reason": "The core problem of inefficient lead qualification is universal and directly impacts revenue, and a CLI solution offers a unique, potentially more affordable and customizable alternative to existing web-based CRMs for tech-savvy users.",
-    "validated_at": "2026-09-06T06:03:53.305814"
-  },
-  {
-    "title": "Freelancer Tax Estimator \u2014 income CSV to quarterly tax estimate",
-    "pain_score": 8,
-    "pain_evidence": "Freelancers frequently express frustration on forums like Reddit's r/freelance about the complexity and time involved in accurately estimating and setting aside money for quarterly taxes.",
-    "existing_tools": [],
-    "buyer_search_terms": [],
-    "sea_fit": "\"The booming freelance and gig economy in SE Asia presents a strong market",
-    "verdict": "\"",
-    "reason": "",
-    "validated_at": "2026-09-06T06:04:07.864302"
-  },
-  {
-    "title": "Churn Risk Scorer \u2014 flag clients not engaged in X days",
-    "pain_score": 8,
-    "pain_evidence": "Entrepreneurs and business owners frequently discuss client retention challenges and the difficulty of proactively identifying disengaged customers in forums like Indie Hackers and SaaS communities.",
-    "existing_tools": [
-      "Intercom (customer engagement & messaging) $74/mo",
-      "Mixpanel (product analytics & engagement) $25/mo"
-    ],
-    "buyer_search_terms": [
-      "how to reduce client churn",
-      "customer retention strategies",
-      "identify disengaged clients",
-      "churn prediction tool small business"
-    ],
-    "sea_fit": "The rapidly growing digital economy in SE Asia, with many small businesses and startups, creates a strong demand for cost-effective tools to improve client retention and operational efficiency.",
-    "verdict": "build",
-    "reason": "The core problem of client churn is universal and critical for small businesses, and a simple, affordable CLI tool offers a unique, accessible solution for proactive identification.",
-    "validated_at": "2026-09-06T06:04:19.388541"
-  },
-  {
-    "title": "Doc Chaser \u2014 remind clients for missing documents",
-    "pain_score": 8,
-    "pain_evidence": "Freelancers, agencies, and accountants frequently complain about project delays and wasted time due to clients failing to provide necessary documents on time in professional forums and social media groups.",
-    "existing_tools": [
-      "Content Snare ($59-299/mo)",
-      "FileRequestPro ($19-99/mo)",
-      "Manual email/spreadsheet tracking (free)",
-      "CRM systems with document features (e.g., HubSpot, Salesforce - various pricing)"
-    ],
-    "buyer_search_terms": [
-      "client document collection software",
-      "automate client document requests",
-      "missing document reminders",
-      "client onboarding document checklist tool"
-    ],
-    "sea_fit": "SE Asia's large and growing freelance and SME sector highly values efficiency and cost-effective solutions for client communication and operational challenges, making this tool relevant for improving workflows.",
-    "verdict": "build",
-    "reason": "The problem of chasing client documents is a universal and significant time sink, and a focused, potentially CLI-first solution at this price point could attract tech-savvy users in a growing market like SE Asia.",
-    "validated_at": "2026-09-06T06:04:32.591304"
-  },
-  {
-    "title": "Cold Outreach Tracker \u2014 track email sequences and follow-up",
-    "pain_score": 8,
-    "pain_evidence": "People frequently complain on sales and marketing forums about the inefficiency and missed opportunities from manually tracking cold outreach and follow-ups.",
-    "existing_tools": [
-      "Instantly.ai $37/mo",
-      "Woodpecker $49/mo"
-    ],
-    "buyer_search_terms": [
-      "cold email tracking software",
-      "sales follow up automation"
-    ],
-    "sea_fit": "Many freelancers and startups in SE Asia rely on cost-effective tools for growth, and a CLI solution could appeal to tech-savvy users seeking efficiency.",
-    "verdict": "build",
-    "reason": "The problem of tracking cold outreach is a significant and widespread pain point for businesses, and a focused, potentially more affordable CLI tool could find a niche.",
-    "validated_at": "2026-09-06T06:04:44.944280"
-  },
-  {
-    "title": "OTA Rate Monitor \u2014 track competitor hotel pricing daily",
-    "pain_score": 8,
-    "pain_evidence": "Hoteliers and revenue managers frequently discuss the challenges of manual rate tracking and the high cost of enterprise solutions on industry forums, LinkedIn groups, and hospitality tech blogs.",
-    "existing_tools": [
-      "Lighthouse (formerly OTA Insight) ~$200+/mo",
-      "RateGain ~$200+/mo",
-      "RoomPriceGenie ~$100+/mo"
-    ],
-    "buyer_search_terms": [
-      "hotel competitor rate API",
-      "OTA price scraping tool",
-      "hotel revenue management software for small hotels",
-      "daily hotel rate comparison CLI"
-    ],
-    "sea_fit": "The highly competitive and price-sensitive SE Asian tourism market, with its abundance of independent hotels and guesthouses, creates a strong demand for affordable and effective rate monitoring solutions.",
-    "verdict": "build",
-    "reason": "The core problem of competitive rate tracking is critical for hotels, and the target audience of technical service providers and builders needs an affordable, developer-friendly tool to address this gap, especially in price-sensitive markets like SE Asia.",
-    "validated_at": "2026-09-06T06:04:57.774466"
-  },
-  {
-    "title": "Review Digest \u2014 weekly review summary and reply suggestions",
-    "pain_score": 8,
-    "pain_evidence": "People complain about the time and effort required to monitor multiple review platforms and craft unique, effective responses on forums like Indie Hackers, Reddit's r/SaaS, and small business communities.",
-    "existing_tools": [
-      "Birdeye $299+/mo",
-      "Podium $300+/mo",
-      "ReviewTrackers (custom pricing)",
-      "Zapier (for custom automation) $20+/mo"
-    ],
-    "buyer_search_terms": [
-      "review management software for small business",
-      "AI review response generator",
-      "customer feedback summary tool",
-      "online reputation management for startups",
-      "automate review replies"
-    ],
-    "sea_fit": "Online reputation is extremely critical for businesses in SE Asia, and many SMEs and startups seek affordable, effective tools to manage reviews without the high cost of enterprise solutions.",
-    "verdict": "build",
-    "reason": "The problem of managing online reviews and crafting effective responses is a significant time sink and strategic challenge for the target audience, and existing comprehensive solutions are often too expensive or complex for lean operations.",
-    "validated_at": "2026-09-06T06:05:12.625800"
-  },
-  {
-    "title": "Staff Roster Scheduler \u2014 shift planner for small teams",
-    "pain_score": 8,
-    "pain_evidence": "Small business owners and HR managers frequently complain about the time-consuming, error-prone nature of manual shift scheduling in business forums and online communities.",
-    "existing_tools": [
-      "WhenIWork $2.50/user/mo",
-      "Homebase $19.95/mo (up to 20 employees)"
-    ],
-    "buyer_search_terms": [
-      "employee shift scheduler small business",
-      "staff roster planner app"
-    ],
-    "sea_fit": "The problem of staff scheduling is universal and highly relevant in SE Asia's growing small business and startup ecosystem, where affordable digital tools are increasingly sought after.",
-    "verdict": "build",
-    "reason": "The problem of inefficient staff scheduling is a significant and universal pain point for small teams, making a focused solution highly valuable despite market competition.",
-    "validated_at": "2026-09-06T06:05:22.470933"
-  },
-  {
-    "title": "SaaS Metrics Dashboard \u2014 MRR churn LTV from CSV weekly digest",
-    "pain_score": 8,
-    "pain_evidence": "Many founders on forums like Indie Hackers or Reddit complain about the complexity and cost of tracking core SaaS metrics, especially when consolidating data from various sources or not using standard payment processors.",
-    "existing_tools": [
-      "Baremetrics $99+/mo",
-      "ChartMogul $100+/mo",
-      "ProfitWell (Free, but requires integration)",
-      "Stripe/Paddle Dashboards (Free, but limited to their data)"
-    ],
-    "buyer_search_terms": [
-      "SaaS metrics dashboard affordable",
-      "MRR churn LTV tracking CSV",
-      "SaaS analytics for small business",
-      "alternative to Baremetrics for startups"
-    ],
-    "sea_fit": "The SE Asia market, with its growing startup ecosystem and often more diverse payment infrastructure, would highly value an affordable and flexible solution that can ingest data via CSV.",
-    "verdict": "build",
-    "reason": "There's a clear, fundamental need for SaaS metrics, and the proposed solution offers a cost-effective, flexible (CSV-based) alternative to expensive or overly integrated tools, particularly appealing to the target market.",
-    "validated_at": "2026-09-06T06:05:34.079398"
-  },
-  {
-    "title": "Booking Double-Check \u2014 detect double bookings across CSV exports",
-    "pain_score": 8,
-    "pain_evidence": "Business owners and service providers frequently complain on industry forums and social media about the headaches and financial losses caused by manual reconciliation errors and lack of integration between disparate booking systems.",
-    "existing_tools": [
-      "Manual Excel/Google Sheets reconciliation (free, but time-consuming and error-prone)",
-      "Zapier/Make.com (integration platforms, but require custom logic for conflict detection, $20-100+/mo depending on usage)",
-      "Custom Python scripts (one-off solutions, high initial cost)"
-    ],
-    "buyer_search_terms": [
-      "detect duplicate bookings CSV",
-      "find double booked appointments",
-      "booking conflict checker multiple sources",
-      "reconcile bookings from different platforms"
-    ],
-    "sea_fit": "Many small businesses and freelancers in SE Asia rely on a mix of affordable or free tools, often leading to fragmented data and manual CSV-based reconciliation, making this a relevant pain point.",
-    "verdict": "build",
-    "reason": "The problem of double bookings across disparate, CSV-exported data is a significant, costly, and often manually handled pain point for the target audience, particularly in markets where fragmented digital tools are common.",
-    "validated_at": "2026-09-06T06:05:47.837086"
+    "reason": "The problem of crafting effective proposals is a significant and widespread pain point for the target audience, and a simple, focused solution could capture market share.",
+    "validated_at": "2026-09-13T06:00:29.899013"
   },
   {
     "title": "Client Portal Tracker \u2014 file and status per client in sqlite",
-    "pain_score": 7,
-    "pain_evidence": "\"Freelancers and small agencies frequently complain on forums and social media about disorganization",
+    "pain_score": 8,
+    "pain_evidence": "\"Freelancers and small agencies frequently express frustration on online forums and communities about the disorganization and time wasted managing client communications",
     "existing_tools": [],
     "buyer_search_terms": [],
     "sea_fit": "",
     "verdict": "skip",
     "reason": "",
-    "validated_at": "2026-09-06T06:00:42.567406"
+    "validated_at": "2026-09-13T06:00:49.703452"
+  },
+  {
+    "title": "Contract Expiry Tracker \u2014 alert before renewal deadlines",
+    "pain_score": 8,
+    "pain_evidence": "Freelancers and small business owners frequently complain on forums and social media about unexpected charges or missed opportunities due to forgotten contract renewal dates.",
+    "existing_tools": [
+      "TrackMySubs $5/mo",
+      "PandaDoc $19/mo (for document management, but can track)"
+    ],
+    "buyer_search_terms": [
+      "contract renewal reminder software",
+      "subscription tracker for small business",
+      "freelance contract management tool"
+    ],
+    "sea_fit": "The growing freelance and small business sectors in SE Asia face universal administrative challenges, and a cost-effective, efficient tool would likely find a receptive audience.",
+    "verdict": "build",
+    "reason": "The idea addresses a common, recurring administrative pain point for the target audience, with potential for a niche for simple, affordable solutions.",
+    "validated_at": "2026-09-13T06:01:07.746462"
+  },
+  {
+    "title": "Lead Qualifier \u2014 score inbound leads from CSV ranked list",
+    "pain_score": 8,
+    "pain_evidence": "Entrepreneurs and sales teams frequently lament the manual effort and inconsistency in qualifying leads, often discussing it in online forums and business communities.",
+    "existing_tools": [
+      "HubSpot Sales Hub Starter $45/mo",
+      "Zoho CRM Standard $14/user/mo",
+      "ActiveCampaign Plus $49/mo"
+    ],
+    "buyer_search_terms": [
+      "lead qualification automation",
+      "how to score sales leads",
+      "small business lead prioritization",
+      "CSV lead scoring tool"
+    ],
+    "sea_fit": "The rapidly growing startup and SME ecosystem in SE Asia values efficiency and cost-effective tools, making lead qualification a relevant pain point for founders and agencies in the region.",
+    "verdict": "build",
+    "reason": "It addresses a common, time-consuming lead qualification pain point for a budget-conscious technical audience, offering a niche alternative to complex, expensive CRMs.",
+    "validated_at": "2026-09-13T06:02:15.669345"
+  },
+  {
+    "title": "Freelancer Tax Estimator \u2014 income CSV to quarterly tax estimate",
+    "pain_score": 8,
+    "pain_evidence": "\"Freelancers frequently express frustration on Reddit",
+    "existing_tools": [],
+    "buyer_search_terms": [],
+    "sea_fit": "\"The universal pain of tax estimation is strong in SE Asia",
+    "verdict": "build",
+    "reason": "\"Freelancers globally",
+    "validated_at": "2026-09-13T06:02:31.986859"
+  },
+  {
+    "title": "Churn Risk Scorer \u2014 flag clients not engaged in X days",
+    "pain_score": 8,
+    "pain_evidence": "Business owners and customer success managers frequently discuss the challenges of client retention and the difficulty of proactively identifying at-risk customers in forums like Indie Hackers, Reddit's r/SaaS, and various business communities.",
+    "existing_tools": [
+      "Baremetrics $50/mo",
+      "Intercom $74/mo"
+    ],
+    "buyer_search_terms": [
+      "how to reduce customer churn",
+      "identify at-risk clients software"
+    ],
+    "sea_fit": "The rapidly growing startup and freelance ecosystem in SE Asia faces universal churn challenges, making a cost-effective, actionable tool highly relevant for local businesses.",
+    "verdict": "build",
+    "reason": "Churn is a critical problem for all subscription and service businesses, and a focused, actionable tool to proactively identify at-risk clients offers significant value.",
+    "validated_at": "2026-09-13T06:02:44.945124"
+  },
+  {
+    "title": "Doc Chaser \u2014 remind clients for missing documents",
+    "pain_score": 8,
+    "pain_evidence": "Freelancers and agencies frequently complain on Reddit and industry forums about the time wasted chasing clients for documents, causing project delays and cash flow issues.",
+    "existing_tools": [
+      "Karbon HQ $79/user/mo (specialized for accountants)",
+      "ClickUp $7/user/mo (generic project management, requires manual setup)"
+    ],
+    "buyer_search_terms": [
+      "client document request automation",
+      "missing document follow up tool",
+      "automate client information requests",
+      "chase clients for files software"
+    ],
+    "sea_fit": "The growing freelance and small agency market in SE Asia, coupled with increasing regulatory needs and a desire for efficiency, makes automated document chasing highly relevant.",
+    "verdict": "build",
+    "reason": "The problem of chasing clients for documents is a significant, time-consuming pain point for the target market, with existing solutions often being too generic or too expensive.",
+    "validated_at": "2026-09-13T06:02:57.685151"
+  },
+  {
+    "title": "Cold Outreach Tracker \u2014 track email sequences and follow-up",
+    "pain_score": 8,
+    "pain_evidence": "Sales and marketing professionals frequently discuss the inefficiencies of manual outreach tracking and the high cost of comprehensive CRMs in forums and social media.",
+    "existing_tools": [
+      "HubSpot Sales Hub Starter $50/mo",
+      "Streak CRM $19/mo (per user)"
+    ],
+    "buyer_search_terms": [
+      "cold email tracking software",
+      "sales follow up automation"
+    ],
+    "sea_fit": "The growing digital economy, numerous freelancers, and cost-conscious small businesses in SE Asia have a strong need for affordable and efficient sales outreach tools.",
+    "verdict": "build",
+    "reason": "The significant pain of manual outreach tracking, coupled with the high cost or complexity of existing solutions, presents a strong opportunity for a focused and affordable tool.",
+    "validated_at": "2026-09-13T06:03:11.845532"
+  },
+  {
+    "title": "OTA Rate Monitor \u2014 track competitor hotel pricing daily",
+    "pain_score": 8,
+    "pain_evidence": "Hotel managers and revenue strategists frequently discuss the challenges of manual competitor rate tracking and the high cost of enterprise solutions on industry forums and in revenue management discussions.",
+    "existing_tools": [],
+    "buyer_search_terms": [],
+    "sea_fit": "\"The robust tourism industry in SE Asia",
+    "verdict": "build",
+    "reason": "\"There's a clear",
+    "validated_at": "2026-09-13T06:03:25.383824"
+  },
+  {
+    "title": "Review Digest \u2014 weekly review summary and reply suggestions",
+    "pain_score": 8,
+    "pain_evidence": "Small business owners and marketers frequently discuss the time commitment and mental overhead of monitoring and responding to online reviews across various platforms in forums and social media groups.",
+    "existing_tools": [
+      "Birdeye $299/mo",
+      "ReviewTrackers $59/mo",
+      "ChatGPT (for reply generation, no integration) $20/mo"
+    ],
+    "buyer_search_terms": [
+      "online review management software",
+      "how to respond to customer reviews",
+      "automate review responses",
+      "customer feedback summary tool"
+    ],
+    "sea_fit": "Online reviews are crucial for trust and sales in the rapidly digitizing SE Asian market, where many small businesses and freelancers operate on tight budgets and need efficient reputation management.",
+    "verdict": "build",
+    "reason": "The product addresses a genuine time-consuming and reputation-critical task for its target audience, offering a focused and potentially more affordable alternative to existing enterprise solutions.",
+    "validated_at": "2026-09-13T06:03:43.713624"
+  },
+  {
+    "title": "Staff Roster Scheduler \u2014 shift planner for small teams",
+    "pain_score": 8,
+    "pain_evidence": "Small business owners frequently complain about the time-consuming and error-prone nature of manual shift scheduling on business forums and software review sites.",
+    "existing_tools": [
+      "When I Work $4/user/mo",
+      "Homebase $19.95/mo"
+    ],
+    "buyer_search_terms": [
+      "shift scheduling software small business",
+      "employee roster app",
+      "freelance team planner"
+    ],
+    "sea_fit": "The growing small business and startup ecosystem in SEA, often reliant on manual scheduling, presents a strong demand for efficient and affordable shift planning tools.",
+    "verdict": "build",
+    "reason": "Despite existing solutions, a focused, affordable, and user-friendly tool tailored for small teams in SEA can capture a significant underserved market segment.",
+    "validated_at": "2026-09-13T06:03:55.851002"
+  },
+  {
+    "title": "SaaS Metrics Dashboard \u2014 MRR churn LTV from CSV weekly digest",
+    "pain_score": 8,
+    "pain_evidence": "Small SaaS founders and agencies often struggle with expensive or overly complex analytics platforms, resorting to manual spreadsheets for critical metrics like MRR and churn.",
+    "existing_tools": [
+      "ChartMogul ~$100/mo",
+      "Baremetrics ~$79/mo",
+      "ProfitWell (Paddle) Free (basic)"
+    ],
+    "buyer_search_terms": [
+      "SaaS metrics dashboard for startups",
+      "affordable MRR churn LTV tracking",
+      "analyze Stripe CSV data",
+      "simple SaaS analytics tool"
+    ],
+    "sea_fit": "The rapidly growing startup and small business ecosystem in SE Asia, often operating on tighter budgets, would highly value an affordable and flexible solution for critical business metrics.",
+    "verdict": "build",
+    "reason": "There's a clear gap for an affordable, flexible, and CSV-driven SaaS metrics solution for small businesses and startups underserved by expensive enterprise tools.",
+    "validated_at": "2026-09-13T06:04:09.528939"
+  },
+  {
+    "title": "Booking Double-Check \u2014 detect double bookings across CSV exports",
+    "pain_score": 8,
+    "pain_evidence": "People complain about the time-consuming and error-prone process of manually reconciling bookings from multiple platforms in forums for short-term rental hosts, small business owners, and freelancers.",
+    "existing_tools": [
+      "Manual Excel/Google Sheets: $0 (high time/error cost)",
+      "Zapier/IFTTT (for calendar sync): ~$20-50/month (prevents, doesn't detect past CSV issues)",
+      "Channel Managers (e.g., Smoobu, Hostfully Lite): ~$20-50/month (for property managers, prevents, but might not cover all arbitrary CSVs)"
+    ],
+    "buyer_search_terms": [
+      "detect duplicate bookings csv",
+      "overbooking checker spreadsheet",
+      "reconcile multiple booking calendars",
+      "find booking conflicts csv"
+    ],
+    "sea_fit": "Many small businesses and freelancers in SE Asia rely on a mix of direct bookings (WhatsApp, social media) and various online platforms, leading to fragmented data that often ends up in spreadsheets, making this tool highly relevant.",
+    "verdict": "build",
+    "reason": "The problem of manually reconciling fragmented booking data from multiple CSV sources is a common, painful, and time-consuming issue for the target market, and a dedicated tool at this price point fills a clear gap.",
+    "validated_at": "2026-09-13T06:04:24.863145"
+  },
+  {
+    "title": "Meeting Notes Processor \u2014 paste text to action items and owners",
+    "pain_score": 0,
+    "pain_evidence": "",
+    "existing_tools": [],
+    "buyer_search_terms": [],
+    "sea_fit": "",
+    "verdict": "skip",
+    "reason": "",
+    "validated_at": "2026-09-13T06:02:02.991756"
   }
 ]
