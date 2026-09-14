@@ -1,13 +1,18 @@
 {
-  "date": "2026-09-14T00:02:02.266968",
+  "date": "2026-09-15T00:00:32.177901",
   "idea": {
-    "title": "DevDigest \u2014 Daily AI-curated summary of GitHub + HN for developers",
-    "score": 8,
-    "source": "seed"
+    "source": "HN",
+    "title": "OpenArch \u2013 PyTorch implementations of modern LLM architectures",
+    "url": "https://github.com/anuj0456/OpenArch",
+    "ts": "18:00",
+    "score": 7,
+    "verdict": "build"
   },
   "plan": {
-    "data_name": "Chaser Ch",
-    " 2tagtagline": "\"Capture your freelance"
+    "product_name": "OpenArch",
+    "tagline": "\"A CLI tool to explore",
+    "problem": "\"Developers struggle to quickly grasp",
+    "solution": "\"OpenArch provides a"
   },
   "build_status": "pending",
   "phases_complete": []
