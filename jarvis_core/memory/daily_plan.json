@@ -1,18 +1,20 @@
 {
-  "date": "2026-09-15T00:00:32.177901",
+  "date": "2026-09-16T00:01:31.859298",
   "idea": {
-    "source": "HN",
-    "title": "OpenArch \u2013 PyTorch implementations of modern LLM architectures",
-    "url": "https://github.com/anuj0456/OpenArch",
-    "ts": "18:00",
-    "score": 7,
-    "verdict": "build"
+    "title": "ToolForge \u2014 Generate MCP tools from OpenAPI specs automatically",
+    "score": 9,
+    "source": "seed"
   },
   "plan": {
-    "product_name": "OpenArch",
-    "tagline": "\"A CLI tool to explore",
-    "problem": "\"Developers struggle to quickly grasp",
-    "solution": "\"OpenArch provides a"
+    ":": "ToolTool for",
+    "4": "Generate Open add add +",
+    "problem": "\"problem pain point\": \"Develop and small businesses struggle with manual tool of generation and\"\n\" \"solution\": \"ToolTool generates + generates MCP tools from Open Open Open from OpenAPIdoc - -\n - -\n\"std_market\": \"Tooltool is is for indie hackers",
+    "_month": "1",
+    "demo_script": "demo.py demo demo shows",
+    "monthly_price": "1tooltool90",
+    "_users": "\"indie hackers",
+    "devdevs add": "smallm businesses add\"",
+    "build add": "8"
   },
   "build_status": "pending",
   "phases_complete": []
