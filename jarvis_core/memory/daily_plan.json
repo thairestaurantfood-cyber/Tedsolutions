@@ -1,20 +1,14 @@
 {
-  "date": "2026-09-16T00:01:31.859298",
+  "date": "2026-09-17T00:01:45.165450",
   "idea": {
-    "title": "ToolForge \u2014 Generate MCP tools from OpenAPI specs automatically",
+    "title": "MemoryMesh \u2014 Persistent memory layer for local LLM agents",
     "score": 9,
     "source": "seed"
   },
   "plan": {
-    ":": "ToolTool for",
-    "4": "Generate Open add add +",
-    "problem": "\"problem pain point\": \"Develop and small businesses struggle with manual tool of generation and\"\n\" \"solution\": \"ToolTool generates + generates MCP tools from Open Open Open from OpenAPIdoc - -\n - -\n\"std_market\": \"Tooltool is is for indie hackers",
-    "_month": "1",
-    "demo_script": "demo.py demo demo shows",
-    "monthly_price": "1tooltool90",
-    "_users": "\"indie hackers",
-    "devdevs add": "smallm businesses add\"",
-    "build add": "8"
+    "product_name": "MemoryMesh",
+    "tagline": "\"A lightweight",
+    "problem": "\"Developers building local LLM agents struggle with easily adding persistent memory without complex databases or cloud dependencies. Agents often lose context between sessions"
   },
   "build_status": "pending",
   "phases_complete": []
