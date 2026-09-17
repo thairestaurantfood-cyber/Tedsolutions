@@ -1,14 +1,21 @@
 {
-  "date": "2026-09-17T00:01:45.165450",
+  "date": "2026-09-18T00:01:03.205217",
   "idea": {
-    "title": "MemoryMesh \u2014 Persistent memory layer for local LLM agents",
-    "score": 9,
-    "source": "seed"
+    "title": "Competitor price tracker \u2014 I check 6 sites manually every week, need automation",
+    "source": "brain/price_monitor",
+    "score": 10,
+    "buyer": "ecommerce sellers"
   },
   "plan": {
-    "product_name": "MemoryMesh",
-    "tagline": "\"A lightweight",
-    "problem": "\"Developers building local LLM agents struggle with easily adding persistent memory without complex databases or cloud dependencies. Agents often lose context between sessions"
+    "productuct_name": "Competitor Price Tracker",
+    "tagline": ": \"Stay ahead with real-time price updatesations",
+    "ONLYlinefeatures": "\"Trackifiable",
+    "solution": "\"\"Automate your price monitoring with a aifiable data",
+    "buyers_market": "\"Buyers",
+    "it_price": 99,
+    "phase": 3,
+    "name": "Demo + polish",
+    "description": "\"\":\"Demo + help0ver000 hackers0000000000000000000000000000000"
   },
   "build_status": "pending",
   "phases_complete": []
