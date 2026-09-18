@@ -1,21 +1,14 @@
 {
-  "date": "2026-09-18T00:01:03.205217",
+  "date": "2026-09-19T00:00:29.106315",
   "idea": {
-    "title": "Competitor price tracker \u2014 I check 6 sites manually every week, need automation",
-    "source": "brain/price_monitor",
-    "score": 10,
-    "buyer": "ecommerce sellers"
+    "title": "DevDigest \u2014 Daily AI-curated summary of GitHub + HN for developers",
+    "score": 8,
+    "source": "seed"
   },
   "plan": {
-    "productuct_name": "Competitor Price Tracker",
-    "tagline": ": \"Stay ahead with real-time price updatesations",
-    "ONLYlinefeatures": "\"Trackifiable",
-    "solution": "\"\"Automate your price monitoring with a aifiable data",
-    "buyers_market": "\"Buyers",
-    "it_price": 99,
-    "phase": 3,
-    "name": "Demo + polish",
-    "description": "\"\":\"Demo + help0ver000 hackers0000000000000000000000000000000"
+    "product_name": "DevDigest",
+    "tagline": "\"Your daily",
+    "problem": "\"Developers and indie hackers are overwhelmed by information noise"
   },
   "build_status": "pending",
   "phases_complete": []
