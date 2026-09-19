@@ -1,14 +1,12 @@
 {
-  "date": "2026-09-19T00:00:29.106315",
+  "date": "2026-09-20T00:01:02.581671",
   "idea": {
-    "title": "DevDigest \u2014 Daily AI-curated summary of GitHub + HN for developers",
+    "title": "CostRadar \u2014 Real-time LLM API cost tracker across providers",
     "score": 8,
     "source": "seed"
   },
   "plan": {
-    "product_name": "DevDigest",
-    "tagline": "\"Your daily",
-    "problem": "\"Developers and indie hackers are overwhelmed by information noise"
+    "products": "\"Cost core + add add add help help help help help help help help help help \"Realdea: CostRadar: Real indie hackers developers"
   },
   "build_status": "pending",
   "phases_complete": []
