@@ -1,12 +1,18 @@
 {
-  "date": "2026-09-20T00:01:02.581671",
+  "date": "2026-09-27T00:02:31.960901",
   "idea": {
-    "title": "CostRadar \u2014 Real-time LLM API cost tracker across providers",
-    "score": 8,
+    "title": "MemoryMesh \u2014 Persistent memory layer for local LLM agents",
+    "score": 9,
     "source": "seed"
   },
   "plan": {
-    "products": "\"Cost core + add add add help help help help help help help help help help \"Realdea: CostRadar: Real indie hackers developers"
+    ": MemoryMesh - Persistent Persistentwen\n\n44": "Memory persistent persistent +memory layer for local LLM models",
+    "specific": "for local LLMLMLM models\"",
+    "problem": "Highs persistent memory layerlayer for add local LLM edge",
+    "solution": "solution\": \"Adds persistent memory layer for local LLM edges\"",
+    "stdMarket": "\"Specific indie hackers",
+    "demo_script": "add demo script shows",
+    "marketadd": "\n\"\"\"\"Overall\":\n\"\"add\": \"help"
   },
   "build_status": "pending",
   "phases_complete": []
