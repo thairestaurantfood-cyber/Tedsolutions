@@ -1,18 +1,16 @@
 {
-  "date": "2026-09-27T00:02:31.960901",
+  "date": "2026-09-28T00:00:52.723102",
   "idea": {
-    "title": "MemoryMesh \u2014 Persistent memory layer for local LLM agents",
-    "score": 9,
-    "source": "seed"
+    "title": "Competitor price tracker \u2014 I check 6 sites manually every week, need automation",
+    "source": "brain/price_monitor",
+    "score": 10,
+    "buyer": "ecommerce sellers"
   },
   "plan": {
-    ": MemoryMesh - Persistent Persistentwen\n\n44": "Memory persistent persistent +memory layer for local LLM models",
-    "specific": "for local LLMLMLM models\"",
-    "problem": "Highs persistent memory layerlayer for add local LLM edge",
-    "solution": "solution\": \"Adds persistent memory layer for local LLM edges\"",
-    "stdMarket": "\"Specific indie hackers",
-    "demo_script": "add demo script shows",
-    "marketadd": "\n\"\"\"\"Overall\":\n\"\"add\": \"help"
+    "product_name": "PricePulse CLI",
+    "tagline": "Automate competitor price tracking and get instant alerts directly from your terminal.",
+    "problem": "\"Manually checking competitor prices across multiple websites is a tedious",
+    "solution": "\""
   },
   "build_status": "pending",
   "phases_complete": []
